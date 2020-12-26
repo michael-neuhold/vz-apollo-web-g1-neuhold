@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieOverviewSmallCardSliderComponent } from './movie-overview-small-card-slider/movie-overview-small-card-slider.component';
 import { MovieOverviewLargeCardSliderComponent } from './movie-overview-large-card-slider/movie-overview-large-card-slider.component';
+import { MovieOverviewFilterComponent } from './movie-overview-filter/movie-overview-filter.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MovieOverviewLargeCardSliderComponent } from './movie-overview-large-ca
     MovieDetailsComponent,
     MovieOverviewSmallCardSliderComponent,
     MovieOverviewLargeCardSliderComponent,
+    MovieOverviewFilterComponent,
   ],
   imports: [
     BrowserModule,
