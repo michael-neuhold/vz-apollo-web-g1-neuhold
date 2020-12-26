@@ -1,0 +1,34 @@
+.flex-row {
+  max-width: 100vw;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
+}
+
+.flex-row mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 0px;
+  border-radius: 6px;
+}
+
+.flex-row mat-card img {
+  padding: 0px;
+  border-radius: 6px;
+}
+
+.overlay {
+  background-color: lightgray;
+  width: 100%;
+  opacity: 0.8;
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  border-radius: 0px 0px 6px 6px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+}
