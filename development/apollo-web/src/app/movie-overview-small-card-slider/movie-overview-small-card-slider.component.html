@@ -1,9 +1,8 @@
 <div class="flex-row">
-    <mat-card class="mat-elevation-z5" *ngFor="let item of movies">
-    <img width="150" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/79n0cePpWjTt8Ge4BRQB87WL0lC.jpg">
-      <!--<mat-card-header>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>-->
+    <mat-card class="mat-elevation-z5 movie-card" *ngFor="let item of movies">
+      <img width="150" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/2AwPvNHphpZBJDqjZKVuMAbvS0v.jpg">
+      <div class="overlay">
+        <div class="content">Titel | Zeit | Kino</div>
+      </div>
     </mat-card>
   </div>

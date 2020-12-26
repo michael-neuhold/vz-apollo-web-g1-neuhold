@@ -7,6 +7,7 @@
 }
 
 .flex-row mat-card {
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,4 +19,19 @@
 .flex-row mat-card img {
   padding: 0px;
   border-radius: 6px;
+}
+
+.overlay {
+  background-color: lightgray;
+  width: 100%;
+  opacity: 0.7;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  border-radius: 0px 0px 6px 6px;
+  height: 30px;
+}
+
+.overlay .content {
+  padding: 5px;
 }

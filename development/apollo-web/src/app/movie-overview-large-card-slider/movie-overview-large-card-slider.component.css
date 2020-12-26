@@ -24,11 +24,14 @@
 .overlay {
   background-color: lightgray;
   width: 100%;
-  opacity: 0.8;
+  opacity: 0.7;
   position: absolute;
-  bottom: -25px;
-  left: 50%;
+  bottom: 0px;
+  left: 0px;
   border-radius: 0px 0px 6px 6px;
   height: 50px;
-  transform: translate(-50%, -50%);
+}
+
+.overlay .content {
+  padding: 5px;
 }
