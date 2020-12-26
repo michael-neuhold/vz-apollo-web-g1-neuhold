@@ -7,7 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
   { path: '', component: MovieOverviewComponent },
   { path: 'overview', component: MovieOverviewComponent, redirectTo: '' },
-  { path: 'details', component: MovieDetailsComponent },
+  { path: 'movies/:id', component: MovieDetailsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

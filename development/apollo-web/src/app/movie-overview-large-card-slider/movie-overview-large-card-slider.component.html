@@ -1,8 +1,10 @@
 <div class="flex-row">
-  <mat-card class="mat-elevation-z5" *ngFor="let item of movies">
-    <img width="200" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/79n0cePpWjTt8Ge4BRQB87WL0lC.jpg">
-    <div class="overlay">
-      <div class="content">Titel | Zeit | Kino</div>
-    </div>
-  </mat-card>
+  <a *ngFor="let item of movies" [routerLink]="['/movies', item.id]">
+    <mat-card class="mat-elevation-z5">
+      <img width="200" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/79n0cePpWjTt8Ge4BRQB87WL0lC.jpg">
+      <div class="overlay">
+        <div class="content">Titel | Zeit | Kino</div>
+      </div>
+    </mat-card>
+  </a>
 </div>
