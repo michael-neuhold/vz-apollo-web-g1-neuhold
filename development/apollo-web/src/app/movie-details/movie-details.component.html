@@ -1,2 +1,58 @@
-<h1>Movie Details</h1>
-<button mat-raised-button routerLink="/overview">Overview</button>
+<div class="details-wrapper">
+  <h1>Movie Details</h1>
+  <button mat-raised-button routerLink="/overview">Overview</button>
+
+  <!-- General -->
+  <div class="flex-row">
+
+        <!-- Cover Bild -->
+        <mat-card class="mat-elevation-z5">
+          <img width="300" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/79n0cePpWjTt8Ge4BRQB87WL0lC.jpg">
+        </mat-card>
+
+        <!-- Beschreibung -->
+        <mat-card class="mat-elevation-z5 description-card">
+          <div>
+            <h1>Filmbeschreibung</h1>
+          </div>
+        </mat-card>
+
+  </div>
+
+  <!-- Schauspieler -->
+  <mat-expansion-panel hideToggle class="mat-elevation-z5">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Actors
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+  
+    <mat-chip-list>
+      <mat-chip *ngFor="let item of Dummy">
+        {{item}}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-expansion-panel>
+
+  <!-- Cinema Hall -->
+  <mat-card class="mat-elevation-z5 cinema-hall-card">
+    <div>
+      <h1>CinemaHall</h1>
+    </div>
+  </mat-card>
+
+  <!-- Weitere Vorstellungen -->
+  <mat-expansion-panel hideToggle class="mat-elevation-z5">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Scheduls
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-chip-list>
+      <mat-chip *ngFor="let item of Dummy">
+        {{item}}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-expansion-panel>
+
+</div>

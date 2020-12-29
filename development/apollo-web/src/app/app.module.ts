@@ -16,6 +16,13 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieOverviewSmallCardSliderComponent } from './movie-overview-small-card-slider/movie-overview-small-card-slider.component';
 import { MovieOverviewLargeCardSliderComponent } from './movie-overview-large-card-slider/movie-overview-large-card-slider.component';
 import { MovieOverviewFilterComponent } from './movie-overview-filter/movie-overview-filter.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -26,12 +33,19 @@ import { MovieOverviewFilterComponent } from './movie-overview-filter/movie-over
     MovieOverviewSmallCardSliderComponent,
     MovieOverviewLargeCardSliderComponent,
     MovieOverviewFilterComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,6 +9,8 @@ export class MovieDetailsComponent implements OnInit {
 
   constructor() { }
 
+  Dummy : string[] = ["Test1", "Test2", "Test3", "Test4"];
+
   ngOnInit(): void {
   }
 

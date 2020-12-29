@@ -6,10 +6,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
-  imports: [ MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDatepickerModule ],
-  exports: [ MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDatepickerModule ],
+  imports: [ MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDatepickerModule, MatExpansionModule, MatGridListModule, MatChipsModule ],
+  exports: [ MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDatepickerModule, MatExpansionModule, MatGridListModule, MatChipsModule ],
 })
 
 export class MaterialModule {};
