@@ -1,0 +1,25 @@
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-container {
+  top: 128px !important;
+ }
+ 
+ @media(max-width: 599px) {
+  .example-container {
+     top: 112px !important;
+   }
+ }
+
+.example-sidenav {
+  width: 200px;
+  padding: 0px;
+}
+
+mat-selection-list {
+  padding: 0px;
+}
