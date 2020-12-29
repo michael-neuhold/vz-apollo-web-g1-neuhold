@@ -5,8 +5,8 @@ import { MovieOverviewComponent } from './movie-overview/movie-overview.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', component: MovieOverviewComponent },
-  { path: 'overview', component: MovieOverviewComponent, redirectTo: '' },
+  { path: '', redirectTo: 'overview', pathMatch:'full' },
+  { path: 'overview', component: MovieOverviewComponent },
   { path: 'movies/:id', component: MovieDetailsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
