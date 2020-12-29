@@ -23,6 +23,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MovieDetailActorsComponent } from './movie-detail-actors/movie-detail-actors.component';
+import { MovieDetailSchedulesComponent } from './movie-detail-schedules/movie-detail-schedules.component';
+import { MovieDetailInformationComponent } from './movie-detail-information/movie-detail-information.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { MatListModule } from '@angular/material/list';
     MovieOverviewLargeCardSliderComponent,
     MovieOverviewFilterComponent,
     NavigationComponent,
+    MovieDetailActorsComponent,
+    MovieDetailSchedulesComponent,
+    MovieDetailInformationComponent,
   ],
   imports: [
     BrowserModule,

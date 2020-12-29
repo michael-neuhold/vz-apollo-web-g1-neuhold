@@ -1,5 +1,13 @@
-.mat-toolbar.mat-primary {
+.main-toolbar {
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.overview-button {
+  margin-left: 20px;
 }
