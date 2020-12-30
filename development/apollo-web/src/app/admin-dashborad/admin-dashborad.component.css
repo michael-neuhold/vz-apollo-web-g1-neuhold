@@ -1,10 +1,10 @@
 .example-container {
-  top: 128px !important;
+  top: 64px !important;
  }
  
  @media(max-width: 599px) {
   .example-container {
-     top: 112px !important;
+     top: 56px !important;
    }
  }
 
