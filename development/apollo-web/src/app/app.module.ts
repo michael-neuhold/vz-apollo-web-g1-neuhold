@@ -37,6 +37,9 @@ import { AdminScheduleComponent } from './admin-schedule/admin-schedule.componen
 import { AdminMovieComponent } from './admin-movie/admin-movie.component';
 import { AdminGenreComponent } from './admin-genre/admin-genre.component';
 import { AdminReservationComponent } from './admin-reservation/admin-reservation.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,7 @@ import { AdminReservationComponent } from './admin-reservation/admin-reservation
     AdminMovieComponent,
     AdminGenreComponent,
     AdminReservationComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +78,8 @@ import { AdminReservationComponent } from './admin-reservation/admin-reservation
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    HttpClientModule,
+    OAuthModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
