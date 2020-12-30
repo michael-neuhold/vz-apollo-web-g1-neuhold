@@ -5,12 +5,12 @@
 <mat-drawer-container class="example-container" fullscreen>
   <mat-drawer class="example-sidenav" mode="side" opened>
     <mat-selection-list [multiple]="false">
-      <mat-list-option routerLink="./statistic" value="test">Statistiken</mat-list-option>
-      <mat-list-option routerLink="./cinemahall" value="test">Kinosaal</mat-list-option>
-      <mat-list-option routerLink="./reservation" value="test">Reservierungen</mat-list-option>
-      <mat-list-option routerLink="./genre" value="test">Genre</mat-list-option>
-      <mat-list-option routerLink="./movie" value="test">Movie</mat-list-option>
-      <mat-list-option routerLink="./schedule" value="test">Schedule</mat-list-option>
+      <mat-list-option routerLink="./statistic" [routerLinkActive]="['is-active']" value="test">Statistiken</mat-list-option>
+      <mat-list-option routerLink="./cinemahall" [routerLinkActive]="['is-active']" value="test">Kinosaal</mat-list-option>
+      <mat-list-option routerLink="./reservation" [routerLinkActive]="['is-active']" value="test">Reservierungen</mat-list-option>
+      <mat-list-option routerLink="./genre" [routerLinkActive]="['is-active']" value="test">Genre</mat-list-option>
+      <mat-list-option routerLink="./movie" [routerLinkActive]="['is-active']" value="test">Movie</mat-list-option>
+      <mat-list-option routerLink="./schedule" [routerLinkActive]="['is-active']" value="test">Schedule</mat-list-option>
     </mat-selection-list>
   </mat-drawer>
   <mat-drawer-content class="example-sidenav-content">

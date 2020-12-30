@@ -16,3 +16,7 @@
 mat-selection-list {
   padding: 0px;
 }
+
+.is-active {
+  background-color: lightgray;
+}

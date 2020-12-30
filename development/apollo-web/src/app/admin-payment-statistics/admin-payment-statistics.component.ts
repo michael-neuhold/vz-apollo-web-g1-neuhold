@@ -2,6 +2,14 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/internal/operators/map';
 
+
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+
 @Component({
   selector: 'app-admin-payment-statistics',
   templateUrl: './admin-payment-statistics.component.html',
@@ -40,5 +48,4 @@ export class AdminPaymentStatisticsComponent implements OnInit {
     });
 
   }
-
 }
