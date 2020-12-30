@@ -8,7 +8,7 @@ import { OAuthService } from 'angular-oauth2-oidc';
 export class AuthenticationService {
   
     constructor(private oauthService: OAuthService) { }
-    
+
     login(): boolean {
       this.oauthService.initImplicitFlow();
       return true;

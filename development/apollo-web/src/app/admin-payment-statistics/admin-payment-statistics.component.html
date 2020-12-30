@@ -1,1 +1,21 @@
-<p>admin-payment-statistics works!</p>
+<mat-grid-list cols="{{cards.columns}}" rowHeight="350px">
+
+  <mat-grid-tile colspan="{{cards.item1}}"> 
+    <mat-card class="card1">
+      <mat-card-content class="dashboard-card-content">Genre Statistic</mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="{{cards.item2}}">
+    <mat-card class="card1">
+      <mat-card-content class="dashboard-card-content">Weekday Statistic</mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="{{cards.item3}}"> 
+    <mat-card class="card1">
+      <mat-card-content class="dashboard-card-content">Year Statistic</mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+</mat-grid-list>
