@@ -7,6 +7,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   templateUrl: './admin-dashborad.component.html',
   styleUrls: ['./admin-dashborad.component.css']
 })
+
 export class AdminDashboradComponent {
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(

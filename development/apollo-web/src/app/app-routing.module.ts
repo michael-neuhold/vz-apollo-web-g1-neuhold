@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
 import { AdminCinemaHallComponent } from './admin-cinema-hall/admin-cinema-hall.component';
 import { AdminDashboradComponent } from './admin-dashborad/admin-dashborad.component';
 import { AdminGenreComponent } from './admin-genre/admin-genre.component';
@@ -33,7 +34,8 @@ const routes: Routes = [
       { path: 'reservation', component: AdminReservationComponent },
       { path: 'genre', component: AdminGenreComponent },
       { path: 'movie', component: AdminMovieComponent },
-      { path: 'schedule', component: AdminScheduleComponent }
+      { path: 'schedule', component: AdminScheduleComponent },
+      { path: 'category', component: AdminCategoryComponent }
     ]
   },
   { path: 'login', component: AdminLoginComponent },

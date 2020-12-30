@@ -40,6 +40,7 @@ import { AdminReservationComponent } from './admin-reservation/admin-reservation
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { HttpClientModule } from '@angular/common/http';
     AdminGenreComponent,
     AdminReservationComponent,
     AdminLoginComponent,
+    AdminCategoryComponent,
   ],
   imports: [
     BrowserModule,
