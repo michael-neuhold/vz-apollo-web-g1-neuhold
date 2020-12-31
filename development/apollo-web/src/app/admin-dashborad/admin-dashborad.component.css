@@ -17,8 +17,9 @@ mat-selection-list {
   padding: 0px;
 }
 
-.is-active {
-  background-color: lightgray;
+.is-active  {
+  background-color: #eeeeee;
+  color: rgb(66, 82, 175);
 }
 
 .menu-button {
