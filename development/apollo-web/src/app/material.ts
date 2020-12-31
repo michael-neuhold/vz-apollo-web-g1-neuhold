@@ -13,14 +13,15 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {LayoutModule} from '@angular/cdk/layout';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   imports: [  MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, 
               MatDatepickerModule, MatExpansionModule, MatGridListModule, MatChipsModule, 
-              MatNativeDateModule, LayoutModule, MatTabsModule, MatSelectModule 
+              MatNativeDateModule, LayoutModule, MatTabsModule, MatSelectModule, MatIconModule 
             ],
   exports: [  MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, 
               MatDatepickerModule, MatExpansionModule, MatGridListModule, MatChipsModule, 
-              MatNativeDateModule, LayoutModule, MatTabsModule, MatSelectModule 
+              MatNativeDateModule, LayoutModule, MatTabsModule, MatSelectModule, MatIconModule 
             ],
 })
 

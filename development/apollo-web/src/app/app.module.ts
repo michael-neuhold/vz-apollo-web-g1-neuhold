@@ -41,6 +41,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminCategoryComponent } from './admin-category/admin-category.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { AdminCategoryComponent } from './admin-category/admin-category.componen
     MatCardModule,
     MatMenuModule,
     HttpClientModule,
+    ChartsModule,
     OAuthModule.forRoot()
   ],
   providers: [],

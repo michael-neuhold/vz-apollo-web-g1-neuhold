@@ -20,3 +20,7 @@ mat-selection-list {
 .is-active {
   background-color: lightgray;
 }
+
+.menu-button {
+  margin-right: 20px;
+}
