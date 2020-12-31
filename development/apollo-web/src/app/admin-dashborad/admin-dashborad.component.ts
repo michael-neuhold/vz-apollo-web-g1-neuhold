@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { templateSourceUrl } from '@angular/compiler';
+import { sanitizeIdentifier, templateSourceUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-admin-dashborad',
@@ -17,7 +17,7 @@ export class AdminDashboradComponent implements OnInit {
   
   constructor(private breakpointObserver: BreakpointObserver) {}
   open = true;
-
+  mode = 'side';
   ngOnInit(): void {
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -28,18 +28,23 @@ export class AdminDashboradComponent implements OnInit {
     ]).subscribe( (state: BreakpointState) => {
       if (state.breakpoints[Breakpoints.XSmall]) {
         this.open = false;
+        this.mode = 'over';
       } else 
       if (state.breakpoints[Breakpoints.Small]) {
         this.open = true;
+        this.mode = 'side';
       } else 
       if (state.breakpoints[Breakpoints.Medium]) {
         this.open = true;
+        this.mode = 'side';
       } else 
       if (state.breakpoints[Breakpoints.Large]) {
         this.open = true;
+        this.mode = 'side';
       } else 
       if (state.breakpoints[Breakpoints.XLarge]) {
         this.open = true;
+        this.mode = 'side';
       }
     });
   }

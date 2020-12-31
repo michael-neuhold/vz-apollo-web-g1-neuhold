@@ -18,4 +18,12 @@ export class AuthenticationService {
       return this.oauthService.hasValidAccessToken() && this.oauthService.hasValidIdToken();
     }
 
+    givenName() {
+      const claims = this.oauthService.getIdentityClaims();
+      if (!claims) {
+        return null;
+      }
+      return claims['name'];
+    }
+
 }

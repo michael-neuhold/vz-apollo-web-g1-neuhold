@@ -6,7 +6,7 @@
 </mat-toolbar>
 
 <mat-drawer-container class="example-container" fullscreen>
-  <mat-drawer class="example-sidenav" mode="side" [opened]=open>
+  <mat-drawer class="example-sidenav" [mode]="mode" [opened]=open>
     <mat-selection-list [multiple]="false">
       <mat-list-option routerLink="./statistic" [routerLinkActive]="['is-active']" value="test">Statistiken</mat-list-option>
       <mat-list-option routerLink="./cinemahall" [routerLinkActive]="['is-active']" value="test">Kinosaal</mat-list-option>

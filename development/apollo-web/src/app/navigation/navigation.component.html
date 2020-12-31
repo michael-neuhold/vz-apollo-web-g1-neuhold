@@ -3,7 +3,19 @@
             <span>Apollo</span>
             <button routerLink="/overview" class="overview-button" mat-button>Overview</button>
             <span class="spacer"></span>
-            <button routerLink="/admin" mat-button>Login</button>
+            <div *ngIf="name != null">
+                  <button mat-button [matMenuTriggerFor]="menu" >
+                        <mat-icon aria-hidden="false" style="margin-right: 10px;">person</mat-icon>
+                        {{name}}
+                  </button>
+                  <mat-menu #menu="matMenu" xPosition="after">
+                        <button mat-menu-item routerLink='/admin'>Dashboard</button>
+                        <button mat-menu-item>Logout</button>
+                  </mat-menu>
+            </div>
+            <div *ngIf="name == null">
+                  <button routerLink="/admin" mat-button >Login</button>
+            </div>
       </mat-toolbar-row>
 </mat-toolbar>
 

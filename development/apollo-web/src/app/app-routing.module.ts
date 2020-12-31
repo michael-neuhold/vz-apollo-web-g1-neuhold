@@ -26,7 +26,7 @@ const routes: Routes = [
   { 
     path: 'admin', 
     component: AdminDashboradComponent,
-    //canActivate: [NavigateToAdminGuard],
+    canActivate: [NavigateToAdminGuard],
     children : [ 
       { path: '', redirectTo: 'statistic', pathMatch:'full' },
       { path: 'statistic', component: AdminPaymentStatisticsComponent },
