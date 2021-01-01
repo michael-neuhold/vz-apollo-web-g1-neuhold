@@ -10,11 +10,11 @@
                   </button>
                   <mat-menu #menu="matMenu" xPosition="after">
                         <button mat-menu-item routerLink='/admin'>Dashboard</button>
-                        <button mat-menu-item>Logout</button>
+                        <button mat-menu-item (click)="logout()">Logout</button>
                   </mat-menu>
             </div>
             <div *ngIf="name == null">
-                  <button routerLink="/admin" mat-button >Login</button>
+                  <button (click)="login()" mat-button >Login</button>
             </div>
       </mat-toolbar-row>
 </mat-toolbar>

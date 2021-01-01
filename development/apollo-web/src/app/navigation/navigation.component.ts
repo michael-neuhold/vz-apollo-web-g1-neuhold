@@ -23,6 +23,18 @@ export class NavigationComponent {
 
   public name = this.auth.givenName()
 
-  public dashboardButton = this.router.url !== '/admin'
+  returnString = '';
+
+  login() {
+    if (this.auth.login()) {
+      this.router.navigateByUrl(this.returnString);
+    }
+  }
+
+  logout() {
+    if(this.auth.isLoggedIn()) {
+      this.auth.logout();
+    }
+  }
 
 }

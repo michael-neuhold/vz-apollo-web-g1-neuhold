@@ -9,11 +9,6 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class AdminLoginComponent implements OnInit {
 
-  login: any = {
-    username: '',
-    password: ''
-  };
-
   private returnString: string = '';
 
   constructor(private auth: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
@@ -25,14 +20,9 @@ export class AdminLoginComponent implements OnInit {
     })
   }
 
-  submitForm() {
-    console.log("submit form");
+  login() {
     if (this.auth.login()) {
-      console.log("login true");
-      console.log(this.returnString);
       this.router.navigateByUrl(this.returnString);
-    } else {
-      // TODO error message
     }
   }
   

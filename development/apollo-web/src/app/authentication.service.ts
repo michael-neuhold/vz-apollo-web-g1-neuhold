@@ -14,15 +14,17 @@ export class AuthenticationService {
       return true;
     }
 
+    logout() {
+      this.oauthService.logOut();
+    }
+
     isLoggedIn() {
       return this.oauthService.hasValidAccessToken() && this.oauthService.hasValidIdToken();
     }
 
     givenName() {
       const claims = this.oauthService.getIdentityClaims();
-      if (!claims) {
-        return null;
-      }
+      if (!claims) return null;
       return claims['name'];
     }
 
