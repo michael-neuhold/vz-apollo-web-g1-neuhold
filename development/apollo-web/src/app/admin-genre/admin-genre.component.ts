@@ -22,19 +22,19 @@ export class AdminGenreComponent implements OnInit {
       Breakpoints.XLarge
     ]).subscribe( (state: BreakpointState) => {
       if (state.breakpoints[Breakpoints.XSmall]) {
-        this.cards = { columns: 2, item1: 2, item2: 2, item3: 2 }  
-      } else 
+        this.cards = { columns: 2, item1: 2, item2: 2, item3: 2 }
+      } else
       if (state.breakpoints[Breakpoints.Small]) {
-        this.cards = { columns: 2, item1: 2, item2: 2, item3: 2 }  
-      } else 
+        this.cards = { columns: 2, item1: 2, item2: 2, item3: 2 }
+      } else
       if (state.breakpoints[Breakpoints.Medium]) {
-        this.cards = { columns: 2, item1: 2, item2: 2, item3: 2 }  
-      } else 
+        this.cards = { columns: 2, item1: 2, item2: 2, item3: 2 }
+      } else
       if (state.breakpoints[Breakpoints.Large]) {
-        this.cards = { columns: 2, item1: 1, item2: 1, item3: 2 }  
-      } else 
+        this.cards = { columns: 2, item1: 1, item2: 1, item3: 2 }
+      } else
       if (state.breakpoints[Breakpoints.XLarge]) {
-        this.cards = { columns: 2, item1: 1, item2: 1, item3: 2 }  
+        this.cards = { columns: 2, item1: 1, item2: 1, item3: 2 }
       }
     });
   }

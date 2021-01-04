@@ -14,14 +14,17 @@ import {LayoutModule} from '@angular/cdk/layout';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
-  imports: [  MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, 
-              MatDatepickerModule, MatExpansionModule, MatGridListModule, MatChipsModule, 
-              MatNativeDateModule, LayoutModule, MatTabsModule, MatSelectModule, MatIconModule 
+  imports: [  MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule,
+              MatDatepickerModule, MatExpansionModule, MatGridListModule, MatChipsModule,
+              MatNativeDateModule, LayoutModule, MatTabsModule, MatSelectModule, MatIconModule,
+              MatDialogModule
             ],
-  exports: [  MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, 
-              MatDatepickerModule, MatExpansionModule, MatGridListModule, MatChipsModule, 
-              MatNativeDateModule, LayoutModule, MatTabsModule, MatSelectModule, MatIconModule 
+  exports: [  MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule,
+              MatDatepickerModule, MatExpansionModule, MatGridListModule, MatChipsModule,
+              MatNativeDateModule, LayoutModule, MatTabsModule, MatSelectModule, MatIconModule,
+              MatDialogModule
             ],
 })
 

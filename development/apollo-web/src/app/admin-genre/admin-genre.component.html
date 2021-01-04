@@ -1,6 +1,6 @@
 <mat-grid-list cols="{{cards.columns}}" rowHeight="350px">
 
-  <mat-grid-tile colspan="{{cards.item1}}"> 
+  <mat-grid-tile colspan="{{cards.item1}}">
     <mat-card class="card1">
       <mat-card-header class="dashboard-card-header">
         <mat-card-title class="dashboard-card-header">Hinzufügen</mat-card-title>
@@ -8,11 +8,11 @@
       <mat-card-content class="dashboard-card-content">
         <mat-form-field>
           <mat-label>Genre Id</mat-label>
-          <input matInput [(ngModel)]="name">
+          <input matInput>
         </mat-form-field><br/>
         <mat-form-field>
           <mat-label>Genre Name</mat-label>
-          <input matInput [(ngModel)]="name">
+          <input matInput>
         </mat-form-field><br/>
         <button mat-button color="primary">Hinzufügen</button>
       </mat-card-content>
@@ -25,13 +25,13 @@
     </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="{{cards.item3}}"> 
+  <mat-grid-tile colspan="{{cards.item3}}">
     <mat-card class="card1">
       <mat-card-header class="dashboard-card-header">
         <mat-card-title class="dashboard-card-header">Alle</mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
-      
+
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>

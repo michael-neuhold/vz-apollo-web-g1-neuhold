@@ -30,7 +30,6 @@ import { AdminDashboradComponent } from './admin-dashborad/admin-dashborad.compo
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import { TestComponent } from './test/test.component';
 import { AdminPaymentStatisticsComponent } from './admin-payment-statistics/admin-payment-statistics.component';
 import { AdminCinemaHallComponent } from './admin-cinema-hall/admin-cinema-hall.component';
 import { AdminScheduleComponent } from './admin-schedule/admin-schedule.component';
@@ -58,7 +57,6 @@ import { AdminChartComponent } from './admin-chart/admin-chart.component';
     MovieDetailSchedulesComponent,
     MovieDetailInformationComponent,
     AdminDashboradComponent,
-    TestComponent,
     AdminPaymentStatisticsComponent,
     AdminCinemaHallComponent,
     AdminScheduleComponent,
@@ -67,7 +65,7 @@ import { AdminChartComponent } from './admin-chart/admin-chart.component';
     AdminReservationComponent,
     AdminLoginComponent,
     AdminCategoryComponent,
-    AdminChartComponent,
+    AdminChartComponent
   ],
   imports: [
     BrowserModule,
