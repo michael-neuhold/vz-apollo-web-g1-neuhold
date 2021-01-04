@@ -23,11 +23,11 @@ const routes: Routes = [
   },
   { path: 'overview', component: MovieOverviewComponent },
   { path: 'movies/:id', component: MovieDetailsComponent },
-  { 
-    path: 'admin', 
+  {
+    path: 'admin',
     component: AdminDashboradComponent,
-    canActivate: [NavigateToAdminGuard],
-    children : [ 
+    //canActivate: [NavigateToAdminGuard],
+    children : [
       { path: '', redirectTo: 'statistic', pathMatch:'full' },
       { path: 'statistic', component: AdminPaymentStatisticsComponent },
       { path: 'cinemahall', component: AdminCinemaHallComponent },

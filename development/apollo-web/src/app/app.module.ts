@@ -42,6 +42,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminCategoryComponent } from './admin-category/admin-category.component';
 import { ChartsModule } from 'ng2-charts';
+import { AdminChartComponent } from './admin-chart/admin-chart.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { ChartsModule } from 'ng2-charts';
     AdminReservationComponent,
     AdminLoginComponent,
     AdminCategoryComponent,
+    AdminChartComponent,
   ],
   imports: [
     BrowserModule,
