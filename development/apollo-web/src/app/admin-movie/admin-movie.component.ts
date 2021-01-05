@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AdminMovieAddComponent } from '../admin-movie-add/admin-movie-add.component';
 
 @Component({
   selector: 'app-admin-movie',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminMovieComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
+
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(AdminMovieAddComponent, {});
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
 
   ngOnInit(): void {
   }

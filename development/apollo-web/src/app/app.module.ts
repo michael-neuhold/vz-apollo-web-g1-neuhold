@@ -42,6 +42,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminCategoryComponent } from './admin-category/admin-category.component';
 import { ChartsModule } from 'ng2-charts';
 import { AdminChartComponent } from './admin-chart/admin-chart.component';
+import { AdminCinemaHallAddComponent } from './admin-cinema-hall-add/admin-cinema-hall-add.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AdminCinemaHallEditComponent } from './admin-cinema-hall-edit/admin-cinema-hall-edit.component';
+import { AdminGenreAddComponent } from './admin-genre-add/admin-genre-add.component';
+import { AdminGenreEditComponent } from './admin-genre-edit/admin-genre-edit.component';
+import { AdminCategoryAddComponent } from './admin-category-add/admin-category-add.component';
+import { AdminCategoryEditComponent } from './admin-category-edit/admin-category-edit.component';
+import { AdminMovieAddComponent } from './admin-movie-add/admin-movie-add.component';
+import { AdminScheduleAddComponent } from './admin-schedule-add/admin-schedule-add.component';
+import { AdminScheduleEditComponent } from './admin-schedule-edit/admin-schedule-edit.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +75,16 @@ import { AdminChartComponent } from './admin-chart/admin-chart.component';
     AdminReservationComponent,
     AdminLoginComponent,
     AdminCategoryComponent,
-    AdminChartComponent
+    AdminChartComponent,
+    AdminCinemaHallAddComponent,
+    AdminCinemaHallEditComponent,
+    AdminGenreAddComponent,
+    AdminGenreEditComponent,
+    AdminCategoryAddComponent,
+    AdminCategoryEditComponent,
+    AdminMovieAddComponent,
+    AdminScheduleAddComponent,
+    AdminScheduleEditComponent
   ],
   imports: [
     BrowserModule,
@@ -78,12 +97,29 @@ import { AdminChartComponent } from './admin-chart/admin-chart.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatDialogModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
     HttpClientModule,
     ChartsModule,
     OAuthModule.forRoot()
+  ],
+  entryComponents: [
+    // cinema hall
+    AdminCinemaHallAddComponent,
+    AdminCinemaHallEditComponent,
+    // category
+    AdminCategoryAddComponent,
+    AdminCategoryEditComponent,
+    // genre
+    AdminGenreAddComponent,
+    AdminCategoryEditComponent,
+    // movie
+    AdminMovieAddComponent,
+    // schedule
+    AdminScheduleAddComponent,
+    AdminScheduleEditComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
