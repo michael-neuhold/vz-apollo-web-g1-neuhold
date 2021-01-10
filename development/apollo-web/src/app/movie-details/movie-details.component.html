@@ -19,7 +19,7 @@
     <mat-tab-group mat-align-tabs="start">
       <mat-tab label="Actors">
         <div class="tab-content">
-          <app-movie-detail-actors [movie]="movie" ></app-movie-detail-actors>
+          <app-movie-detail-actors *ngIf="movie" [movie]="movie" ></app-movie-detail-actors>
         </div>
       </mat-tab>
       <mat-tab label="Trailer">

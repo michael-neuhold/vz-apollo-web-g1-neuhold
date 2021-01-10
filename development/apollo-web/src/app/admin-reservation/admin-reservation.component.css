@@ -6,3 +6,12 @@ mat-card {
   bottom: 15px;
   padding: 30px;
 }
+
+.table-wrapper {
+  max-height: 80vh;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}

@@ -56,6 +56,9 @@ import {MatChipsModule} from '@angular/material/chips';
 import { TransformUrlPipe } from './pipes/transform-url.pipe';
 import { GetStatisticValuesPipe } from './pipes/get-statistic-values.pipe';
 import { GetStatisticNamesPipe } from './pipes/get-statistic-names.pipe';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { AdminReservationDetailsComponent } from './admin-reservation-details/admin-reservation-details.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +93,8 @@ import { GetStatisticNamesPipe } from './pipes/get-statistic-names.pipe';
     AdminScheduleEditComponent,
     TransformUrlPipe,
     GetStatisticValuesPipe,
-    GetStatisticNamesPipe
+    GetStatisticNamesPipe,
+    AdminReservationDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -106,8 +110,10 @@ import { GetStatisticNamesPipe } from './pipes/get-statistic-names.pipe';
     MatDialogModule,
     MatGridListModule,
     MatChipsModule,
+    MatTableModule,
     MatCardModule,
     MatMenuModule,
+    MatPaginatorModule,
     HttpClientModule,
     ChartsModule,
     OAuthModule.forRoot()

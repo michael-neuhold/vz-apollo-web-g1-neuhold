@@ -16,7 +16,7 @@ export class MovieDetailsComponent implements OnInit {
   item1 : number = 1;
   item2 : number = 3;
 
-  @Input() movie : MovieDetail;
+  movie : MovieDetail;
 
   ngOnInit(): void {
 

@@ -15,3 +15,8 @@ mat-card {
 .dashboard-card-header {
   text-align: center;
 }
+
+table {
+  margin: 20px;
+  width: 50%;
+}
