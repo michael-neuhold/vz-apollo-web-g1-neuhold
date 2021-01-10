@@ -4,7 +4,7 @@
     <mat-chip-list><mat-chip color="primary" selected>{{hourGrouping.hour | date: 'HH:mm'}}</mat-chip></mat-chip-list>
     <a style="marginTop: 20px;" *ngFor="let movie of hourGrouping.schedules" [routerLink]="['/movies', movie.id]" >
       <mat-card  class="mat-elevation-z5">
-        <img width="150" src="{{ 'http://localhost:5000/' + movie.coverImageLink}}">
+        <img width="180" src="{{ 'http://localhost:5000/' + movie.coverImageLink}}">
         <div class="overlay">
           <div class="content">{{movie.title}}</div>
         </div>
