@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { MovieSchedule } from '../services/schedule.service';
 
 @Component({
   selector: 'app-movie-overview-large-card-slider',
@@ -13,10 +14,15 @@ export class MovieOverviewLargeCardSliderComponent implements OnInit {
 
   constructor() { }
 
-  @Input() movies;
+  @Input() movies : Array<MovieSchedule>;
 
   ngOnInit() {
-    
+
+  }
+
+  public formatDate(date) {
+    console.log(date);
+    return date;
   }
 
   /*

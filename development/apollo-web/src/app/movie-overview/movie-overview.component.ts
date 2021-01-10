@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MovieSchedule, ScheduleService } from '../services/schedule.service';
 @Component({
   selector: 'app-movie-overview',
   templateUrl: './movie-overview.component.html',
@@ -6,7 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MovieOverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private scheduleService : ScheduleService) { }
+
+  currentMovies : Array<MovieSchedule>;
+  filteredMovies : Array<MovieSchedule>;
 
   movies: { id: number, name: string }[] = [
     { "id": 1, "name": "Movie 1" },
@@ -18,6 +22,8 @@ export class MovieOverviewComponent implements OnInit {
 ];
 
   ngOnInit(): void {
+    this.scheduleService.getCurrent().subscribe(res => this.currentMovies = res);
+    this.scheduleService.getFiltered().subscribe(res => this.filteredMovies = res);
   }
 
 }

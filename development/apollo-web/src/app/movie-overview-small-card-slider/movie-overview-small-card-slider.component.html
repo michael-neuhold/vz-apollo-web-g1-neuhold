@@ -1,10 +1,14 @@
-<div class="flex-row">
-    <a *ngFor="let item of movies" [routerLink]="['/movies', item.id]">
-    <mat-card class="mat-elevation-z5 movie-card">
-      <img width="150" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/2AwPvNHphpZBJDqjZKVuMAbvS0v.jpg">
-      <div class="overlay">
-        <div class="content">Titel | Zeit | Kino</div>
-      </div>
-    </mat-card>
+<mat-chip-list><mat-chip style="margin-top: 20px" color="primary" selected>{{movies.day | date: 'dd/MM/yyyy'}}</mat-chip></mat-chip-list>
+<div class="flex-row" style="marginTop: 20px;">
+  <div *ngFor="let hourGrouping of movies.scheduleHourGroupings" class="day-flex">
+    <mat-chip-list><mat-chip color="primary" selected>{{hourGrouping.hour | date: 'HH:mm'}}</mat-chip></mat-chip-list>
+    <a style="marginTop: 20px;" *ngFor="let movie of hourGrouping.schedules" [routerLink]="['/movies', movie.id]" >
+      <mat-card  class="mat-elevation-z5">
+        <img width="150" src="{{ 'http://localhost:5000/' + movie.coverImageLink}}">
+        <div class="overlay">
+          <div class="content">{{movie.title}}</div>
+        </div>
+      </mat-card>
     </a>
   </div>
+</div>

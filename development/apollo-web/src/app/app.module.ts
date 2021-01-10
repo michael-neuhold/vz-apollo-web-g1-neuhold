@@ -52,6 +52,8 @@ import { AdminCategoryEditComponent } from './admin-category-edit/admin-category
 import { AdminMovieAddComponent } from './admin-movie-add/admin-movie-add.component';
 import { AdminScheduleAddComponent } from './admin-schedule-add/admin-schedule-add.component';
 import { AdminScheduleEditComponent } from './admin-schedule-edit/admin-schedule-edit.component';
+import { ScheduleService } from './services/schedule.service';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -99,6 +101,7 @@ import { AdminScheduleEditComponent } from './admin-schedule-edit/admin-schedule
     MatListModule,
     MatDialogModule,
     MatGridListModule,
+    MatChipsModule,
     MatCardModule,
     MatMenuModule,
     HttpClientModule,
@@ -121,7 +124,7 @@ import { AdminScheduleEditComponent } from './admin-schedule-edit/admin-schedule
     AdminScheduleAddComponent,
     AdminScheduleEditComponent
   ],
-  providers: [],
+  providers: [ScheduleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
