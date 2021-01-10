@@ -1,6 +1,6 @@
 <h1>Actors</h1>
 <mat-chip-list>
-  <mat-chip *ngFor="let item of Dummy">
+  <mat-chip *ngFor="let item of movie.actors.split(',')">
     {{item}}
   </mat-chip>
 </mat-chip-list>

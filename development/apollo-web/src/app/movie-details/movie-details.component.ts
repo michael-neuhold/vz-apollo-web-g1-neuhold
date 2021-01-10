@@ -1,5 +1,7 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MovieDetail, MovieService } from '../services/movie.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -8,13 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver, private movieService: MovieService, private route: ActivatedRoute) { }
 
   columns : number = 4;
   item1 : number = 1;
   item2 : number = 3;
 
+  @Input() movie : MovieDetail;
+
   ngOnInit(): void {
+
+      this.route.params.subscribe(params => this.movieService.getById(params['id']).subscribe(res => this.movie = res));
+
       this.breakpointObserver.observe([
         Breakpoints.XSmall,
         Breakpoints.Small,
@@ -25,24 +32,24 @@ export class MovieDetailsComponent implements OnInit {
         if (state.breakpoints[Breakpoints.XSmall]) {
             this.columns = 1;
             this.item1 = 1;
-            this.item2 = 1;   
-        } else 
+            this.item2 = 1;
+        } else
         if (state.breakpoints[Breakpoints.Small]) {
             this.columns = 4;
             this.item1 = 2;
             this.item2 = 2;
-        } else 
+        } else
         if (state.breakpoints[Breakpoints.Medium]) {
           this.columns = 4;
           this.item1 = 2;
           this.item2 = 2;
-        } else 
+        } else
         if (state.breakpoints[Breakpoints.Large]) {
 
           this.columns = 4;
           this.item1 = 1;
           this.item2 = 3;
-        } else 
+        } else
         if (state.breakpoints[Breakpoints.XLarge]) {
             this.columns = 4;
             this.item1 = 1;

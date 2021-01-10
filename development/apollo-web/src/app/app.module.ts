@@ -24,7 +24,6 @@ import { MatSidenavModule, MatSidenavContainer } from '@angular/material/sidenav
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MovieDetailActorsComponent } from './movie-detail-actors/movie-detail-actors.component';
-import { MovieDetailSchedulesComponent } from './movie-detail-schedules/movie-detail-schedules.component';
 import { MovieDetailInformationComponent } from './movie-detail-information/movie-detail-information.component';
 import { AdminDashboradComponent } from './admin-dashborad/admin-dashborad.component';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -54,6 +53,7 @@ import { AdminScheduleAddComponent } from './admin-schedule-add/admin-schedule-a
 import { AdminScheduleEditComponent } from './admin-schedule-edit/admin-schedule-edit.component';
 import { ScheduleService } from './services/schedule.service';
 import {MatChipsModule} from '@angular/material/chips';
+import { TransformUrlPipe } from './pipes/transform-url.pipe';
 
 @NgModule({
   declarations: [
@@ -66,7 +66,6 @@ import {MatChipsModule} from '@angular/material/chips';
     MovieOverviewFilterComponent,
     NavigationComponent,
     MovieDetailActorsComponent,
-    MovieDetailSchedulesComponent,
     MovieDetailInformationComponent,
     AdminDashboradComponent,
     AdminPaymentStatisticsComponent,
@@ -86,7 +85,8 @@ import {MatChipsModule} from '@angular/material/chips';
     AdminCategoryEditComponent,
     AdminMovieAddComponent,
     AdminScheduleAddComponent,
-    AdminScheduleEditComponent
+    AdminScheduleEditComponent,
+    TransformUrlPipe
   ],
   imports: [
     BrowserModule,

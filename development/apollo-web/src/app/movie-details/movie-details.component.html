@@ -5,12 +5,12 @@
   <mat-grid-list cols="{{columns}}" rowHeight="400px" gutterSize="20px">
     <mat-grid-tile colspan="{{item1}}">
         <mat-card class="mat-elevation-z5 img-wrapper general-info-card">
-          <img class="mat-elevation-z5" height="100%" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/79n0cePpWjTt8Ge4BRQB87WL0lC.jpg">
+          <img class="mat-elevation-z5" height="100%" *ngIf="movie" src="{{'http://localhost:5000/' + movie.coverImageLink}}">
         </mat-card>
     </mat-grid-tile>
     <mat-grid-tile colspan="{{item2}}">
         <mat-card class="mat-elevation-z5 general-info-card">
-          <app-movie-detail-information></app-movie-detail-information>
+          <app-movie-detail-information [movie]="movie"></app-movie-detail-information>
         </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
@@ -19,24 +19,14 @@
     <mat-tab-group mat-align-tabs="start">
       <mat-tab label="Actors">
         <div class="tab-content">
-          <app-movie-detail-actors></app-movie-detail-actors>
-        </div>
-      </mat-tab>
-      <mat-tab label="Scheduls">
-        <div class="tab-content">
-          <app-movie-detail-schedules></app-movie-detail-schedules>
-        </div>
-      </mat-tab>
-      <mat-tab label="Cinema Hall">
-        <div class="tab-content">
-          <h1>Cinema Hall</h1>
+          <app-movie-detail-actors [movie]="movie" ></app-movie-detail-actors>
         </div>
       </mat-tab>
       <mat-tab label="Trailer">
         <div class="tab-content">
-          <iframe src="http://www.youtube.com/embed/W7qWa52k-nE" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
+          <iframe *ngIf="movie" [src]="movie.trailerUrl | transformUrl" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
         </div>
       </mat-tab>
     </mat-tab-group>
-  </mat-card> 
+  </mat-card>
 </div>
