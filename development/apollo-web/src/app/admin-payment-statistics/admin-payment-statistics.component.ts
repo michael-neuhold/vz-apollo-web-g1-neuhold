@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { map } from 'rxjs/internal/operators/map';
+import { PaymentstatisticService } from '../services/paymentstatistic.service';
 
 
 export interface PeriodicElement {
@@ -19,11 +20,40 @@ export interface PeriodicElement {
 })
 export class AdminPaymentStatisticsComponent implements OnInit {
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private paymentstatistic: PaymentstatisticService) {}
 
   cards = { columns: 2, item1: 1, item2: 1, item3: 1, item4: 1 }
 
+  genre_values = [];
+  genre_labels = [];
+  month_values = [];
+  month_labels = [];
+  year_values = [];
+  year_labels = [];
+  weekday_values = [];
+  weekday_labels = [];
+
   ngOnInit(): void {
+
+    this.paymentstatistic.getGenreStatistic().subscribe(res => {
+      this.genre_values = res.map(item => item.value);
+      this.genre_labels = res.map(item => item.name);
+    });
+
+    this.paymentstatistic.getMonthStatistic().subscribe(res => {
+      this.month_values = res.map(item => item.value);
+      this.month_labels = res.map(item => item.name);
+    });
+
+    this.paymentstatistic.getYearStatistic().subscribe(res => {
+      this.year_values = res.map(item => item.value);
+      this.year_labels = res.map(item => item.name);
+    });
+
+    this.paymentstatistic.getWeekdayStatistic().subscribe(res => {
+      this.weekday_values = res.map(item => item.value);
+      this.weekday_labels = res.map(item => item.name);
+    });
 
     this.breakpointObserver.observe([
       Breakpoints.XSmall,

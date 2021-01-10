@@ -54,6 +54,8 @@ import { AdminScheduleEditComponent } from './admin-schedule-edit/admin-schedule
 import { ScheduleService } from './services/schedule.service';
 import {MatChipsModule} from '@angular/material/chips';
 import { TransformUrlPipe } from './pipes/transform-url.pipe';
+import { GetStatisticValuesPipe } from './pipes/get-statistic-values.pipe';
+import { GetStatisticNamesPipe } from './pipes/get-statistic-names.pipe';
 
 @NgModule({
   declarations: [
@@ -86,7 +88,9 @@ import { TransformUrlPipe } from './pipes/transform-url.pipe';
     AdminMovieAddComponent,
     AdminScheduleAddComponent,
     AdminScheduleEditComponent,
-    TransformUrlPipe
+    TransformUrlPipe,
+    GetStatisticValuesPipe,
+    GetStatisticNamesPipe
   ],
   imports: [
     BrowserModule,

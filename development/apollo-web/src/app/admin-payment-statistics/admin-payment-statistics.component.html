@@ -3,10 +3,10 @@
   <mat-grid-tile colspan="{{cards.item1}}" rowspan="1">
     <mat-card class="card1">
       <mat-card-header class="dashboard-card-header">
-        <mat-card-title class="dashboard-card-header">Chart 1</mat-card-title>
+        <mat-card-title class="dashboard-card-header">Wochentag</mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
-        <app-admin-chart></app-admin-chart>
+        <app-admin-chart *ngIf="weekday_values" [barChartData]="[{ data: weekday_values }]" [barChartLabels]="weekday_labels"></app-admin-chart>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
@@ -14,10 +14,10 @@
   <mat-grid-tile colspan="{{cards.item2}}" rowspan="1">
     <mat-card class="card1">
       <mat-card-header class="dashboard-card-header">
-        <mat-card-title class="dashboard-card-header">Chart 2</mat-card-title>
+        <mat-card-title class="dashboard-card-header">Genre</mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
-        <app-admin-chart></app-admin-chart>
+        <app-admin-chart *ngIf="genre_values" [barChartData]="[{ data: genre_values }]" [barChartLabels]="genre_labels"></app-admin-chart>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
@@ -25,10 +25,10 @@
   <mat-grid-tile colspan="{{cards.item3}}" rowspan="1">
     <mat-card class="card1">
       <mat-card-header class="dashboard-card-header">
-        <mat-card-title class="dashboard-card-header">Chart 3</mat-card-title>
+        <mat-card-title class="dashboard-card-header">Monat</mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
-        <app-admin-chart></app-admin-chart>
+        <app-admin-chart *ngIf="month_values" [barChartData]="[{ data: month_values }]" [barChartLabels]="month_labels"></app-admin-chart>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
@@ -36,10 +36,10 @@
   <mat-grid-tile colspan="{{cards.item4}}" rowspan="1">
     <mat-card class="card1">
       <mat-card-header class="dashboard-card-header">
-        <mat-card-title class="dashboard-card-header">Chart 4</mat-card-title>
+        <mat-card-title class="dashboard-card-header">Jahr</mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
-        <app-admin-chart></app-admin-chart>
+        <app-admin-chart *ngIf="year_values" [barChartData]="[{ data: year_values }]" [barChartLabels]="year_labels"></app-admin-chart>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
