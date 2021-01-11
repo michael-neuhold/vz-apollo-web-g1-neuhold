@@ -26,8 +26,8 @@ export class AdminGenreComponent implements OnInit {
     });
   }
 
-  openEditDialog(): void {
-    const dialogRef = this.dialog.open(AdminGenreEditComponent, {});
+  openEditDialog(id): void {
+    const dialogRef = this.dialog.open(AdminGenreEditComponent, { data: { id: id } });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);

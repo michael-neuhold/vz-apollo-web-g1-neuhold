@@ -19,6 +19,38 @@
   display: flex;
   flex-direction: row;
   padding-bottom: 20px;
+  margin-right: 20px;
+}
+
+.day {
+  background-color: rgb(56,70,169);
+  border-radius: 6px;
+  display: inline;
+  padding: 5px;
+  color: white;
+}
+
+.time-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-left: -35px;
+}
+
+.flag {
+  background-color: rgb(56,70,169);
+  width: 6px;
+  height: 100%;
+  border-radius: 6px 0px 6px 6px;
+}
+
+.flag-top {
+  position: relative;
+  left: -6px;
+  background-color: rgb(56,70,169);
+  height: 18px;
+  padding: 5px;
+  border-radius: 6px;
+  color: white;
 }
 
 .flex-row mat-card {
