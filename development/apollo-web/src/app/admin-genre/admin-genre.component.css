@@ -16,6 +16,12 @@ mat-card {
   text-align: center;
 }
 
+.table-wrapper {
+  overflow: auto;
+  position: relative;
+  height: 95%;
+}
+
 table {
   margin: 20px;
   width: 50%;

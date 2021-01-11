@@ -3,7 +3,8 @@
     <mat-card-title class="dashboard-card-header">Genre</mat-card-title>
   </mat-card-header>
 
-  <table mat-table [dataSource]="allGenre" class="mat-elevation-z2">
+  <div class="table-wrapper">
+    <table mat-table [dataSource]="allGenre" class="mat-elevation-z2">
 
       <!-- Position Column -->
       <ng-container matColumnDef="id">
@@ -29,7 +30,8 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+    </table>
+  </div>
 
 </mat-card>
 

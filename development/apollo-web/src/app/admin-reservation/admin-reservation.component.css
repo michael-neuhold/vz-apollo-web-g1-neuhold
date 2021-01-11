@@ -8,8 +8,9 @@ mat-card {
 }
 
 .table-wrapper {
-  max-height: 80vh;
   overflow: auto;
+  position: relative;
+  height: 95%;
 }
 
 table {
