@@ -1,0 +1,30 @@
+<mat-card class="mat-elevation-z2">
+
+<mat-form-field appearance="outline">
+  <mat-label>Movie Title</mat-label>
+  <input matInput (keyup)="keyup.emit()" [(ngModel)]="filterAttributes.movieTitle">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>From</mat-label>
+  <input matInput (dateChange)="applyFilter.emit(filterAttributes)" [matDatepicker]="startDatePicker" [(ngModel)]="filterAttributes.startDate">
+  <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+  <mat-datepicker #startDatePicker></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>To</mat-label>
+  <input matInput (dateChange)="applyFilter.emit(filterAttributes)"  [matDatepicker]="endDatePicker" [(ngModel)]="filterAttributes.endDate">
+  <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+  <mat-datepicker #endDatePicker></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+    <mat-select placeholder="Cinema Hall" [(ngModel)]="filterAttributes.cinemaHall" (selectionChange)="applyFilter.emit(filterAttributes)">
+        <mat-option *ngFor="let option of cinemaHalls" [value]="option.id">
+           {{option.id}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+</mat-card>

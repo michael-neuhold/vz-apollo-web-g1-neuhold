@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
 import { authConfig } from './auth.config';
-import { ScheduleService } from './services/schedule.service';
+import { ScheduleService } from './services/schedule/schedule.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

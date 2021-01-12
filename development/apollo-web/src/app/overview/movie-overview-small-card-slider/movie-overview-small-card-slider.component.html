@@ -1,0 +1,22 @@
+<div class="day">{{ movies.day | date: 'dd.MM.yyyy' }}</div>
+<div class="flex-row" style="marginTop: 20px; marginBottom: 20px;">
+  <div *ngFor="let hourGrouping of movies.scheduleHourGroupings" class="day-flex">
+
+    <!-- time flag -->
+    <div class="flag"></div>
+    <div class="flag-top">{{ hourGrouping.hour | date: 'HH:mm' }}</div>
+
+    <!-- time -->
+    <div class="time-wrapper">
+      <a style="marginTop: 40px;" *ngFor="let movie of hourGrouping.schedules" [routerLink]="['/movies', movie.id]" >
+        <mat-card  class="mat-elevation-z5">
+          <img width="180" src="{{ movie.coverImageLink | imageEndpoint }}">
+          <div class="overlay">
+            <div class="content">{{ movie.title }}</div>
+          </div>
+        </mat-card>
+      </a>
+    </div>
+
+  </div>
+</div>

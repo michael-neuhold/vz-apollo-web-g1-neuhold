@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <span style="font-weight: lighter;">Detail</span>
+</mat-toolbar>
+<div class="details-wrapper">
+  <mat-grid-list cols="{{columns}}" rowHeight="500px" gutterSize="20px">
+    <mat-grid-tile colspan="{{item1}}">
+        <mat-card class="mat-elevation-z5 img-wrapper general-info-card">
+          <img class="mat-elevation-z5" height="100%" *ngIf="movie" src="{{'http://localhost:5000/' + movie.coverImageLink}}">
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="{{item2}}">
+        <mat-card class="mat-elevation-z5 general-info-card">
+          <app-movie-detail-information [movie]="movie"></app-movie-detail-information>
+        </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-card class="mat-elevation-z5 information-tabs">
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Actors">
+        <div class="tab-content">
+          <app-movie-detail-actors *ngIf="movie" [movie]="movie" ></app-movie-detail-actors>
+        </div>
+      </mat-tab>
+      <mat-tab label="Trailer">
+        <div class="tab-content">
+          <iframe *ngIf="movie" [src]="movie.trailerUrl | transformUrl" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

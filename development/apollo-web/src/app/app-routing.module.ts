@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminCategoryComponent } from './admin-category/admin-category.component';
-import { AdminCinemaHallComponent } from './admin-cinema-hall/admin-cinema-hall.component';
-import { AdminDashboradComponent } from './admin-dashborad/admin-dashborad.component';
-import { AdminGenreComponent } from './admin-genre/admin-genre.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { AdminMovieComponent } from './admin-movie/admin-movie.component';
-import { AdminPaymentStatisticsComponent } from './admin-payment-statistics/admin-payment-statistics.component';
-import { AdminReservationComponent } from './admin-reservation/admin-reservation.component';
-import { AdminScheduleComponent } from './admin-schedule/admin-schedule.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import { MovieOverviewComponent } from './movie-overview/movie-overview.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category/admin-category.component';
+import { AdminCinemaHallComponent } from './admin/admin-cinemahall/admin-cinema-hall/admin-cinema-hall.component';
+import { AdminDashboradComponent } from './admin/admin-dashborad/admin-dashborad.component';
+import { AdminGenreComponent } from './admin/admin-genre/admin-genre/admin-genre.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { AdminMovieComponent } from './admin/admin-movie/admin-movie/admin-movie.component';
+import { AdminPaymentStatisticsComponent } from './admin/admin-paymentstatistic/admin-payment-statistics/admin-payment-statistics.component';
+import { AdminReservationComponent } from './admin/admin-reservation/admin-reservation/admin-reservation.component';
+import { AdminScheduleComponent } from './admin/admin-schedule/admin-schedule/admin-schedule.component';
+import { MovieDetailsComponent } from './detail/movie-details/movie-details.component';
+import { MovieOverviewComponent } from './overview/movie-overview/movie-overview.component';
 import { NavigateToAdminGuard } from './navigate-to-admin.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
