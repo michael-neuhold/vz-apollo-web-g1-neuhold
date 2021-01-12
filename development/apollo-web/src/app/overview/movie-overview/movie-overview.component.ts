@@ -16,12 +16,12 @@ export class MovieOverviewComponent implements OnInit {
   filteredMovies : Array<MovieSchedule>;
 
   applyFilter(filterAttributes: FilterAttributes) {
-    console.log("filter: ", filterAttributes);
+    this.scheduleService.getFiltered(filterAttributes).subscribe(res => this.filteredMovies = res);
   }
 
   ngOnInit(): void {
     this.scheduleService.getCurrent().subscribe(res => this.currentMovies = res);
-    this.scheduleService.getFiltered().subscribe(res => this.filteredMovies = res);
+    this.scheduleService.getFiltered(new FilterAttributes(null, null, null, null)).subscribe(res => this.filteredMovies = res);
   }
 
 }

@@ -61,6 +61,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { AdminReservationDetailsComponent } from './admin/admin-reservation/admin-reservation-details/admin-reservation-details.component';
 import { ImageEndpointPipe } from './pipes/image-endpoint.pipe';
 import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -138,7 +139,7 @@ import { FormsModule } from '@angular/forms';
     AdminScheduleAddComponent,
     AdminScheduleEditComponent
   ],
-  providers: [ScheduleService],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
