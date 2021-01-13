@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 import { catchError } from 'rxjs/operators';
+import { MovieDetail } from 'src/app/domains/movie';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -18,23 +19,19 @@ export class MovieService {
     return of(null);
   }
 
+  getAll() : Observable<MovieDetail[]> {
+    return this.http.get<MovieDetail>(`${environment.server}/movie`)
+    .pipe(
+      catchError(this.errorHandler)
+    );
+  }
+
   getById(id) : Observable<MovieDetail>  {
     return this.http.get<MovieDetail>(`${environment.server}/movie/${id}`)
-    .pipe(map(res => res), catchError(this.errorHandler));
+    .pipe(
+      catchError(this.errorHandler)
+    );
   }
 }
 
-export class MovieDetail{
-  constructor(
-    public id? : string,
-    public title? : string,
-    public originalTitle? : string,
-    public description? : string,
-    public genre? : string,
-    public length? : number,
-    public coverImageLink? : string,
-    public coverImage? : string,
-    public trailerUrl? : string,
-    public actors?: string,
-  ) {}
-}
+
