@@ -1,9 +1,35 @@
-<h2 mat-dialog-title>Edit</h2>
+<h2 mat-dialog-title>Edit category</h2>
+
+<mat-divider></mat-divider>
 
 <mat-dialog-content>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput disabled [ngModel]="editCategory.id">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Bezeichnung</mat-label>
+    <input matInput [(ngModel)]="editCategory.description" >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Preis</mat-label>
+    <input matInput [(ngModel)]="editCategory.price">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-select placeholder="Icon" [(ngModel)]="editCategory.iconName">
+        <mat-option *ngFor="let option of icons" [value]="option">
+           {{option}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
 </mat-dialog-content>
 
-<div mat-dialog-actions>
-  <button mat-button (click)="onCloseClick()">cancle</button>
-  <button mat-raised-button (click)="onSaveClick()">save</button>
-</div>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCloseClick()">Cancel</button>
+  <button color="primary" mat-raised-button (click)="onSaveClick()">Save</button>
+</mat-dialog-actions>

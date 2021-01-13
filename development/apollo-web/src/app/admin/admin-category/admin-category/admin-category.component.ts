@@ -27,10 +27,17 @@ export class AdminCategoryComponent implements OnInit {
     });
   }
 
-  openEditDialog(): void {
-    const dialogRef = this.dialog.open(AdminCategoryEditComponent, {});
+  openEditDialog(category: Category): void {
+    const dialogRef = this.dialog.open(AdminCategoryEditComponent, { data: category});
 
-    dialogRef.afterClosed().subscribe(/* nothing to do */);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.save) {
+        console.log("create: ", result.data);
+        this.categoryService.update(result.data).subscribe(
+          res => this.loadTable()
+        );
+      }
+    });
   }
 
   allCategories: Category[];
