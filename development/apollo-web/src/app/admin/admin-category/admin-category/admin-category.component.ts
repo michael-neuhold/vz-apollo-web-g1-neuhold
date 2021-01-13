@@ -18,22 +18,29 @@ export class AdminCategoryComponent implements OnInit {
     const dialogRef = this.dialog.open(AdminCategoryAddComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      if(result.save) {
+        console.log("create: ", result.data);
+        this.categoryService.create(result.data).subscribe(
+          res => this.loadTable()
+        );
+      }
     });
   }
 
   openEditDialog(): void {
     const dialogRef = this.dialog.open(AdminCategoryEditComponent, {});
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-    });
+    dialogRef.afterClosed().subscribe(/* nothing to do */);
   }
 
   allCategories: Category[];
   displayedColumns: string[] = ['id', 'description', 'price', 'iconName', 'edit'];
 
   ngOnInit(): void {
+    this.loadTable();
+  }
+
+  loadTable(): void {
     this.categoryService.getAll().subscribe(res => this.allCategories = res);
   }
 

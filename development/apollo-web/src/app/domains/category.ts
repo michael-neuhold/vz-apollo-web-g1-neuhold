@@ -1,8 +1,10 @@
+import { DecimalPipe } from "@angular/common";
+
 export class Category {
   constructor (
-    id?: string,
-    description?: string,
-    price?: number,
-    iconName?: string
+    public id?: string,
+    public description?: string,
+    public price?: string,
+    public iconName?: string,
   ) {}
 }

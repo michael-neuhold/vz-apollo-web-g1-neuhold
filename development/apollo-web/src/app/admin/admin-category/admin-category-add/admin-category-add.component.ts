@@ -11,18 +11,19 @@ export class AdminCategoryAddComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AdminCategoryAddComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
-  public newCategory: Category = new Category();
+  newCategory: Category = new Category();
   icons : string[] = ['Seatbelt', 'SofaSingle', 'SeatOutline'];
 
   onCloseClick(): void {
-    this.dialogRef.close("CLOSED");
+    this.dialogRef.close({ save: false, data: {}});
   }
 
   onSaveClick() : void {
-    this.dialogRef.close("SAVED");
+    this.dialogRef.close({ save: true, data: this.newCategory });
   }
 
   ngOnInit(): void {
   }
 
 }
+

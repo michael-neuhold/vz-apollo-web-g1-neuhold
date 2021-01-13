@@ -25,15 +25,16 @@ export class CategoryService {
     );
   }
 
-  create(category: Category) : Observable<Category> {
-    return this.http.post<Category>(`${environment.server}`, category)
+  create(category: Category) : Observable<any> {
+    console.log("before create -> ", category);
+    return this.http.post<any>(`${environment.server}/category`, category, { })
     .pipe (
       catchError((err) => this.errorHandler(err))
     );
   }
 
   update(category: Category) {
-    return this.http.put<Category>(`${environment.server}`, category)
+    return this.http.put<Category>(`${environment.server}/category`, category)
     .pipe (
       catchError((err) => this.errorHandler(err))
     )

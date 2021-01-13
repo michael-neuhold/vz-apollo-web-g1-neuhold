@@ -26,8 +26,8 @@ export class ScheduleService {
   getFiltered(filter: FilterAttributes) : Observable<Array<MovieSchedule>> {
     return this.http.get(`${environment.server}/schedule/filtered`+
       `?movie=${filter.movieTitle ? filter.movieTitle : '' }`+
-      `&startDate=${filter.startDate ? this.datepipe.transform(filter.startDate, "yyyy/MM/dd") : ''}`+
-      `&endDate=${filter.endDate ? this.datepipe.transform(filter.endDate, "yyyy/MM/dd") : ''}`+
+      `&startDate=${filter.startDate ? this.datepipe.transform(filter.startDate, "yyyy/MM/dd") : '1/13/2021'}`+
+      `&endDate=${filter.endDate ? this.datepipe.transform(filter.endDate, "yyyy/MM/dd") : '1/20/2021'}`+
       `&cinemaHall=${filter.cinemaHall ? filter.cinemaHall : ''}`)
     .pipe(map(res => res), catchError(this.errorHandler));
   }

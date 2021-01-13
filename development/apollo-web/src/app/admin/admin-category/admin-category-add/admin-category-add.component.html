@@ -6,22 +6,22 @@
 
   <mat-form-field appearance="outline">
     <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="this.newCategory.id">
+    <input matInput [(ngModel)]="newCategory.id">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>Bezeichnung</mat-label>
-    <input matInput [(ngModel)]="this.newCategory.description">
+    <input matInput [(ngModel)]="newCategory.description" >
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>Preis</mat-label>
-    <input matInput [(ngModel)]="this.newCategory.price">
+    <input matInput [(ngModel)]="newCategory.price">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-select placeholder="Icon" >
-        <mat-option *ngFor="let option of icons" [(ngModel)]="this.newCategory.iconName" [value]="option">
+    <mat-select placeholder="Icon" [(ngModel)]="newCategory.iconName">
+        <mat-option *ngFor="let option of icons" [value]="option">
            {{option}}
         </mat-option>
     </mat-select>
@@ -33,3 +33,4 @@
   <button mat-button (click)="onCloseClick()">Cancel</button>
   <button color="primary" mat-raised-button (click)="onSaveClick()">Add</button>
 </mat-dialog-actions>
+
