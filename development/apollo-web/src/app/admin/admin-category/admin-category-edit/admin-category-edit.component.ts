@@ -23,7 +23,7 @@ export class AdminCategoryEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.editCategory = this.data;
+    this.editCategory = Object.assign({}, this.data);
   }
 
 }

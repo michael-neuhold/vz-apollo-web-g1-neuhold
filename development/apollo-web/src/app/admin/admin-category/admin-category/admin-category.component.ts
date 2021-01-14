@@ -18,10 +18,9 @@ export class AdminCategoryComponent implements OnInit {
     const dialogRef = this.dialog.open(AdminCategoryAddComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result.save) {
-        console.log("create: ", result.data);
+      if(result != undefined && result.save) {
         this.categoryService.create(result.data).subscribe(
-          res => this.loadTable()
+          () => this.loadTable()
         );
       }
     });
@@ -31,10 +30,9 @@ export class AdminCategoryComponent implements OnInit {
     const dialogRef = this.dialog.open(AdminCategoryEditComponent, { data: category});
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result.save) {
-        console.log("create: ", result.data);
+      if(result != undefined && result.save) {
         this.categoryService.update(result.data).subscribe(
-          res => this.loadTable()
+          () => this.loadTable()
         );
       }
     });

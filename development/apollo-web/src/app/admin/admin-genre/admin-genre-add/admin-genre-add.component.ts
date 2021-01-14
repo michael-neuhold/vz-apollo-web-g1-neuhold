@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Genre } from 'src/app/domains/genre';
 
 @Component({
   selector: 'app-admin-genre-add',
@@ -8,10 +9,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AdminGenreAddComponent implements OnInit {
 
-  constructor(
-    public dialogRef: MatDialogRef<AdminGenreAddComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(public dialogRef: MatDialogRef<AdminGenreAddComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
+  newGenre: Genre = new Genre();
 
   onCloseClick(): void {
     this.dialogRef.close("CLOSED");

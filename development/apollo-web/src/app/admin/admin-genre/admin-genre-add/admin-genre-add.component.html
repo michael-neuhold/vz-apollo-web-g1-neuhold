@@ -1,9 +1,22 @@
-<h2 mat-dialog-title>Add</h2>
+<h2 mat-dialog-title>Add genre</h2>
+
+<mat-divider></mat-divider>
 
 <mat-dialog-content>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="newGenre.id">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Bezeichnung</mat-label>
+    <input matInput [(ngModel)]="newGenre.name" >
+  </mat-form-field>
+
 </mat-dialog-content>
 
-<div mat-dialog-actions>
-  <button mat-button (click)="onCloseClick()">cancel</button>
-  <button mat-raised-button (click)="onSaveClick()">save</button>
-</div>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCloseClick()">Cancel</button>
+  <button color="primary" mat-raised-button (click)="onSaveClick()">Add</button>
+</mat-dialog-actions>

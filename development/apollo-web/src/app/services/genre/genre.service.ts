@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
+import { Genre } from 'src/app/domains/genre';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,15 +17,14 @@ export class GenreService {
     return of(null);
   }
 
-  getAll() : Observable<Array<Genre>>  {
+  getAll(): Observable<Array<Genre>>  {
     return this.http.get<Genre>(`${environment.server}/genre`)
-    .pipe(map(res => res), catchError(this.errorHandler));
+    .pipe(catchError(this.errorHandler));
   }
-}
 
-export class Genre {
-  constructor(
-    public id? : string,
-    public name? : string
-  ) {}
+  update(genre: Genre): Observable<Genre> {
+    return this.http.put<Genre>(`${environment.server}/genre`, genre)
+    .pipe(catchError(this.errorHandler));
+  }
+
 }

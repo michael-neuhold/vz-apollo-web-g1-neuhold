@@ -2,9 +2,10 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MovieDetail } from 'src/app/domains/movie';
-import { Genre, GenreService } from 'src/app/services/genre/genre.service';
+import { GenreService } from 'src/app/services/genre/genre.service';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { Genre } from 'src/app/domains/genre';
 
 @Component({
   selector: 'app-admin-movie-add',
