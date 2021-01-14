@@ -21,6 +21,11 @@ table {
   width: 200px; margin: 20px;
   background: rgb(56,70,169);
   background: linear-gradient(90deg, rgba(56,70,169,0.9) 0%, rgba(56,70,169,1) 100%, rgba(0,212,255,1) 100%);
+  transition: transform .3s ease;
+}
+
+.cat-card:hover {
+  transform: scale(1.1, 1.1);
 }
 
 mat-card-title {
