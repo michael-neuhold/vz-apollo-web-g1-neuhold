@@ -2,6 +2,26 @@
   <span style="font-weight: lighter;">Detail</span>
 </mat-toolbar>
 <div class="details-wrapper">
+  <div *ngIf="reservation">
+    <h1>{{reservation.id}}</h1>
+    <p>Reservation Date: {{reservation.reservationDate}}</p>
+    <p>Schedule Id: {{reservation.scheduleId}} </p>
+    <p>Movie Id: {{reservation.movieId}} </p>
+    <p>Movie Title: {{reservation.movieTitle}} </p>
 
+
+    <div class="flex-container">
+      <mat-card class="cat-card mat-elevation-z5" *ngFor="let seat of reservation.seats" >
+          <mat-card-title>row: {{seat.label.row}}, seat: {{seat.label.number}}</mat-card-title>
+          <mat-card-content style="color: white;">
+            <div class="card-information-small">
+              <h3 class="card-information-header">Category</h3>
+              <p>{{seat.categoryId}}</p>
+            </div>
+          </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
 
 </div>

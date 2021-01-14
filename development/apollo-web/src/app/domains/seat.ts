@@ -3,6 +3,7 @@ export class Seat {
     public id?: number,
     public label?: SeatLabel,
     public price?: number,
+    public categoryId?: string,
     public categoryIconName?: string,
     public seatInformationId?: number
   ) {}
