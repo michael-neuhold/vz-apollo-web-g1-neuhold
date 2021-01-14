@@ -1,4 +1,4 @@
-mat-card {
+.page-wrapper {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -7,6 +7,31 @@ mat-card {
   padding: 30px;
 }
 
+.content-wrapper {
+  overflow: auto;
+  position: relative;
+  height: 100%;
+}
+
 table {
   width: 100%;
 }
+
+.cat-card {
+  width: 200px; margin: 20px;
+  background: rgb(56,70,169);
+  background: linear-gradient(90deg, rgba(56,70,169,0.9) 0%, rgba(56,70,169,1) 100%, rgba(0,212,255,1) 100%);
+}
+
+mat-card-title {
+  color: white;
+  margin-bottom: 20px;
+}
+
+mat-card-actions {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  color: white;
+}
+

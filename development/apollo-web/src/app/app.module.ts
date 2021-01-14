@@ -62,6 +62,7 @@ import { AdminReservationDetailsComponent } from './admin/admin-reservation/admi
 import { ImageEndpointPipe } from './pipes/image-endpoint.pipe';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { PricePipe } from './pipes/price.pipe';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { DatePipe } from '@angular/common';
     GetStatisticValuesPipe,
     GetStatisticNamesPipe,
     AdminReservationDetailsComponent,
-    ImageEndpointPipe
+    ImageEndpointPipe,
+    PricePipe
   ],
   imports: [
     BrowserModule,
