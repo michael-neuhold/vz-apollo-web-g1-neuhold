@@ -11,6 +11,7 @@
         [(ngModel)]="newGenre.id"
         name="genreId"
         required
+        noSpaceValidation
         pattern="[0-9]*">
       <app-input-error-message  *ngIf="errors.genreId" [error]="errors.genreId"></app-input-error-message>
     </mat-form-field>
@@ -21,6 +22,7 @@
         matInput
         [(ngModel)]="newGenre.name"
         name="genreName"
+        noSpaceValidation
         required>
       <app-input-error-message  *ngIf="errors.genreName" [error]="errors.genreName"></app-input-error-message>
     </mat-form-field>

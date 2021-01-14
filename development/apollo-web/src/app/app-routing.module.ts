@@ -13,6 +13,7 @@ import { MovieDetailsComponent } from './detail/movie-details/movie-details.comp
 import { MovieOverviewComponent } from './overview/movie-overview/movie-overview.component';
 import { NavigateToAdminGuard } from './navigate-to-admin.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ReservationDetailComponent } from './detail/reservation-detail/reservation-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'overview', pathMatch:'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   },
   { path: 'overview', component: MovieOverviewComponent },
   { path: 'movies/:id', component: MovieDetailsComponent },
+  { path: 'reservations/:id', component: ReservationDetailComponent },
   {
     path: 'admin',
     component: AdminDashboradComponent,

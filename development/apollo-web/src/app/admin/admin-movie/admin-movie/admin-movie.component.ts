@@ -14,15 +14,13 @@ export class AdminMovieComponent implements OnInit {
   constructor(public dialog: MatDialog, private movieService: MovieService) {}
 
   allMovies: MovieDetail[];
-  displayedColumns: string[] = ['id', 'title', 'originalTitle', 'genre', 'length', 'delete'];
+  displayedColumns: string[] = ['id', 'title', 'originalTitle', 'genre', 'length', 'delete', 'details'];
 
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AdminMovieAddComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result.save) {
-        console.log(result.data);
-        result.data.genre = 14;
+      if(result != undefined && result.save) {
         this.movieService.create(result.data).subscribe(res => this.loadTable());
       }
     });

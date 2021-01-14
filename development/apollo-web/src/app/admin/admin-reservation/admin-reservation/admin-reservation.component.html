@@ -7,7 +7,9 @@
    <table mat-table [dataSource]="allReservations" class="mat-elevation-z2">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Reservation ID </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <td mat-cell *matCellDef="let element">
+          {{element.id}}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="reservationDate">
@@ -31,10 +33,10 @@
       </ng-container>
 
       <ng-container matColumnDef="info">
-        <th mat-header-cell *matHeaderCellDef> info </th>
+        <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-            <button mat-icon-button (click)="openDetailDialog(element.id)" >
-              <mat-icon>info_outline</mat-icon>
+            <button mat-icon-button class="icon-button-hover" [routerLink]="['/reservations', element.id]" >
+              <mat-icon class="icons">open_in_new</mat-icon>
             </button>
         </td>
       </ng-container>

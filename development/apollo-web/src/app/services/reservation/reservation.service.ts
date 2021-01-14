@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { Reservation } from 'src/app/domains/reservation';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -26,34 +27,4 @@ export class ReservationService {
     .pipe(map(res => res), catchError(this.errorHandler));
   }
 
-}
-
-
-export class Reservation {
-  constructor(
-    public id?: number,
-    public reservationDate?: Date,
-    public scheduleId?: number,
-    public movieId?: number,
-    public movieTitle?: Date,
-    public seats?: Seat[]
-  ) {}
-}
-
-
-export class Seat {
-  constructor(
-    public id?: number,
-    public label?: SeatLabel,
-    public price?: number,
-    public categoryIconName?: string,
-    public seatInformationId?: number
-  ) {}
-}
-
-export class SeatLabel {
-  constructor(
-    public row?: string,
-    public number?: string,
-  ) {}
 }

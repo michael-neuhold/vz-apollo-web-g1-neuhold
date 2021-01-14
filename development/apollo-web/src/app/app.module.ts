@@ -64,6 +64,7 @@ import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PricePipe } from './pipes/price.pipe';
 import { InputErrorMessageComponent } from './shared/input-error-message/input-error-message.component';
+import { ReservationDetailComponent } from './detail/reservation-detail/reservation-detail.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { InputErrorMessageComponent } from './shared/input-error-message/input-e
     AdminReservationDetailsComponent,
     ImageEndpointPipe,
     PricePipe,
-    InputErrorMessageComponent
+    InputErrorMessageComponent,
+    ReservationDetailComponent
   ],
   imports: [
     BrowserModule,

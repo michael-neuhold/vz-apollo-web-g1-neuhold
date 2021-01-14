@@ -16,3 +16,12 @@ table {
   position: relative;
   height: 95%;
 }
+
+.icons {
+  color: gray;
+  font-size: 18px;
+}
+
+.icon-button-hover:hover {
+  background-color: rgb(240,240,240);
+}

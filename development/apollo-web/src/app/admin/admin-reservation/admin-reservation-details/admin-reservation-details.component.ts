@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Reservation, ReservationService } from '../../../services/reservation/reservation.service';
+import { Reservation } from 'src/app/domains/reservation';
+import { ReservationService } from '../../../services/reservation/reservation.service';
 
 @Component({
   selector: 'app-admin-reservation-details',
