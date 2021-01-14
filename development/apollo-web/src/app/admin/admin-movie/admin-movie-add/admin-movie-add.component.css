@@ -1,0 +1,26 @@
+mat-form-field {
+  margin: 0px 10px;
+  padding-bottom: 0px;
+}
+
+.row-multiple-items {
+  width: 100%;
+}
+
+.row-single-item {
+  margin: 10px;
+}
+.row-single-item mat-form-field{
+  width: 100%;
+  margin: 0px;
+}
+
+.example-chip-list {
+  width: 100%;
+}
+
+.file-upload-form-field {
+  display: flex;
+  flex-direction: row;
+}
+

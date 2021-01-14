@@ -10,3 +10,9 @@ mat-card {
 table {
   width: 100%;
 }
+
+.table-wrapper {
+  overflow: auto;
+  position: relative;
+  height: 95%;
+}

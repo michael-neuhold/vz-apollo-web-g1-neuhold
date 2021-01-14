@@ -1,9 +1,66 @@
-<h2 mat-dialog-title>Add</h2>
+<h2 mat-dialog-title>Add movie</h2>
 
-<mat-dialog-content>
+<mat-divider></mat-divider>
+
+<mat-dialog-content style="margin-top: 30px;">
+
+  <div class="row-multiple-items">
+      <mat-form-field appearance="outline">
+        <mat-label>id</mat-label>
+        <input matInput [(ngModel)]="newMovie.id">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>title</mat-label>
+        <input matInput [(ngModel)]="newMovie.title">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>orignal title</mat-label>
+        <input matInput [(ngModel)]="newMovie.originalTitle">
+      </mat-form-field>
+  </div>
+
+  <div class="row-single-item">
+    <mat-form-field appearance="outline">
+      <mat-label>description</mat-label>
+      <input matInput [(ngModel)]="newMovie.description">
+    </mat-form-field>
+  </div>
+
+  <div class="row-single-item">
+    <mat-form-field appearance="outline">
+      <mat-label>actors</mat-label>
+      <mat-chip-list #chipList aria-label="actor">
+        <mat-chip *ngFor="let actor of actors" [selectable]="selectable"
+                [removable]="removable" (removed)="remove(actor)">
+          {{actor}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="enter new actor..."
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+  </div>
+
+  <div class="row-multiple-items">
+    <mat-form-field appearance="outline">
+      <mat-select placeholder="genre" [(ngModel)]="newMovie.genreId">
+          <mat-option *ngFor="let option of allGenre" [value]="option.id">
+            {{option.name}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>length</mat-label>
+      <input matInput [(ngModel)]="newMovie.length">
+    </mat-form-field>
+  </div>
+
 </mat-dialog-content>
 
-<div mat-dialog-actions>
-  <button mat-button (click)="onCloseClick()">cancle</button>
-  <button mat-raised-button (click)="onSaveClick()">save</button>
-</div>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCloseClick()">Cancel</button>
+  <button color="primary" mat-raised-button (click)="onSaveClick()">Add</button>
+</mat-dialog-actions>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MovieDetail } from '../../services/movie/movie.service';
+import { MovieDetail } from 'src/app/domains/movie';
 
 @Component({
   selector: 'app-movie-detail-information',

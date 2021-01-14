@@ -5,6 +5,7 @@ export class MovieDetail{
     public originalTitle? : string,
     public description? : string,
     public genre? : string,
+    public genreId? : number,
     public length? : number,
     public coverImageLink? : string,
     public coverImage? : string,
