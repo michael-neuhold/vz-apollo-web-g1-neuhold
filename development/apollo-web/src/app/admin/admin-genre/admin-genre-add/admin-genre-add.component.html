@@ -3,20 +3,31 @@
 <mat-divider></mat-divider>
 
 <mat-dialog-content>
+  <form #genreForm="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Id</mat-label>
+      <input
+        matInput
+        [(ngModel)]="newGenre.id"
+        name="genreId"
+        required
+        pattern="[0-9]*">
+      <app-input-error-message  *ngIf="errors.genreId" [error]="errors.genreId"></app-input-error-message>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="newGenre.id">
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Bezeichnung</mat-label>
-    <input matInput [(ngModel)]="newGenre.name" >
-  </mat-form-field>
-
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        [(ngModel)]="newGenre.name"
+        name="genreName"
+        required>
+      <app-input-error-message  *ngIf="errors.genreName" [error]="errors.genreName"></app-input-error-message>
+    </mat-form-field>
+  </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-button (click)="onCloseClick()">Cancel</button>
-  <button color="primary" mat-raised-button (click)="onSaveClick()">Add</button>
+  <button type="submit" color="primary" mat-raised-button (click)="onSaveClick()" [disabled]="!genreForm.valid">Add</button>
 </mat-dialog-actions>

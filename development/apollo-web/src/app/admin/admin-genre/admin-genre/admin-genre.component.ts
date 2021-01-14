@@ -23,7 +23,11 @@ export class AdminGenreComponent implements OnInit {
     const dialogRef = this.dialog.open(AdminGenreAddComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      if(result != undefined && result.save) {
+        this.genreService.create(result.data).subscribe(
+          res => this.loadTable()
+        )
+      }
     });
   }
 

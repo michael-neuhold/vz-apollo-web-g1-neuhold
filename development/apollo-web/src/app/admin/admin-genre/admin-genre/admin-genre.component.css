@@ -1,4 +1,4 @@
-mat-card {
+.page-wrapper {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -7,22 +7,55 @@ mat-card {
   padding: 30px;
 }
 
-.dashboard-card-content {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.dashboard-card-header {
-  text-align: center;
-}
-
-.table-wrapper {
+.content-wrapper {
   overflow: auto;
   position: relative;
-  height: 95%;
+  height: 100%;
 }
 
-table {
-  margin: 20px;
-  width: 50%;
+/* flex container */
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* card style */
+
+.cat-card {
+  width: 200px; margin: 20px;
+  background: rgb(56,70,169);
+  background: linear-gradient(90deg, rgba(56,70,169,0.9) 0%, rgba(56,70,169,1) 100%, rgba(0,212,255,1) 100%);
+  transition: transform .3s ease;
+}
+
+.cat-card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+mat-card-title {
+  color: white;
+  margin-bottom: 20px;
+}
+
+mat-card-actions {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  color: white;
+}
+
+.card-information-large {
+  min-height: 80px;
+  color: white;
+}
+
+.card-information-small {
+  min-height: 60px;
+  color: white;
+}
+
+.card-information-header {
+  margin: 0px;
+  font-weight: bold;
 }

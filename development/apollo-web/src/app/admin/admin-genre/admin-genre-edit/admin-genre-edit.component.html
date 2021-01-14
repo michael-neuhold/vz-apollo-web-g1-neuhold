@@ -3,17 +3,19 @@
 <mat-divider></mat-divider>
 
 <mat-dialog-content>
+  <form #genreForm="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput [ngModel]="genre.id" disabled name="genreId">
+      <app-input-error-message  *ngIf="errors.genreId" [error]="errors.genreId"></app-input-error-message>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Name</mat-label>
-    <input matInput [ngModel]="genre.id" disabled>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Bezeichnung</mat-label>
-    <input matInput [(ngModel)]="genre.name" >
-  </mat-form-field>
-
+    <mat-form-field appearance="outline">
+      <mat-label>Bezeichnung</mat-label>
+      <input matInput [(ngModel)]="genre.name" name="genreName" required>
+      <app-input-error-message  *ngIf="errors.genreName" [error]="errors.genreName"></app-input-error-message>
+    </mat-form-field>
+  </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">

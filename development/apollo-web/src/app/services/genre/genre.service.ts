@@ -27,4 +27,9 @@ export class GenreService {
     .pipe(catchError(this.errorHandler));
   }
 
+  create(genre: Genre): Observable<any> {
+    return this.http.post<Genre>(`${environment.server}/genre`, genre)
+    .pipe(catchError(this.errorHandler));
+  }
+
 }
