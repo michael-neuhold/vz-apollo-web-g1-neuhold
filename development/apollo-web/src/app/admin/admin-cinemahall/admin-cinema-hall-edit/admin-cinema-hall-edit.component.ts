@@ -1,5 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-admin-cinema-hall-edit',
@@ -8,18 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AdminCinemaHallEditComponent implements OnInit {
 
-  constructor(
-    public dialogRef: MatDialogRef<AdminCinemaHallEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
-
-
-  onCloseClick(): void {
-    this.dialogRef.close("CLOSED");
-  }
-
-  onSaveClick() : void {
-    this.dialogRef.close("SAVED");
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }

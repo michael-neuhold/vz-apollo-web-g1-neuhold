@@ -41,9 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category/admin-category.component';
 import { ChartsModule } from 'ng2-charts';
 import { AdminChartComponent } from './admin/admin-chart/admin-chart.component';
-import { AdminCinemaHallAddComponent } from './admin/admin-cinemahall/admin-cinema-hall-add/admin-cinema-hall-add.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { AdminCinemaHallEditComponent } from './admin/admin-cinemahall/admin-cinema-hall-edit/admin-cinema-hall-edit.component';
 import { AdminGenreAddComponent } from './admin/admin-genre/admin-genre-add/admin-genre-add.component';
 import { AdminGenreEditComponent } from './admin/admin-genre/admin-genre-edit/admin-genre-edit.component';
 import { AdminCategoryAddComponent } from './admin/admin-category/admin-category-add/admin-category-add.component';
@@ -66,6 +64,9 @@ import { PricePipe } from './pipes/price.pipe';
 import { InputErrorMessageComponent } from './shared/input-error-message/input-error-message.component';
 import { ReservationDetailComponent } from './detail/reservation-detail/reservation-detail.component';
 import {MatSliderModule} from '@angular/material/slider';
+import { AdminCinemaHallAddComponent } from './admin/admin-cinemahall/admin-cinema-hall-add/admin-cinema-hall-add.component';
+import { AdminCinemaHallEditComponent } from './admin/admin-cinemahall/admin-cinema-hall-edit/admin-cinema-hall-edit.component';
+import { AdminCinemahallShowComponent } from './admin/admin-cinemahall/admin-cinema-hall-show/admin-cinema-hall-show.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import {MatSliderModule} from '@angular/material/slider';
     AdminChartComponent,
     AdminCinemaHallAddComponent,
     AdminCinemaHallEditComponent,
+    AdminCinemahallShowComponent,
     AdminGenreAddComponent,
     AdminGenreEditComponent,
     AdminCategoryAddComponent,
@@ -132,9 +134,6 @@ import {MatSliderModule} from '@angular/material/slider';
     OAuthModule.forRoot()
   ],
   entryComponents: [
-    // cinema hall
-    AdminCinemaHallAddComponent,
-    AdminCinemaHallEditComponent,
     // category
     AdminCategoryAddComponent,
     AdminCategoryEditComponent,
