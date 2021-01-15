@@ -1,1 +1,33 @@
-<h2 mat-dialog-title>Add</h2>
+<div class="wrapper">
+
+  <div class="input-wrapper">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="newCinemaHall.id">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Reihen</mat-label>
+      <input matInput [(ngModel)]="newCinemaHall.size.x" >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Sitze</mat-label>
+      <input matInput [(ngModel)]="newCinemaHall.size.y">
+    </mat-form-field>
+
+    <div class="control">
+      <mat-slide-toggle
+            color="primary"
+            class="example-margin"
+            [checked]="false">
+          use default size
+      </mat-slide-toggle>
+    </div>
+
+    <div class="control save-button">
+      <button color="primary" mat-raised-button>Save</button>
+    </div>
+
+</div>

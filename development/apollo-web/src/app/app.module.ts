@@ -70,6 +70,7 @@ import { AdminCinemahallShowComponent } from './admin/admin-cinemahall/admin-cin
 import { CinemahallComponent } from './shared/cinemahall/cinemahall.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { NoContentComponent } from './shared/no-content/no-content.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -130,6 +131,7 @@ import { NoContentComponent } from './shared/no-content/no-content.component';
     MatChipsModule,
     MatTableModule,
     MatCardModule,
+    MatSlideToggleModule,
     FormsModule,
     MatTooltipModule,
     MatMenuModule,

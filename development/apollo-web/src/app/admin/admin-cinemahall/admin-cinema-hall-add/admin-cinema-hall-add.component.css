@@ -1,0 +1,23 @@
+.wrapper {
+  max-width: auto;
+  justify-content: center;
+  padding: 30px;
+}
+
+mat-form-field {
+  display: flex;
+  margin: auto;
+  padding: 0px;
+  justify-content: center;
+}
+
+.control {
+  display: flex;
+  margin: auto;
+  padding: 0px;
+  justify-content: center;
+}
+
+.save-button {
+  margin-top: 20px;
+}
