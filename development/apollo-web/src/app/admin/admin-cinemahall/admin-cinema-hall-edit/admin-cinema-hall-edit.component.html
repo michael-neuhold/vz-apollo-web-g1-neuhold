@@ -1,1 +1,17 @@
-<h2 mat-dialog-title>Edit</h2>
+<!-- select cinemahall -->
+<div class="cinemahall-selector">
+  <mat-form-field appearance="outline">
+    <mat-select placeholder="CinemaHall" [(ngModel)]="selectedCinemaHallId" (selectionChange)="onCinemaHallChange()">
+        <mat-option *ngFor="let cinemahall of cinemaHalls" [value]="cinemahall.id">
+          {{cinemahall.id}}
+        </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div *ngIf="cinemaHallDetailed && seats">
+  <app-cinemahall-edit *ngIf="seats" [seats]="seats" [size]="cinemaHallDetailed.size"></app-cinemahall-edit>
+</div>
+<div *ngIf="!(cinemaHallDetailed && seats)">
+  <app-no-content message="no cinema hall configured"></app-no-content>
+</div>

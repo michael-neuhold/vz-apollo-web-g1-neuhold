@@ -16,9 +16,11 @@
 .row-wrapper {
   display: flex;
   margin: auto;
-  padding: 0px;
+  padding: 0px 0px 5px 0px;
   justify-content: center;
   height: 30px;
+  margin-bottom: 10px;
+  max-width: 700px;
 }
 
 .seat-button {

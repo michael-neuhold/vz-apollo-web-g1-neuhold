@@ -34,8 +34,8 @@ export class AdminCinemahallShowComponent implements OnInit {
     this.cinemahallService.getById(id).subscribe(
       result => {
         this.cinemaHallDetailed = result;
-        console.log(result)
-        this.getSeats(result.versionId);
+        if(result != null)
+          this.getSeats(result.versionId);
     });
   }
 

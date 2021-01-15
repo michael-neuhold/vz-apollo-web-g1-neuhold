@@ -1,0 +1,28 @@
+<div class="cinemahall-wrapper">
+  <mat-card class="row-wrapper" *ngFor="let row of seats.slice(0, size.x); let idx = index">
+    <div *ngFor="let seat of seats.slice(idx * size.y, idx * size.y + size.y)">
+      <button
+        class="seat-button"
+        [matMenuTriggerFor]="enableSeatMenu"
+        mat-button matTooltip="Row: {{seat.label.row}}, Seat: {{seat.label.number}}, Category: {{seat.categoryId}}">
+        <mat-icon style="font-size: 16px; padding: 0px;" aria-hidden="false" >event_seat</mat-icon>
+      </button>
+      <mat-menu #enableSeatMenu="matMenu">
+        <button mat-menu-item>available</button>
+        <button mat-menu-item>not available</button>
+        <button mat-menu-item>corona</button>
+      </mat-menu>
+      <div style="width:20px; height: 20px;"></div>
+    </div>
+    <div style="position: absolute; right: 5px; padding: 0px;">
+      <button mat-button class="seat-button" [matMenuTriggerFor]="changeCategoryMenu">
+        <mat-icon style="font-size: 16px; padding: 0px;" aria-hidden="false" >more_vert</mat-icon>
+      </button>
+      <mat-menu #changeCategoryMenu="matMenu">
+        <button *ngFor="let category of categories" mat-menu-item>{{category.id}}</button>
+      </mat-menu>
+    </div>
+  </mat-card>
+
+  <div class="canvas"></div>
+</div>
