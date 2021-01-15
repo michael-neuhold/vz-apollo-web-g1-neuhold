@@ -13,9 +13,11 @@ export class ReservationDetailComponent implements OnInit {
   constructor(private reservationService: ReservationService, private route: ActivatedRoute) { }
 
   reservation: Reservation;
+  isPaid: boolean;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => this.reservationService.getById(params['id']).subscribe(result => this.reservation = result));
+    this.route.params.subscribe(params => this.reservationService.isPaid(params['id']).subscribe(result => this.isPaid = result));
   }
 
 }

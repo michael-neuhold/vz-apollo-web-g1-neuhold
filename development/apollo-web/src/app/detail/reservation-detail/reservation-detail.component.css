@@ -50,3 +50,21 @@ mat-card-actions {
   margin: 0px;
   font-weight: bold;
 }
+
+.is-paid {
+  position: absolute;
+  padding: 10px;
+  border-radius: 4px;
+  right: 15px;
+  top: 15px;
+}
+
+.paid {
+  background-color: green;
+  color: white;
+}
+
+.not-paid {
+  background-color: red;
+  color: white;
+}

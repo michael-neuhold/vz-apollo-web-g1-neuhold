@@ -19,12 +19,17 @@ export class ReservationService {
 
   getAll() : Observable<Array<Reservation>>  {
     return this.http.get<Reservation>(`${environment.server}/reservation`)
-    .pipe(map(res => res), catchError(this.errorHandler));
+    .pipe(catchError(this.errorHandler));
   }
 
-  getById(id) : Observable<Reservation>  {
+  getById(id: number) : Observable<Reservation>  {
     return this.http.get<Reservation>(`${environment.server}/reservation/${id}`)
-    .pipe(map(res => res), catchError(this.errorHandler));
+    .pipe(catchError(this.errorHandler));
+  }
+
+  isPaid(id: number) : Observable<boolean> {
+    return this.http.get<boolean>(`${environment.server}/reservation/paid/${id}`)
+    .pipe(catchError(this.errorHandler));
   }
 
 }

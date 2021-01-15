@@ -65,6 +65,7 @@ import { DatePipe } from '@angular/common';
 import { PricePipe } from './pipes/price.pipe';
 import { InputErrorMessageComponent } from './shared/input-error-message/input-error-message.component';
 import { ReservationDetailComponent } from './detail/reservation-detail/reservation-detail.component';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -126,6 +127,7 @@ import { ReservationDetailComponent } from './detail/reservation-detail/reservat
     MatMenuModule,
     MatPaginatorModule,
     HttpClientModule,
+    MatSliderModule,
     ChartsModule,
     OAuthModule.forRoot()
   ],
