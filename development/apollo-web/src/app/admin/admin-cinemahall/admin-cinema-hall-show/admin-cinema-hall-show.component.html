@@ -1,1 +1,25 @@
 <h2 mat-dialog-title>show</h2>
+
+  <!-- select cinemahall -->
+  <mat-form-field appearance="outline">
+    <mat-select placeholder="CinemaHall" [(ngModel)]="selectedCinemaHallId">
+        <mat-option *ngFor="let cinemahall of cinemaHalls" [value]="cinemahall.id">
+          {{cinemahall.id}}
+        </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div *ngIf="cinemaHallDetailed && seats">
+<!---
+    <div style="display: flex; margin: auto; justify-content: center;" *ngFor="let seat of seats.slice(0, seats.length / cinemaHallDetailed.size.y % 1 === 0 ? seats.length / cinemaHallDetailed.size.y : seats.length / cinemaHallDetailed.size.y + 1); let idx = index">
+      <div class="" *ngFor="let x of seats.slice(idx * cinemaHallDetailed.size.y, idx * cinemaHallDetailed.size.y + cinemaHallDetailed.size.y)">
+        {{ x.seatInformationId }}
+        <mat-icon *ngIf="x.seatInformationId != 4" style="margin: 4px 2px;" aria-hidden="false" aria-label="Example home icon">event_seat</mat-icon>
+      </div>
+    </div>
+
+    <div style="background-color: lightgray; height: 10px; marginTop: 50px; borderRadius: 4px;"></div>
+  -->
+    <app-cinemahall [seats]="seats" [size]="cinemaHallDetailed.size"></app-cinemahall>
+
+  </div>

@@ -1,0 +1,24 @@
+.canvas {
+  background-color: lightgray;
+  height: 10px;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 4px;
+  width: 600px;
+}
+
+.cinemahall-wrapper {
+  max-width: auto;
+  justify-content: center;
+  padding: 50px;
+  border: 1px lightgray solid;
+  border-radius: 4px;
+}
+
+.row-wrapper {
+  display: flex;
+  margin: auto;
+  padding: 0px;
+  justify-content: center;
+  height: 30px;
+}

@@ -6,3 +6,11 @@ mat-card {
   bottom: 15px;
   padding: 30px;
 }
+
+mat-tab-body {
+  height: 100%;
+}
+
+mat-card-content {
+  height: 100%;
+}

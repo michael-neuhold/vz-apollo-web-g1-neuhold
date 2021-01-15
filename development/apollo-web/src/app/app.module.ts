@@ -67,6 +67,8 @@ import {MatSliderModule} from '@angular/material/slider';
 import { AdminCinemaHallAddComponent } from './admin/admin-cinemahall/admin-cinema-hall-add/admin-cinema-hall-add.component';
 import { AdminCinemaHallEditComponent } from './admin/admin-cinemahall/admin-cinema-hall-edit/admin-cinema-hall-edit.component';
 import { AdminCinemahallShowComponent } from './admin/admin-cinemahall/admin-cinema-hall-show/admin-cinema-hall-show.component';
+import { CinemahallComponent } from './shared/cinemahall/cinemahall.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -107,7 +109,8 @@ import { AdminCinemahallShowComponent } from './admin/admin-cinemahall/admin-cin
     ImageEndpointPipe,
     PricePipe,
     InputErrorMessageComponent,
-    ReservationDetailComponent
+    ReservationDetailComponent,
+    CinemahallComponent
   ],
   imports: [
     BrowserModule,
@@ -126,6 +129,7 @@ import { AdminCinemahallShowComponent } from './admin/admin-cinemahall/admin-cin
     MatTableModule,
     MatCardModule,
     FormsModule,
+    MatTooltipModule,
     MatMenuModule,
     MatPaginatorModule,
     HttpClientModule,

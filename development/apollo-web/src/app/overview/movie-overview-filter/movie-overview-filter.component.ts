@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
-import { CinemaHall, CinemahallService } from '../../services/cinemahall/cinemahall.service';
+import { CinemaHall } from 'src/app/domains/cinemahall';
+import { CinemahallService } from '../../services/cinemahall/cinemahall.service';
 
 @Component({
   selector: 'app-movie-overview-filter',
