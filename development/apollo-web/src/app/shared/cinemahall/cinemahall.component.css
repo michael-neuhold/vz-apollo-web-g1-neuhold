@@ -10,9 +10,7 @@
 .cinemahall-wrapper {
   max-width: auto;
   justify-content: center;
-  padding: 50px;
-  border: 1px lightgray solid;
-  border-radius: 4px;
+  padding: 30px;
 }
 
 .row-wrapper {
@@ -21,4 +19,10 @@
   padding: 0px;
   justify-content: center;
   height: 30px;
+}
+
+.seat-button {
+  padding: 0px;
+  min-width: 20px;
+  min-height: 10px;
 }

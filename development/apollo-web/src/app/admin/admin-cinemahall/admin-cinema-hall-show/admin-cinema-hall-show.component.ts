@@ -47,4 +47,8 @@ export class AdminCinemahallShowComponent implements OnInit {
     });
   }
 
+  onCinemaHallChange() {
+    this.getCinemaHallDetailed(this.selectedCinemaHallId)
+  }
+
 }

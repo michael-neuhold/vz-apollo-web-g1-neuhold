@@ -1,8 +1,11 @@
 <div class="cinemahall-wrapper">
-  <div class="row-wrapper" *ngFor="let row of seats.slice(0, seats.length / size.y % 1 === 0 ? seats.length / size.y : seats.length / size.y + 1); let idx = index">
+  <div class="row-wrapper" *ngFor="let row of seats.slice(0, size.x); let idx = index">
     <div class="" *ngFor="let seat of seats.slice(idx * size.y, idx * size.y + size.y)">
-      <button mat-button matTooltip="Row: {{seat.label.row}}, Seat: {{seat.label.number}}" style="padding: 0px; min-width: 20px; min-height: 10px;">
-        <mat-icon style="font-size: 16px; padding: 0px;" *ngIf="seat.seatInformationId < 4" aria-hidden="false" aria-label="Example home icon">event_seat</mat-icon>
+      <button
+        *ngIf="seat.seatInformationId < 4"
+        class="seat-button"
+        mat-button matTooltip="Row: {{seat.label.row}}, Seat: {{seat.label.number}}, Category: {{seat.categoryId}}">
+        <mat-icon style="font-size: 16px; padding: 0px;" aria-hidden="false" >event_seat</mat-icon>
       </button>
       <div style="width:20px; height: 20px;"></div>
     </div>

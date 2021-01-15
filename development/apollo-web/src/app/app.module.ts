@@ -69,6 +69,7 @@ import { AdminCinemaHallEditComponent } from './admin/admin-cinemahall/admin-cin
 import { AdminCinemahallShowComponent } from './admin/admin-cinemahall/admin-cinema-hall-show/admin-cinema-hall-show.component';
 import { CinemahallComponent } from './shared/cinemahall/cinemahall.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { NoContentComponent } from './shared/no-content/no-content.component';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     PricePipe,
     InputErrorMessageComponent,
     ReservationDetailComponent,
-    CinemahallComponent
+    CinemahallComponent,
+    NoContentComponent
   ],
   imports: [
     BrowserModule,
