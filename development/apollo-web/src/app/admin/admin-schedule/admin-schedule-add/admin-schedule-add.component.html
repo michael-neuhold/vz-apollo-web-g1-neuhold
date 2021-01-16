@@ -1,9 +1,60 @@
-<h2 mat-dialog-title>Add</h2>
-
+<h2 mat-dialog-title>Add schedule</h2>
+<mat-divider></mat-divider>
 <mat-dialog-content>
+    <form>
+
+      <div class="row">
+        <mat-form-field appearance="outline" class="datetime">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Start date">
+            <input matEndDate placeholder="End date">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="datetime">
+          <mat-label >24 TIMEPICKER</mat-label>
+          <input matTimepicker #t1="matTimepicker"  okLabel="Ok"
+             cancelLabel="Cancel" #time1="ngModel"
+            id="timepicker-example-1" mode="24h" ngModel placeholder="Please select time..."
+            name="time-1" required>
+          <mat-icon matSuffix (click)="t1.showDialog()">access_time</mat-icon>
+          <mat-error *ngIf="time1.touched && time1.invalid">Invalid Date</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Movie</mat-label>
+          <input type="text"
+                  placeholder="Pick one"
+                  aria-label="Number"
+                  matInput
+                  [formControl]="myControl"
+                  [matAutocomplete]="auto">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-select placeholder="Cinemahall">
+              <mat-option *ngFor="let cinemahall of cinemaHalls" [value]="cinemahall.id">
+                {{cinemahall.id}}
+              </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      </form>
 </mat-dialog-content>
 
-<div mat-dialog-actions>
-  <button mat-button (click)="onCloseClick()">cancel</button>
-  <button mat-raised-button (click)="onSaveClick()">save</button>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onCloseClick()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSaveClick()">Save</button>
 </div>

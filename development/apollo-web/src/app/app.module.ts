@@ -58,7 +58,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AdminReservationDetailsComponent } from './admin/admin-reservation/admin-reservation-details/admin-reservation-details.component';
 import { ImageEndpointPipe } from './pipes/image-endpoint.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PricePipe } from './pipes/price.pipe';
 import { InputErrorMessageComponent } from './shared/input-error-message/input-error-message.component';
@@ -73,6 +73,8 @@ import { NoContentComponent } from './shared/no-content/no-content.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { CinemahallEditComponent } from './shared/cinemahall-edit/cinemahall-edit.component';
 import { CoronaSettingsComponent } from './shared/corona-settings/corona-settings.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatTimepickerModule } from 'mat-timepicker';
 
 @NgModule({
   declarations: [
@@ -137,9 +139,12 @@ import { CoronaSettingsComponent } from './shared/corona-settings/corona-setting
     MatCardModule,
     MatSlideToggleModule,
     FormsModule,
+    ReactiveFormsModule,
     MatTooltipModule,
+    MatAutocompleteModule,
     MatMenuModule,
     MatPaginatorModule,
+    MatTimepickerModule,
     HttpClientModule,
     MatSliderModule,
     ChartsModule,
