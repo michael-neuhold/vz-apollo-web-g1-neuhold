@@ -22,4 +22,23 @@ export class CinemahallEditComponent implements OnInit {
     this.categoryService.getAll().subscribe(result => this.categories = result);
   }
 
+  getColorForSeatInformation(seatinformation: number) {
+    if (seatinformation == 3) return 'red';
+    else if (seatinformation == 4) return 'lightgray';
+    else return 'black';
+  }
+
+  onSeatInformationChange(seat: Seat, value: number) {
+    seat.seatInformationId = value;
+  }
+
+  onCategoryChange(cardRow: number, categoryId: string) {
+    let targetRow = this.size.x - cardRow - 1;
+    this.seats.forEach(seat => {
+      if (seat.coordinate.y == targetRow) {
+        seat.categoryId = categoryId;
+      }
+    })
+  }
+
 }

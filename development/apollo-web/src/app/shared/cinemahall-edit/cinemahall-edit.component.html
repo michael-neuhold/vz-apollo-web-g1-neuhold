@@ -5,12 +5,12 @@
         class="seat-button"
         [matMenuTriggerFor]="enableSeatMenu"
         mat-button matTooltip="Row: {{seat.label.row}}, Seat: {{seat.label.number}}, Category: {{seat.categoryId}}">
-        <mat-icon style="font-size: 16px; padding: 0px;" aria-hidden="false" >event_seat</mat-icon>
+        <mat-icon [ngStyle]="{'color': getColorForSeatInformation(seat.seatInformationId)}" style="font-size: 16px; padding: 0px;" aria-hidden="false" >event_seat</mat-icon>
       </button>
       <mat-menu #enableSeatMenu="matMenu">
-        <button mat-menu-item>available</button>
-        <button mat-menu-item>not available</button>
-        <button mat-menu-item>corona</button>
+        <button (click)="onSeatInformationChange(seat, 1)" mat-menu-item>available</button>
+        <button (click)="onSeatInformationChange(seat, 4)" mat-menu-item>not available</button>
+        <button (click)="onSeatInformationChange(seat, 3)"mat-menu-item>corona</button>
       </mat-menu>
       <div style="width:20px; height: 20px;"></div>
     </div>
@@ -19,7 +19,7 @@
         <mat-icon style="font-size: 16px; padding: 0px;" aria-hidden="false" >more_vert</mat-icon>
       </button>
       <mat-menu #changeCategoryMenu="matMenu">
-        <button *ngFor="let category of categories" mat-menu-item>{{category.id}}</button>
+        <button (click)="onCategoryChange(idx, category.id)" *ngFor="let category of categories" mat-menu-item>{{category.id}}</button>
       </mat-menu>
     </div>
   </mat-card>
