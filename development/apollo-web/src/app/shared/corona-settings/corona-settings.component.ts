@@ -13,7 +13,7 @@ export class CoronaSettingsComponent implements OnInit {
 
   coronaSettings = [
     { id: 0, name: 'chessboard', seats: ['black', 'red', 'black', 'red', 'black', 'red', 'black', 'red', 'black'] },
-    { id: 1, name: 'alternately', seats: ['black', 'black', 'black', 'red', 'red', 'red', 'black', 'black', 'black'] },
+    { id: 1, name: 'alternately', seats: ['black', 'red', 'black', 'black', 'red', 'black', 'black', 'red', 'black'] },
     { id: 2, name: 'no restrictions', seats: ['black', 'black', 'black', 'black', 'black', 'black', 'black', 'black', 'black'] }
   ];
 
@@ -29,7 +29,11 @@ export class CoronaSettingsComponent implements OnInit {
     this.data.forEach(seat => {
       if(seat.seatInformationId != 3 || seat.seatInformationId != 4) {
         if(seat.coordinate.x % 2 == 0) {
-          seat.seatInformationId = 3;
+          if(seat.coordinate.y % 2 == 0)
+            seat.seatInformationId = 3;
+        } else {
+          if(seat.coordinate.y % 2 != 0)
+            seat.seatInformationId = 3;
         }
       }
     });
@@ -39,7 +43,7 @@ export class CoronaSettingsComponent implements OnInit {
   applyAlternately(): Seat[] {
     this.data.forEach(seat => {
       if(seat.seatInformationId != 3 || seat.seatInformationId != 4) {
-        if(seat.coordinate.y % 2 == 0) {
+        if(seat.coordinate.x % 2 == 0) {
           seat.seatInformationId = 3;
         }
       }
