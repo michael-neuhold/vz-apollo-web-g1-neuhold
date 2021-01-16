@@ -4,9 +4,14 @@
 
 <mat-dialog-content>
 
-  <button *ngFor="let settingOption of coronaSettings" mat-button class="seat-button">
+  <button *ngFor="let settingOption of coronaSettings" mat-button class="seat-button" matTooltip="{{ settingOption.name }}" (click)="onApplyCoronaSettings(settingOption.id)">
     <div class="row-wrapper" *ngFor="let row of settingOption.seats.slice(0, 3); let idx = index">
-      <mat-icon *ngFor="let seat of settingOption.seats.slice(idx * 3, idx * 3 + 3)" [ngStyle]="{'color': seat}" style="font-size: 16px; padding: 0px;" aria-hidden="false" >event_seat</mat-icon>
+      <mat-icon
+        *ngFor="let seat of settingOption.seats.slice(idx * 3, idx * 3 + 3)"
+        [ngStyle]="{'color': seat}" style="font-size: 16px; padding: 0px;"
+        aria-hidden="false">
+        event_seat
+      </mat-icon>
     </div>
   </button>
 

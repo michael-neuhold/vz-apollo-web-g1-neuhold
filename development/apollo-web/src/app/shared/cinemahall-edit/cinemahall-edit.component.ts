@@ -53,13 +53,11 @@ export class CinemahallEditComponent implements OnInit {
   }
 
   onCorona() {
-    console.log("open dialog for corona");
-
-    const dialogRef = this.dialog.open(CoronaSettingsComponent, { data: {} });
+    const dialogRef = this.dialog.open(CoronaSettingsComponent, { data: this.seats});
 
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
-        this.categoryService.update(result.data).subscribe(() => console.log("close"))
+        this.seats = result.data;
       }
     });
   }
