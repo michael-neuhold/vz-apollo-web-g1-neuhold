@@ -1,9 +1,13 @@
 import { NumberSymbol } from '@angular/common';
+import { EventEmitter, Output } from '@angular/core';
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Category } from 'src/app/domains/category';
 import { Size } from 'src/app/domains/cinemahall';
 import { Seat } from 'src/app/domains/seat';
 import { CategoryService } from 'src/app/services/category/category.service';
+import { CinemahallService } from 'src/app/services/cinemahall/cinemahall.service';
+import { CoronaSettingsComponent } from '../corona-settings/corona-settings.component';
 
 @Component({
   selector: 'app-cinemahall-edit',
@@ -12,10 +16,11 @@ import { CategoryService } from 'src/app/services/category/category.service';
 })
 export class CinemahallEditComponent implements OnInit {
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService, private cinemahallService: CinemahallService, public dialog: MatDialog,) { }
 
   @Input() seats: Seat[];
   @Input() size: Size;
+  @Output() saveSeats = new EventEmitter<Seat[]>();
 
   categories: Category[];
   seatInformation = [
@@ -47,12 +52,20 @@ export class CinemahallEditComponent implements OnInit {
     })
   }
 
-  onSave() {
-    console.log("save");
-  }
-
   onCorona() {
     console.log("open dialog for corona");
+
+    const dialogRef = this.dialog.open(CoronaSettingsComponent, { data: {} });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result != undefined && result.save) {
+        this.categoryService.update(result.data).subscribe(() => console.log("close"))
+      }
+    });
+  }
+
+  onSave() {
+    this.saveSeats.emit(this.seats);
   }
 
 }

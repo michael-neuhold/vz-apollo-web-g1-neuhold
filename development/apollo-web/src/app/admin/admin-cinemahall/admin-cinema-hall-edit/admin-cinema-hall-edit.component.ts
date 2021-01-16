@@ -50,4 +50,10 @@ export class AdminCinemaHallEditComponent implements OnInit {
     this.getCinemaHallDetailed(this.selectedCinemaHallId)
   }
 
+  onSave(seats: Seat[]) {
+    console.log('in admin-cinema-hall-edit: ',seats);
+    this.cinemaHallDetailed.seats = seats;
+    this.cinemahallService.update(this.cinemaHallDetailed).subscribe( result => console.log(result));
+  }
+
 }

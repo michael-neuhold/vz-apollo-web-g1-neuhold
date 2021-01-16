@@ -72,6 +72,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { NoContentComponent } from './shared/no-content/no-content.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { CinemahallEditComponent } from './shared/cinemahall-edit/cinemahall-edit.component';
+import { CoronaSettingsComponent } from './shared/corona-settings/corona-settings.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { CinemahallEditComponent } from './shared/cinemahall-edit/cinemahall-edi
     ReservationDetailComponent,
     CinemahallComponent,
     NoContentComponent,
-    CinemahallEditComponent
+    CinemahallEditComponent,
+    CoronaSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -154,7 +156,9 @@ import { CinemahallEditComponent } from './shared/cinemahall-edit/cinemahall-edi
     AdminMovieAddComponent,
     // schedule
     AdminScheduleAddComponent,
-    AdminScheduleEditComponent
+    AdminScheduleEditComponent,
+    // cinemahall
+    CoronaSettingsComponent,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

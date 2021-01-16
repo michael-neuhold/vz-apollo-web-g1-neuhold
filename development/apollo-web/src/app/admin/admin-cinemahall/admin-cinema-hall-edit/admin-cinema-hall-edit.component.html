@@ -10,7 +10,7 @@
 </div>
 
 <div *ngIf="cinemaHallDetailed && seats">
-  <app-cinemahall-edit *ngIf="seats" [seats]="seats" [size]="cinemaHallDetailed.size"></app-cinemahall-edit>
+  <app-cinemahall-edit *ngIf="seats" [seats]="seats" [size]="cinemaHallDetailed.size" (saveSeats)="onSave($event)"></app-cinemahall-edit>
 </div>
 <div *ngIf="!(cinemaHallDetailed && seats)">
   <app-no-content message="no cinema hall configured"></app-no-content>

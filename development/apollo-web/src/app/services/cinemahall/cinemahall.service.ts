@@ -33,5 +33,11 @@ export class CinemahallService {
     .pipe(catchError(this.errorHandler));
   }
 
+  update(cinemaHall: CinemaHallDetailed) : Observable<any> {
+    console.log('in service: ', cinemaHall);
+    return this.http.put<any>(`${environment.server}/cinemahall`, cinemaHall)
+    .pipe(catchError(this.errorHandler));
+  }
+
 }
 
