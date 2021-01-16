@@ -4,6 +4,7 @@ export class CinemaHall {
   constructor(
     public id? : string,
     public size? : Size,
+    public userId: number = 41
   ) {}
 }
 
