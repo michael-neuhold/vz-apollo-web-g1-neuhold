@@ -1,6 +1,6 @@
 export class MovieDetail{
   constructor(
-    public id? : string,
+    public id? : number,
     public title? : string,
     public originalTitle? : string,
     public description? : string,
