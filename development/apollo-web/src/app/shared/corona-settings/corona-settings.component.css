@@ -1,0 +1,35 @@
+.cinemahall-wrapper {
+  max-width: auto;
+  justify-content: center;
+  padding: 30px;
+}
+
+.row-wrapper {
+  display: flex;
+  margin: auto;
+  padding: 5px;
+  justify-content: center;
+}
+
+mat-dialog-content {
+  margin-top: 30px;
+}
+
+mat-icon {
+  vertical-align: middle;
+  height: 0px;
+  padding-bottom: 18px !important;
+  font-size: 16px; padding: 0px;
+}
+
+.seat-button {
+  padding: 0px;
+  min-width: 20px;
+  min-height: 10px;
+}
+
+button {
+  border: 1px lightgray solid;
+  margin-left: 10px;
+  margin-right: 10px;
+}
