@@ -33,4 +33,25 @@ mat-icon {
   vertical-align: middle;
   height: 0px;
   padding-bottom: 18px !important;
+  font-size: 16px; padding: 0px;
+}
+
+.category-change-button-wrapper {
+  position: absolute;
+  right: 5px;
+  padding: 0px;
+}
+
+.row-action {
+  display: flex;
+  margin: auto;
+  padding: 0px 0px 5px 0px;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  max-width: 700px;
+}
+
+.action-button {
+  margin: 0px 10px 0px 10px;
 }

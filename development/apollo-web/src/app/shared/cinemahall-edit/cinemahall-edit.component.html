@@ -1,28 +1,35 @@
 <div class="cinemahall-wrapper">
-  <mat-card class="row-wrapper" *ngFor="let row of seats.slice(0, size.x); let idx = index">
-    <div *ngFor="let seat of seats.slice(idx * size.y, idx * size.y + size.y)">
+  <mat-card class="row-wrapper" *ngFor="let row of seats.slice(0, size.x); let i = index">
+    <div *ngFor="let seat of seats.slice(i * size.y, i * size.y + size.y)">
       <button
         class="seat-button"
         [matMenuTriggerFor]="enableSeatMenu"
-        mat-button matTooltip="Row: {{seat.label.row}}, Seat: {{seat.label.number}}, Category: {{seat.categoryId}}">
+        mat-button matTooltip="Row: {{ seat.label.row }}, Seat: {{ seat.label.number }}, Category: {{ seat.categoryId }}, Price: {{ seat.price | price }}">
         <mat-icon [ngStyle]="{'color': getColorForSeatInformation(seat.seatInformationId)}" style="font-size: 16px; padding: 0px;" aria-hidden="false" >event_seat</mat-icon>
       </button>
       <mat-menu #enableSeatMenu="matMenu">
-        <button (click)="onSeatInformationChange(seat, 1)" mat-menu-item>available</button>
-        <button (click)="onSeatInformationChange(seat, 4)" mat-menu-item>not available</button>
-        <button (click)="onSeatInformationChange(seat, 3)"mat-menu-item>corona</button>
+        <button *ngFor="let seatInfo of seatInformation" (click)="onSeatInformationChange(seat, seatInfo.id)" mat-menu-item>{{ seatInfo.name }}</button>
       </mat-menu>
-      <div style="width:20px; height: 20px;"></div>
     </div>
-    <div style="position: absolute; right: 5px; padding: 0px;">
+    <div class="category-change-button-wrapper">
       <button mat-button class="seat-button" [matMenuTriggerFor]="changeCategoryMenu">
-        <mat-icon style="font-size: 16px; padding: 0px;" aria-hidden="false" >more_vert</mat-icon>
+        <mat-icon aria-hidden="false">more_vert</mat-icon>
       </button>
       <mat-menu #changeCategoryMenu="matMenu">
-        <button (click)="onCategoryChange(idx, category.id)" *ngFor="let category of categories" mat-menu-item>{{category.id}}</button>
+        <button
+          (click)="onCategoryChange(i, category.id)"
+          *ngFor="let category of categories" mat-menu-item>
+          {{ category.id }}
+        </button>
       </mat-menu>
     </div>
   </mat-card>
 
   <div class="canvas"></div>
+
+  <div class="row-action">
+    <button color="primary" class="action-button" (click)="onCorona()" mat-button>Corona</button>
+    <button color="primary" class="action-button" (click)="onSave()" mat-raised-button> Save</button>
+  </div>
+
 </div>

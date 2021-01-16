@@ -1,3 +1,4 @@
+import { NumberSymbol } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Category } from 'src/app/domains/category';
 import { Size } from 'src/app/domains/cinemahall';
@@ -17,6 +18,11 @@ export class CinemahallEditComponent implements OnInit {
   @Input() size: Size;
 
   categories: Category[];
+  seatInformation = [
+    {id: 1, name: 'available'},
+    {id: 3, name: 'corona'},
+    {id: 4, name: 'not available'}
+  ]
 
   ngOnInit(): void {
     this.categoryService.getAll().subscribe(result => this.categories = result);
@@ -39,6 +45,14 @@ export class CinemahallEditComponent implements OnInit {
         seat.categoryId = categoryId;
       }
     })
+  }
+
+  onSave() {
+    console.log("save");
+  }
+
+  onCorona() {
+    console.log("open dialog for corona");
   }
 
 }
