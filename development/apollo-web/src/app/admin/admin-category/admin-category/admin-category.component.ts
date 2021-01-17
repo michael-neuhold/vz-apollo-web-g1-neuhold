@@ -13,11 +13,13 @@ import { AdminCategoryEditComponent } from '../admin-category-edit/admin-categor
 })
 export class AdminCategoryComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private categoryService: CategoryService, private snackBService: SnackbarMessageService) {}
+  constructor(public dialog: MatDialog, private categoryService: CategoryService) {}
+
+  allCategories: Category[];
+  displayedColumns: string[] = ['id', 'description', 'price', 'iconName', 'edit'];
 
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AdminCategoryAddComponent, {});
-
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
         this.categoryService.create(result.data).subscribe(() => this.loadTable());
@@ -26,19 +28,13 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   openEditDialog(category: Category): void {
-    const dialogRef = this.dialog.open(AdminCategoryEditComponent, { data: category});
-
+    const dialogRef = this.dialog.open(AdminCategoryEditComponent, { data: category });
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
-        this.categoryService.update(result.data).subscribe(
-          () => this.loadTable()
-        );
+        this.categoryService.update(result.data).subscribe(() => this.loadTable());
       }
     });
   }
-
-  allCategories: Category[];
-  displayedColumns: string[] = ['id', 'description', 'price', 'iconName', 'edit'];
 
   ngOnInit(): void {
     this.loadTable();
