@@ -9,27 +9,32 @@
     <input matInput disabled [ngModel]="editCategory.id">
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Bezeichnung</mat-label>
-    <input matInput [(ngModel)]="editCategory.description" >
-  </mat-form-field>
+  <form [formGroup]="categoryEditForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Bezeichnung</mat-label>
+      <input matInput [(ngModel)]="editCategory.description" formControlName="categoryDescription" autocomplete="off">
+      <mat-error *ngIf="checkError('categoryDescription', 'required')">description is required</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Preis</mat-label>
-    <input matInput [(ngModel)]="editCategory.price">
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Preis</mat-label>
+      <input matInput [(ngModel)]="editCategory.price" formControlName="categoryPrice" autocomplete="off">
+      <mat-error *ngIf="checkError('categoryPrice', 'required')">price is required</mat-error>
+      <mat-error *ngIf="checkError('categoryPrice', 'pattern')">eg.: 23 or 15.44</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-select placeholder="Icon" [(ngModel)]="editCategory.iconName">
-        <mat-option *ngFor="let option of icons" [value]="option">
-           {{option}}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
-
+    <mat-form-field appearance="outline">
+      <mat-select placeholder="Icon" [(ngModel)]="editCategory.iconName" formControlName="categoryIcon">
+        <mat-error *ngIf="checkError('categoryIcon', 'required')">icon is required</mat-error>
+          <mat-option *ngFor="let option of icons" [value]="option">
+            {{option}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-button (click)="onCloseClick()">Cancel</button>
-  <button color="primary" mat-raised-button (click)="onSaveClick()">Save</button>
+  <button color="primary" mat-raised-button (click)="onSaveClick()" [disabled]="!categoryEditForm.valid">Save</button>
 </mat-dialog-actions>

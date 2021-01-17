@@ -3,34 +3,39 @@
 <mat-divider></mat-divider>
 
 <mat-dialog-content>
+  <form [formGroup]="categoryAddForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="newCategory.id" formControlName="categoryName" autocomplete="off" required>
+      <mat-error *ngIf="checkError('categoryName', 'required')">Genre id is required</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="newCategory.id">
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Bezeichnung</mat-label>
+      <input matInput [(ngModel)]="newCategory.description" formControlName="categoryDescription" autocomplete="off" required>
+      <mat-error *ngIf="checkError('categoryDescription', 'required')">Genre id is required</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Bezeichnung</mat-label>
-    <input matInput [(ngModel)]="newCategory.description" >
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Preis</mat-label>
+      <input matInput [(ngModel)]="newCategory.price" formControlName="categoryPrice" autocomplete="off" required>
+      <mat-error *ngIf="checkError('categoryPrice', 'required')">Genre id is required</mat-error>
+      <mat-error *ngIf="checkError('categoryPrice', 'pattern')">eg.: 23 or 15.44</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Preis</mat-label>
-    <input matInput [(ngModel)]="newCategory.price">
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-select placeholder="Icon" [(ngModel)]="newCategory.iconName">
-        <mat-option *ngFor="let option of icons" [value]="option">
-           {{option}}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
-
+    <mat-form-field appearance="outline">
+      <mat-select placeholder="Icon" [(ngModel)]="newCategory.iconName" formControlName="categoryIcon" required>
+          <mat-option *ngFor="let option of icons" [value]="option">
+            {{option}}
+          </mat-option>
+      </mat-select>
+      <mat-error *ngIf="checkError('categoryIcon', 'required')">Genre id is required</mat-error>
+    </mat-form-field>
+  </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-button (click)="onCloseClick()">Cancel</button>
-  <button color="primary" mat-raised-button (click)="onSaveClick()">Add</button>
+  <button color="primary" mat-raised-button (click)="onSaveClick()" [disabled]="!categoryAddForm.valid">Add</button>
 </mat-dialog-actions>
 
