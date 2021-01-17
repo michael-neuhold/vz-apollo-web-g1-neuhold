@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { Statistic } from 'src/app/domains/statistic';
 import { environment } from 'src/environments/environment';
 import { errorHandler } from '../handler/error';
 import { SnackbarMessageService } from '../snackbar-message/snackbar-message.service';
@@ -33,11 +34,4 @@ export class PaymentstatisticService {
     .pipe(catchError((err => errorHandler(err, "weekday statistic", this.snackbarMessage))));
   }
 
-}
-
-export class Statistic{
-  constructor(
-    public name? : string,
-    public value? : string,
-  ) {}
 }

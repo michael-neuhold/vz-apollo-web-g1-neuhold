@@ -3,8 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CinemaHall, Size } from 'src/app/domains/cinemahall';
 import { CinemahallService } from 'src/app/services/cinemahall/cinemahall.service';
-import { CinemaHallFormErrorMessages } from 'src/app/validation/cinemahall-error-message';
-import { updateErrorMessages } from 'src/app/validation/error-message-mapping';
 
 @Component({
   selector: 'app-admin-cinema-hall-add',
