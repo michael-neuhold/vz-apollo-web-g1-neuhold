@@ -76,6 +76,7 @@ import { CoronaSettingsComponent } from './shared/corona-settings/corona-setting
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatTimepickerModule } from 'mat-timepicker';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AngularTiltModule } from 'angular-tilt';
 
 @NgModule({
   declarations: [
@@ -123,6 +124,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     CoronaSettingsComponent
   ],
   imports: [
+    AngularTiltModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     BrowserModule,
     AppRoutingModule,

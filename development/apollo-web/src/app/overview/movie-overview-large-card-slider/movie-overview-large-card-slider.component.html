@@ -1,6 +1,6 @@
 <div class="flex-row">
   <a *ngFor="let item of movies" [routerLink]="['/movies', item.id]">
-    <mat-card class="mat-elevation-z5">
+    <mat-card class="mat-elevation-z5" aTilt data-tilt-perspective="900" data-tilt-scale="1.05">
       <img width="200" src="{{ item.coverImageLink | imageEndpoint }}">
       <div class="overlay">
         <div class="content">{{item.title}}</div>

@@ -6,6 +6,8 @@ export const errorHandler = (error: Error | any, message: string, snackbarMessag
     snackbarMessage.openSnackBar(`${message} id conflict occured`, "snackbar-message-error");
   else if (error.status == 404)
     snackbarMessage.openSnackBar(`${message} not found`, "snackbar-message-error");
+  else
+    snackbarMessage.openSnackBar(`something went wrong :(`, "snackbar-message-error");
   console.log(error);
   return of(null);
 }
