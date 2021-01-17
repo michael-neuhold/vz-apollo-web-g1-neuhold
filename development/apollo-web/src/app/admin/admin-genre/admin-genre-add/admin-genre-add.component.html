@@ -8,6 +8,7 @@
       <mat-label>Id</mat-label>
       <input
         matInput
+        required
         [(ngModel)]="newGenre.id"
         formControlName="genreId">
         <mat-error *ngIf="checkError('genreId', 'required')">Genre id is required</mat-error>
@@ -18,6 +19,7 @@
       <mat-label>Name</mat-label>
       <input
         matInput
+        required
         [(ngModel)]="newGenre.name"
         formControlName="genreName">
         <mat-error *ngIf="checkError('genreName', 'required')">Genre name is required</mat-error>

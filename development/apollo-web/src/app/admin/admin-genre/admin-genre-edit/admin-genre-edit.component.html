@@ -3,22 +3,20 @@
 <mat-divider></mat-divider>
 
 <mat-dialog-content>
-  <form #genreForm="ngForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Id</mat-label>
+    <input matInput [ngModel]="genre.id"  disabled name="genreId">
+  </mat-form-field>
+  <form [formGroup]="genreEditForm">
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
-      <input matInput [ngModel]="genre.id" disabled name="genreId">
-      <app-input-error-message  *ngIf="errors.genreId" [error]="errors.genreId"></app-input-error-message>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Bezeichnung</mat-label>
-      <input matInput [(ngModel)]="genre.name" name="genreName" required>
-      <app-input-error-message  *ngIf="errors.genreName" [error]="errors.genreName"></app-input-error-message>
+      <input matInput [(ngModel)]="genre.name" formControlName="genreName" required>
+      <mat-error *ngIf="checkError('genreName', 'required')">Genre name is required</mat-error>
     </mat-form-field>
   </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-button (click)="onCloseClick()">Cancel</button>
-  <button color="primary" mat-raised-button (click)="onSaveClick()">Save</button>
+  <button color="primary" mat-raised-button (click)="onSaveClick()" [disabled]="!genreEditForm.valid">Save</button>
 </mat-dialog-actions>
