@@ -1,7 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { timeStamp } from 'console';
 import { Observable, of } from 'rxjs';
 import { catchError, filter, map } from 'rxjs/operators';
 import { MovieSchedule, Schedule } from 'src/app/domains/schedule';

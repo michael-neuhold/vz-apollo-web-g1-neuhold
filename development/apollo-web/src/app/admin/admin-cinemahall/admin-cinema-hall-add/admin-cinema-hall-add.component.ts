@@ -22,7 +22,6 @@ export class AdminCinemaHallAddComponent implements OnInit {
 
   // form
   public cinemaHallAddForm: FormGroup;
-  errors: { [key: string]: string } = {};
 
   ngOnInit(): void {
     this.cinemaHallAddForm = new FormGroup({

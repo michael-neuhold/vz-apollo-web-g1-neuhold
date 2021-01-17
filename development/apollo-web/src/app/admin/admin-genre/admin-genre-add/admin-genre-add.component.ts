@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Genre } from 'src/app/domains/genre';
 import { updateErrorMessages } from 'src/app/validation/error-message-mapping';
@@ -18,8 +18,7 @@ export class AdminGenreAddComponent implements OnInit {
   newGenre: Genre = new Genre();
 
   // form
-  @ViewChild('genreForm', {static: true}) genreForm: NgForm;
-  errors: { [key: string]: string } = {};
+  public genreAddForm: FormGroup;
 
   // event handler
   onCloseClick(): void {
@@ -32,9 +31,14 @@ export class AdminGenreAddComponent implements OnInit {
 
   // init
   ngOnInit(): void {
-    this.genreForm.statusChanges.subscribe(
-      () => this.errors = updateErrorMessages(GenreFormErrorMessages, this.genreForm)
-    );
+    this.genreAddForm = new FormGroup({
+      genreId : new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]),
+      genreName: new FormControl('', [Validators.required]),
+    });
+  }
+
+  public checkError = (controlName: string, errorName: string) => {
+    return this.genreAddForm.controls[controlName].hasError(errorName);
   }
 
 }

@@ -3,17 +3,15 @@
 <mat-divider></mat-divider>
 
 <mat-dialog-content>
-  <form #genreForm="ngForm">
+  <form [formGroup]="genreAddForm">
     <mat-form-field appearance="outline">
       <mat-label>Id</mat-label>
       <input
         matInput
         [(ngModel)]="newGenre.id"
-        name="genreId"
-        required
-        noSpaceValidation
-        pattern="[0-9]*">
-      <app-input-error-message  *ngIf="errors.genreId" [error]="errors.genreId"></app-input-error-message>
+        formControlName="genreId">
+        <mat-error *ngIf="checkError('genreId', 'required')">Genre id is required</mat-error>
+        <mat-error *ngIf="checkError('genreId', 'pattern')">Only number allowed</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -21,15 +19,13 @@
       <input
         matInput
         [(ngModel)]="newGenre.name"
-        name="genreName"
-        noSpaceValidation
-        required>
-      <app-input-error-message  *ngIf="errors.genreName" [error]="errors.genreName"></app-input-error-message>
+        formControlName="genreName">
+        <mat-error *ngIf="checkError('genreName', 'required')">Genre name is required</mat-error>
     </mat-form-field>
   </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-button (click)="onCloseClick()">Cancel</button>
-  <button type="submit" color="primary" mat-raised-button (click)="onSaveClick()" [disabled]="!genreForm.valid">Add</button>
+  <button type="submit" color="primary" mat-raised-button (click)="onSaveClick()" [disabled]="!genreAddForm.valid">Add</button>
 </mat-dialog-actions>
