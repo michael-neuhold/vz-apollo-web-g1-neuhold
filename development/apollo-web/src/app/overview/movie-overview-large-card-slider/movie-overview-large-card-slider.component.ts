@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { MovieSchedule } from '../../services/schedule/schedule.service';
+import { MovieSchedule } from 'src/app/domains/schedule';
 
 @Component({
   selector: 'app-movie-overview-large-card-slider',

@@ -1,20 +1,25 @@
 <div class="wrapper">
 
   <div class="input-wrapper">
-
+    <form [formGroup]="cinemaHallAddForm">
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
-      <input matInput [(ngModel)]="newCinemaHall.id">
+      <input formControlName="cinemaHallName" matInput [(ngModel)]="newCinemaHall.id">
+      <mat-error *ngIf="checkError('cinemaHallName', 'required')">Shop Name is required</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Reihen</mat-label>
-      <input matInput [(ngModel)]="newCinemaHall.size.x" >
+      <mat-label>Rows</mat-label>
+      <input formControlName="sizeRows" matInput [(ngModel)]="newCinemaHall.size.x" >
+      <mat-error *ngIf="checkError('sizeRows', 'required')">row number is required</mat-error>
+      <mat-error *ngIf="checkError('sizeRows', 'pattern')">only numbers allowed</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Sitze</mat-label>
-      <input matInput [(ngModel)]="newCinemaHall.size.y">
+      <mat-label>Seats</mat-label>
+      <input formControlName="sizeSeats" matInput [(ngModel)]="newCinemaHall.size.y">
+      <mat-error *ngIf="checkError('sizeSeats', 'required')">seats number is required</mat-error>
+      <mat-error *ngIf="checkError('sizeRows', 'pattern')">only numbers allowed</mat-error>
     </mat-form-field>
 
     <div class="control">
@@ -26,7 +31,7 @@
           use default size
       </mat-slide-toggle>
     </div>
-
+  </form>
     <div class="control save-button">
       <button color="primary" mat-raised-button (click)="onSave()">Save</button>
     </div>

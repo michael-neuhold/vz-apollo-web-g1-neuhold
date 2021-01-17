@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { MovieSchedule, ScheduleService } from '../../services/schedule/schedule.service';
+import { MovieSchedule } from 'src/app/domains/schedule';
+import { ScheduleService } from 'src/app/services/schedule/schedule.service';
 import { FilterAttributes } from '../movie-overview-filter/movie-overview-filter.component';
 @Component({
   selector: 'app-movie-overview',
