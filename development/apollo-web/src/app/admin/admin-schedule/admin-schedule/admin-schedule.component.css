@@ -16,3 +16,12 @@ mat-card {
 table {
   width: 100%;
 }
+
+.icons {
+  color: gray;
+  font-size: 18px;
+}
+
+.icon-button-hover:hover {
+  background-color: rgb(240,240,240);
+}

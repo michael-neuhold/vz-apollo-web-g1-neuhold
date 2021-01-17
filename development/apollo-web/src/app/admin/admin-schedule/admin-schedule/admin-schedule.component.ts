@@ -16,7 +16,7 @@ export class AdminScheduleComponent implements OnInit {
 
   allSchedules: Schedule[];
 
-  displayedColumns: string[] = ['id', 'movieId', 'movieTitle' /*, 'movieOriginalTitle'*/, 'movieLength', 'cinemaHallId', 'startTime'];
+  displayedColumns: string[] = ['id', 'movieId', 'movieTitle' /*, 'movieOriginalTitle'*/, 'movieLength', 'cinemaHallId', 'startTime', 'edit'];
 
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AdminScheduleAddComponent, {});
