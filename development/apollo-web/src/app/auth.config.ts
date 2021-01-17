@@ -51,3 +51,4 @@ export const authConfig: AuthConfig = {
 
   showDebugInformation: true,
 };
+

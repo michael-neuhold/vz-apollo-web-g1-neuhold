@@ -42,16 +42,7 @@ export class AdminScheduleAddComponent implements OnInit {
   }
 
   onSaveClick() : void {
-    /*
-    console.log(this.cinemaHallId);
-    console.log(this.movieTitle);
-    console.log(this.selectedEndDate);
-    console.log(this.selectedStartDate);
-    console.log(this.selectedTime);
-    console.log(this.datepipe.transform(this.selectedTime.getTime(), "HH:mm"));
-    */
-    this.generateSchedules();
-    this.dialogRef.close({ save: true, data: {} });
+    this.dialogRef.close( { save: true, data: { schedules: this.generateSchedules() } } );
   }
 
   ngOnInit(): void {
@@ -59,7 +50,6 @@ export class AdminScheduleAddComponent implements OnInit {
     this.movieService.getAll().subscribe(result => {
       this.movies = result
       this.options = result;
-      //this.movies.forEach( movie => this.options.push(movie.title));
       this.filteredOptions = this.myControl.valueChanges.pipe(
         startWith(''), map(value => this._filter(value))
       );
@@ -72,21 +62,23 @@ export class AdminScheduleAddComponent implements OnInit {
     return this.options.filter(option => option.title.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  generateSchedules() {
+  generateSchedules() : Schedule[] {
     let schedules: Schedule[] = [];
     for (var currentDate = this.selectedStartDate; currentDate <= this.selectedEndDate; currentDate.setDate(currentDate.getDate() + 1)) {
       let schedule: Schedule = new Schedule();
       currentDate.setHours(this.selectedTime.getHours());
       currentDate.setMinutes(this.selectedTime.getMinutes());
-      schedule.startTime = currentDate;
-      this.cinemahallService.getById(this.cinemaHallId).subscribe( result => schedule.cinemaHallVersionId = result.versionId );
-      this.movies.forEach(movie => {
-        if(movie.title == this.movieTitle)
-          schedule.movieId = movie.id;
-      });
+      schedule.startTime = new Date(currentDate);
+      /*this.cinemahallService.getById(this.cinemaHallId).subscribe(
+        result => schedule.cinemaHallVersionId = result.versionId
+      );*/
+      this.movies.forEach(
+        movie => movie.title == this.movieTitle ? schedule.movieId = movie.id : null
+      );
+      schedule.cinemaHallId = this.cinemaHallId;
       schedules.push(schedule);
     }
-    console.log(schedules);
+    return schedules;
   }
 
 }

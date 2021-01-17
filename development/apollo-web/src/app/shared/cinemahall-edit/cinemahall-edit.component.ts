@@ -53,7 +53,7 @@ export class CinemahallEditComponent implements OnInit {
   }
 
   onCorona() {
-    const dialogRef = this.dialog.open(CoronaSettingsComponent, { data: this.seats});
+    const dialogRef = this.dialog.open(CoronaSettingsComponent, { data: this.seats, autoFocus: false });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
