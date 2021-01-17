@@ -31,7 +31,7 @@ export class AdminGenreEditComponent implements OnInit {
 
   // init
   ngOnInit(): void {
-    this.genre = this.data;
+    this.genre = Object.assign({}, this.data);
     this.genreEditForm = new FormGroup({
       genreName: new FormControl('', [Validators.required]),
     });
