@@ -1,27 +1,28 @@
 <h2 mat-dialog-title>Add schedule</h2>
 <mat-divider></mat-divider>
 <mat-dialog-content>
-    <form>
+    <form [formGroup]="scheduleAddForm">
 
       <div class="row">
         <mat-form-field appearance="outline" class="datetime">
           <mat-label>Enter a date range</mat-label>
-          <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="Start date" [(ngModel)]="selectedStartDate" name="startdate">
-            <input matEndDate placeholder="End date" [(ngModel)]="selectedEndDate" name="enddate">
+          <mat-date-range-input [rangePicker]="picker" required>
+            <input matStartDate placeholder="Start date" [(ngModel)]="selectedStartDate" formControlName="startdate" required>
+            <input matEndDate placeholder="End date" [(ngModel)]="selectedEndDate" formControlName="enddate" required>
           </mat-date-range-input>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-date-range-picker #picker></mat-date-range-picker>
+          <mat-error *ngIf="checkError('startdate', 'required') || checkError('enddate', 'required')">start date and end date is required</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="datetime">
-          <mat-label >24 TIMEPICKER</mat-label>
+          <mat-label>Time</mat-label>
           <input matTimepicker #t1="matTimepicker"  okLabel="Ok"
-             cancelLabel="Cancel" #time1="ngModel" [(ngModel)]="selectedTime"
+             cancelLabel="Cancel" [(ngModel)]="selectedTime"
             id="timepicker-example-1" mode="24h" placeholder="Please select time..."
-            name="time-1" required>
+            formControlName="time" required>
           <mat-icon matSuffix (click)="t1.showDialog()">access_time</mat-icon>
-          <mat-error *ngIf="time1.touched && time1.invalid">Invalid Date</mat-error>
+          <mat-error *ngIf="checkError('time', 'required')">time is required</mat-error>
         </mat-form-field>
       </div>
 
@@ -30,9 +31,12 @@
           <mat-label>Movie</mat-label>
           <input type="text"
                   matInput
+                  required
+                  formControlName="movie"
                   [(ngModel)]="movieTitle"
                   [formControl]="myControl"
                   [matAutocomplete]="auto">
+          <mat-error *ngIf="checkError('movie', 'required')">Genre id is required</mat-error>
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option.title">
               {{option.title}}
@@ -43,11 +47,12 @@
 
       <div class="row">
         <mat-form-field appearance="outline">
-          <mat-select placeholder="Cinemahall" [(ngModel)]="cinemaHallId" name="something">
+          <mat-select placeholder="Cinemahall" [(ngModel)]="cinemaHallId" formControlName="cinemahall">
               <mat-option *ngFor="let cinemahall of cinemaHalls" [value]="cinemahall.id">
                 {{cinemahall.id}}
               </mat-option>
           </mat-select>
+          <mat-error *ngIf="checkError('cinemahall', 'required')">Genre id is required</mat-error>
         </mat-form-field>
       </div>
       </form>
@@ -55,5 +60,5 @@
 
 <div mat-dialog-actions align="end">
   <button mat-button (click)="onCloseClick()">Cancel</button>
-  <button mat-raised-button color="primary" (click)="onSaveClick()">Save</button>
+  <button mat-raised-button color="primary" (click)="onSaveClick()" [disabled]="!scheduleAddForm.valid">Save</button>
 </div>

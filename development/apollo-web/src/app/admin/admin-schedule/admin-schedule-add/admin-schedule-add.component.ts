@@ -1,6 +1,6 @@
 import { DatePipe, Time } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -31,6 +31,9 @@ export class AdminScheduleAddComponent implements OnInit {
   // schedule
   newSchedule: Schedule = new Schedule();
 
+  // form
+  public scheduleAddForm: FormGroup;
+
   cinemaHallId: string;
   movieTitle: string;
   selectedTime: Date;
@@ -54,6 +57,18 @@ export class AdminScheduleAddComponent implements OnInit {
         startWith(''), map(value => this._filter(value))
       );
     });
+
+    this.scheduleAddForm = new FormGroup({
+      startdate : new FormControl('', [Validators.required]),
+      enddate: new FormControl('', [Validators.required]),
+      time : new FormControl('', [Validators.required]),
+      movie: new FormControl('', [Validators.required]),
+      cinemahall: new FormControl('', [Validators.required])
+    });
+  }
+
+  public checkError = (controlName: string, errorName: string) => {
+    return this.scheduleAddForm.controls[controlName].hasError(errorName);
   }
 
   private _filter(value: string): MovieDetail[] {
@@ -69,9 +84,6 @@ export class AdminScheduleAddComponent implements OnInit {
       currentDate.setHours(this.selectedTime.getHours());
       currentDate.setMinutes(this.selectedTime.getMinutes());
       schedule.startTime = new Date(currentDate);
-      /*this.cinemahallService.getById(this.cinemaHallId).subscribe(
-        result => schedule.cinemaHallVersionId = result.versionId
-      );*/
       this.movies.forEach(
         movie => movie.title == this.movieTitle ? schedule.movieId = movie.id : null
       );
