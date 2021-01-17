@@ -28,11 +28,13 @@ export class AdminScheduleComponent implements OnInit {
     });
   }
 
-  openEditDialog(): void {
-    const dialogRef = this.dialog.open(AdminScheduleEditComponent, {});
+  openEditDialog(selectedSchedule: Schedule): void {
+    const dialogRef = this.dialog.open(AdminScheduleEditComponent, { data: selectedSchedule });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      if(result != undefined && result.save) {
+        console.log("update schedule: ", result.data);
+      }
     });
   }
 

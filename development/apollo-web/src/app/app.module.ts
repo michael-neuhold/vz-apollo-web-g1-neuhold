@@ -122,6 +122,7 @@ import { MatTimepickerModule } from 'mat-timepicker';
     CoronaSettingsComponent
   ],
   imports: [
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
