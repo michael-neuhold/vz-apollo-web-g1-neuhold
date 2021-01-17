@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Category } from 'src/app/domains/category';
 import { CategoryService } from 'src/app/services/category/category.service';
+import { SnackbarMessageService } from 'src/app/services/snackbar-message/snackbar-message.service';
 import { AdminCategoryAddComponent } from '../admin-category-add/admin-category-add.component';
 import { AdminCategoryEditComponent } from '../admin-category-edit/admin-category-edit.component';
 
@@ -12,16 +13,14 @@ import { AdminCategoryEditComponent } from '../admin-category-edit/admin-categor
 })
 export class AdminCategoryComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private categoryService: CategoryService) {}
+  constructor(public dialog: MatDialog, private categoryService: CategoryService, private snackBService: SnackbarMessageService) {}
 
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AdminCategoryAddComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
-        this.categoryService.create(result.data).subscribe(
-          () => this.loadTable()
-        );
+        this.categoryService.create(result.data).subscribe(() => this.loadTable());
       }
     });
   }

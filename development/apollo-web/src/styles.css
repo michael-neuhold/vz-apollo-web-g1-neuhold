@@ -9,3 +9,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-tooltip {
   font-size: 18px;
 }
+
+
+.snackbar-message-error {
+  background-color:#F1C6C6;
+  color:#CD3838;
+  padding: 20px;
+}
+
+.snackbar-message-success {
+  background-color:#D4F4DA;
+  color:#37CC50;
+  padding: 20px;
+}

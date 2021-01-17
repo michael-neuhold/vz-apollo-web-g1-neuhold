@@ -75,6 +75,7 @@ import { CinemahallEditComponent } from './shared/cinemahall-edit/cinemahall-edi
 import { CoronaSettingsComponent } from './shared/corona-settings/corona-settings.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatTimepickerModule } from 'mat-timepicker';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -146,6 +147,7 @@ import { MatTimepickerModule } from 'mat-timepicker';
     MatMenuModule,
     MatPaginatorModule,
     MatTimepickerModule,
+    MatSnackBarModule,
     HttpClientModule,
     MatSliderModule,
     ChartsModule,
