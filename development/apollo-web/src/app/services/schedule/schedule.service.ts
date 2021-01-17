@@ -39,8 +39,13 @@ export class ScheduleService {
   }
 
   create(schedule: Schedule) : Observable<any> {
-    console.log('send --> ', schedule);
     return this.http.post<any>(`${environment.server}/schedule`, schedule)
+    .pipe(catchError(this.errorHandler));
+  }
+
+  update(schedule: Schedule) : Observable<any> {
+    console.log(schedule);
+    return this.http.put<any>(`${environment.server}/schedule`, schedule)
     .pipe(catchError(this.errorHandler));
   }
 

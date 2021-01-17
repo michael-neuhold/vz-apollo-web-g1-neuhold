@@ -33,19 +33,23 @@ export class AdminScheduleComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
-        console.log("update schedule: ", result.data);
+        this.scheduleService.update(result.data).subscribe(() => this.loadTable());
       }
     });
   }
 
   ngOnInit(): void {
-    this.scheduleService.getAll().subscribe(result => this.allSchedules = result);
+    this.loadTable();
   }
 
   saveNewSchedules(schedules: Schedule[]) {
     schedules.forEach( schedule => {
-      this.scheduleService.create(schedule).subscribe( result => console.log(result));
+      this.scheduleService.create(schedule).subscribe( () =>  this.loadTable());
     });
+  }
+
+  loadTable() {
+    this.scheduleService.getAll().subscribe(result => this.allSchedules = result);
   }
 
 }

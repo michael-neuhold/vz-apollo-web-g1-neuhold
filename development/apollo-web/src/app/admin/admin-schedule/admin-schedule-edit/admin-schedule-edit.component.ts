@@ -42,7 +42,7 @@ export class AdminScheduleEditComponent implements OnInit {
   }
 
   onSaveClick() : void {
-    this.dialogRef.close( { save: true, data: { schedules: {} } } );
+    this.dialogRef.close( { save: true, data: this.generateSchedule() } );
   }
 
   ngOnInit(): void {
@@ -75,23 +75,24 @@ export class AdminScheduleEditComponent implements OnInit {
     return this.options.filter(option => option.title.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  /*
-  generateSchedules() : Schedule[] {
-    let schedules: Schedule[] = [];
-    for (var currentDate = this.selectedStartDate; currentDate <= this.selectedEndDate; currentDate.setDate(currentDate.getDate() + 1)) {
-      let schedule: Schedule = new Schedule();
-      currentDate.setHours(this.selectedTime.getHours());
-      currentDate.setMinutes(this.selectedTime.getMinutes());
-      schedule.startTime = new Date(currentDate);
-      this.movies.forEach(
-        movie => movie.title == this.movieTitle ? schedule.movieId = movie.id : null
-      );
-      schedule.cinemaHallId = this.cinemaHallId;
-      schedules.push(schedule);
-    }
-    return schedules;
+  generateSchedule() : Schedule {
+    let currentDate: Date = new Date(this.scheduleAddForm.get('date').value);
+    let selectedTime: Date = new Date(this.scheduleAddForm.get('time').value);
+    let selectedHour: number = selectedTime.getHours();
+    let selectedMinute: number = selectedTime.getMinutes();
+    currentDate.setHours(selectedHour);
+    currentDate.setMinutes(selectedMinute);
+
+    let editedSchedule: Schedule = new Schedule();
+    editedSchedule.cinemaHallId = this.scheduleAddForm.get('cinemahall').value;
+    this.movies.forEach(
+      movie => movie.title == this.scheduleAddForm.controls['movie'].value ? editedSchedule.movieId = movie.id : null
+    );
+    this.cinemahallService.getById(this.scheduleAddForm.controls['cinemahall'].value).subscribe(
+      result => editedSchedule.cinemaHallVersionId = result.versionId
+    );
+    editedSchedule.startTime = currentDate;
+    editedSchedule.id = this.data.id;
+    return editedSchedule;
   }
-  */
-
-
 }
