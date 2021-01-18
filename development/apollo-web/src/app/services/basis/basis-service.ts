@@ -1,5 +1,5 @@
 import { Observable } from "rxjs";
 
-export interface BasisService<T> {
-  getById(categoryId: string): Observable<T>;
+export interface BasisService {
+  getById(categoryId: any): Observable<any>;
 }

@@ -13,7 +13,7 @@ import { SnackbarMessageService } from '../snackbar-message/snackbar-message.ser
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class CategoryService implements BasisService {
 
   constructor(private http: HttpClient, private snackbarMessage: SnackbarMessageService) { }
 

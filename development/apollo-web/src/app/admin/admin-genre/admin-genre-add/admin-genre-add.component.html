@@ -14,6 +14,7 @@
         formControlName="genreId">
         <mat-error *ngIf="checkError('genreId', 'required')">Genre id is required</mat-error>
         <mat-error *ngIf="checkError('genreId', 'pattern')">Only number allowed</mat-error>
+        <mat-error *ngIf="checkError('genreId', 'idExists')">genre id already exists</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
