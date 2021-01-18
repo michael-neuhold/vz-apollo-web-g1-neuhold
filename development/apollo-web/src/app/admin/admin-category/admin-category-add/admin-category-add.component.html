@@ -7,19 +7,20 @@
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
       <input matInput [(ngModel)]="newCategory.id" formControlName="categoryName" autocomplete="off" required>
-      <mat-error *ngIf="checkError('categoryName', 'required')">Genre id is required</mat-error>
+      <mat-error *ngIf="checkError('categoryName', 'required')">category id is required</mat-error>
+      <mat-error *ngIf="checkError('categoryName', 'idExists')">category id already exists</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Bezeichnung</mat-label>
       <input matInput [(ngModel)]="newCategory.description" formControlName="categoryDescription" autocomplete="off" required>
-      <mat-error *ngIf="checkError('categoryDescription', 'required')">Genre id is required</mat-error>
+      <mat-error *ngIf="checkError('categoryDescription', 'required')">category description is required</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Preis</mat-label>
       <input matInput [(ngModel)]="newCategory.price" formControlName="categoryPrice" autocomplete="off" required>
-      <mat-error *ngIf="checkError('categoryPrice', 'required')">Genre id is required</mat-error>
+      <mat-error *ngIf="checkError('categoryPrice', 'required')">category price is required</mat-error>
       <mat-error *ngIf="checkError('categoryPrice', 'pattern')">eg.: 23 or 15.44</mat-error>
     </mat-form-field>
 

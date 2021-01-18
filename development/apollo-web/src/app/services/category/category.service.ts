@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Category } from 'src/app/domains/category';
 import { environment } from 'src/environments/environment';
+import { BasisService } from '../basis/basis-service';
 import { errorHandler } from '../handler/error';
 import { successHandler } from '../handler/success';
 import { SnackbarMessageService } from '../snackbar-message/snackbar-message.service';
@@ -15,6 +16,10 @@ import { SnackbarMessageService } from '../snackbar-message/snackbar-message.ser
 export class CategoryService {
 
   constructor(private http: HttpClient, private snackbarMessage: SnackbarMessageService) { }
+
+  getById(categoryId: string): Observable<Category> {
+    return this.http.get<Category>(`${environment.server}/category/${categoryId}`);
+  }
 
   getAll() : Observable<Array<Category>> {
     return this.http.get<Category[]>(`${environment.server}/category`)

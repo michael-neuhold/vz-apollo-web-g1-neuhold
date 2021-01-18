@@ -2,8 +2,6 @@ import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Genre } from 'src/app/domains/genre';
-import { updateErrorMessages } from 'src/app/validation/error-message-mapping';
-import { GenreFormErrorMessages } from 'src/app/validation/genre-error-messages';
 
 @Component({
   selector: 'app-admin-genre-add',

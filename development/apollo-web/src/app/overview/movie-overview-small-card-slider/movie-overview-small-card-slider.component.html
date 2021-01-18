@@ -9,7 +9,7 @@
     <!-- time -->
     <div class="time-wrapper">
       <a style="marginTop: 40px;" *ngFor="let movie of hourGrouping.schedules" [routerLink]="['/movies', movie.id]" >
-        <mat-card  class="mat-elevation-z5">
+        <mat-card  class="mat-elevation-z5" aTilt data-tilt-perspective="1000" data-tilt-scale="1.05" data-tilt-glare="true" data-tilt-max-glare="0.4">
           <img width="180" src="{{ movie.coverImageLink | imageEndpoint }}">
           <div class="overlay">
             <div class="content">{{ movie.title }}</div>
