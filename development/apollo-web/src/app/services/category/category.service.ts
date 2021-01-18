@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, debounce, debounceTime, map, tap } from 'rxjs/operators';
 import { Category } from 'src/app/domains/category';
 import { environment } from 'src/environments/environment';
 import { BasisService } from '../basis/basis-service';

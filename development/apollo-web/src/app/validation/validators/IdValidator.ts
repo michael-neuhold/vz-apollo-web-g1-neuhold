@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import {AbstractControl, AsyncValidator, AsyncValidatorFn, FormControl, ValidationErrors} from '@angular/forms';
-import { timer } from 'rxjs';
+import { timer } from 'rxjs/observable/timer';
 import {Observable, of} from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
+import {catchError, debounce, debounceTime, distinctUntilChanged, map, switchMap, tap} from 'rxjs/operators';
 import { BasisService } from 'src/app/services/basis/basis-service';
 
 export class IdExistsValidator {
-  static createValidator<T>(service: BasisService): AsyncValidatorFn {
+  static createValidator(service: BasisService, time: number = 500): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors> => {
-      return service.getById(control.value).pipe(
+      return timer(time).pipe(
+        switchMap(() => service.getById(control.value)),
         map(isTaken => (isTaken ? { idExists: true } : null)),
         catchError(() => of(null))
       );

@@ -1,6 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { fromEvent } from 'rxjs';
+import { debounce, debounceTime, distinctUntilChanged, filter, tap } from 'rxjs/operators';
 import { Category } from 'src/app/domains/category';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { IdExistsValidator } from 'src/app/validation/validators/IdValidator';
