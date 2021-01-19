@@ -78,6 +78,7 @@ import { MatTimepickerModule } from 'mat-timepicker';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AngularTiltModule } from 'angular-tilt';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { AdminMovieDeleteComponent } from './admin/admin-movie/admin-movie-delete/admin-movie-delete.component';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,8 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
     CinemahallComponent,
     NoContentComponent,
     CinemahallEditComponent,
-    CoronaSettingsComponent
+    CoronaSettingsComponent,
+    AdminMovieDeleteComponent
   ],
   imports: [
     AngularTiltModule,

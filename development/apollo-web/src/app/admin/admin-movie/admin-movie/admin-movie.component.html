@@ -42,7 +42,7 @@
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-            <button mat-icon-button class="icon-button-hover" (click)="onDeleteMovie(element.id)">
+            <button mat-icon-button class="icon-button-hover" (click)="onDeleteMovie(element)">
               <mat-icon class="icons">delete_outline</mat-icon>
             </button>
         </td>
