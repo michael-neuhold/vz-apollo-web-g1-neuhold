@@ -11,18 +11,17 @@ export class AdminChartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  public barChartOptions: ChartOptions = {
+  barChartType: ChartType = 'bar';
+  barChartLegend = false;
+  barChartOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false
   };
 
-  public barChartType: ChartType = 'bar';
-  public barChartLegend = false;
-
   @Input() barChartLabels: Label[] = [];
   @Input() barChartData: ChartDataSets[] = [];
+
+  ngOnInit(): void {
+  }
 
 }

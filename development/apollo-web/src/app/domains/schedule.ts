@@ -21,7 +21,8 @@ export class MovieSchedule{
     public length? : number,
     public coverImageLink? : string,
     public coverImage? : string,
-    public schedule? : null
+    public schedule? : null,
+    public availabilityPercentage? :  number
   ) {}
 }
 

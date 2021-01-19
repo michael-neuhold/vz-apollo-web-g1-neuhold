@@ -16,19 +16,10 @@ export class AdminCategoryAddComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AdminCategoryAddComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private categoryService: CategoryService) {}
 
+  // data
   newCategory: Category = new Category();
   icons : string[] = ['Seatbelt', 'SofaSingle', 'SeatOutline'];
-
-  // form
-  public categoryAddForm: FormGroup;
-
-  onCloseClick(): void {
-    this.dialogRef.close({ save: false, data: {}});
-  }
-
-  onSaveClick() : void {
-    this.dialogRef.close({ save: true, data: this.newCategory });
-  }
+  categoryAddForm: FormGroup;
 
   ngOnInit(): void {
     this.categoryAddForm = new FormGroup({
@@ -39,7 +30,15 @@ export class AdminCategoryAddComponent implements OnInit {
     });
   }
 
-  public checkError = (controlName: string, errorName: string) => {
+  onCloseClick(): void {
+    this.dialogRef.close({ save: false, data: {}});
+  }
+
+  onSaveClick() : void {
+    this.dialogRef.close({ save: true, data: this.newCategory });
+  }
+
+  checkError = (controlName: string, errorName: string) => {
     return this.categoryAddForm.controls[controlName].hasError(errorName);
   }
 

@@ -3,15 +3,15 @@
   <mat-card-content class="content-wrapper">
     <div class="flex-container">
       <mat-card class="cat-card mat-elevation-z5" *ngFor="let category of allCategories" >
-          <mat-card-title>{{category.id}}</mat-card-title>
+          <mat-card-title>{{ category.id }}</mat-card-title>
           <mat-card-content>
             <div class="card-information-large">
               <h3 class="card-information-header">Description</h3>
-              <p>{{category.description}}</p>
+              <p>{{ category.description }}</p>
             </div>
             <div class="card-information-small">
               <h3 class="card-information-header">Price</h3>
-              <p>{{category.price | price}}</p>
+              <p>{{ category.price | price }}</p>
             </div>
           </mat-card-content>
           <mat-card-actions>
@@ -23,7 +23,7 @@
 
 </mat-card>
 
-<div style="position: absolute; right: 25px; bottom: 25px;">
+<div class="add-button">
   <button (click)="openAddDialog()" mat-fab color="primary">
     <mat-icon>add</mat-icon>
   </button>

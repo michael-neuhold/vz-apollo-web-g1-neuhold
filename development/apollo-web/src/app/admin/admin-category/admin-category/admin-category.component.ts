@@ -15,8 +15,13 @@ export class AdminCategoryComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private categoryService: CategoryService) {}
 
+  // data
   allCategories: Category[];
   displayedColumns: string[] = ['id', 'description', 'price', 'iconName', 'edit'];
+
+  ngOnInit(): void {
+    this.loadTable();
+  }
 
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AdminCategoryAddComponent, {});
@@ -34,10 +39,6 @@ export class AdminCategoryComponent implements OnInit {
         this.categoryService.update(result.data).subscribe(() => this.loadTable());
       }
     });
-  }
-
-  ngOnInit(): void {
-    this.loadTable();
   }
 
   loadTable(): void {

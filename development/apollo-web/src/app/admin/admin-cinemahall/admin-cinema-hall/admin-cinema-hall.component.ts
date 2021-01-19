@@ -7,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminCinemaHallComponent implements OnInit {
 
-  ngOnInit(): void { }
-
   constructor() {}
 
+  ngOnInit(): void { }
 
 }
 

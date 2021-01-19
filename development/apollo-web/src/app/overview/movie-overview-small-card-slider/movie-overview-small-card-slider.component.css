@@ -90,3 +90,14 @@
 mat-card:hover {
   transform: scale(1.1, 1.1);
 }
+
+.level {
+  z-index: 100;
+  color: white;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 6px;
+  padding: 4px;
+  backdrop-filter: blur(2px) brightness(50%);
+}

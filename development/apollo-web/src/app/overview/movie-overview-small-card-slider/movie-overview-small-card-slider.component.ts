@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MovieSchedule } from 'src/app/domains/schedule';
 
 @Component({
   selector: 'app-movie-overview-small-card-slider',
@@ -12,6 +13,7 @@ export class MovieOverviewSmallCardSliderComponent implements OnInit {
   @Input() movies;
 
   ngOnInit(): void {
+    console.log(this.movies);
   }
 
 }

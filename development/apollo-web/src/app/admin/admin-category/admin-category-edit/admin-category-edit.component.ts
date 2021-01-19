@@ -12,20 +12,10 @@ export class AdminCategoryEditComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AdminCategoryEditComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
+  // data
   editCategory: Category;
   icons : string[] = ['Seatbelt', 'SofaSingle', 'SeatOutline'];
-
-  // form
-  public categoryEditForm: FormGroup;
-
-
-  onCloseClick(): void {
-    this.dialogRef.close( { save: false, data: {} } );
-  }
-
-  onSaveClick() : void {
-    this.dialogRef.close( { save: true, data: this.editCategory} );
-  }
+  categoryEditForm: FormGroup;
 
   ngOnInit(): void {
     this.editCategory = Object.assign({}, this.data);
@@ -36,7 +26,15 @@ export class AdminCategoryEditComponent implements OnInit {
     });
   }
 
-  public checkError = (controlName: string, errorName: string) => {
+  onCloseClick(): void {
+    this.dialogRef.close( { save: false, data: {} } );
+  }
+
+  onSaveClick() : void {
+    this.dialogRef.close( { save: true, data: this.editCategory} );
+  }
+
+  checkError = (controlName: string, errorName: string) => {
     return this.categoryEditForm.controls[controlName].hasError(errorName);
   }
 

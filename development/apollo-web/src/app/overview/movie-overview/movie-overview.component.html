@@ -6,8 +6,5 @@
     <app-movie-overview-large-card-slider [movies]="currentMovies"></app-movie-overview-large-card-slider>
     <app-movie-overview-filter (applyFilter)="applyFilter($event)"></app-movie-overview-filter>
     <app-movie-overview-small-card-slider *ngFor="let item of filteredMovies" [movies]="item"></app-movie-overview-small-card-slider>
-    <!--<app-movie-overview-small-card-slider [movies]="filteredMovies"></app-movie-overview-small-card-slider>
-    <app-movie-overview-small-card-slider [movies]="filteredMovies"></app-movie-overview-small-card-slider>
-    <app-movie-overview-small-card-slider [movies]="filteredMovies"></app-movie-overview-small-card-slider>-->
   </div>
 </div>
