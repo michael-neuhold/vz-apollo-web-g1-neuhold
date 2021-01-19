@@ -5,18 +5,20 @@
 <mat-dialog-content style="margin-top: 30px;">
   <form [formGroup]="movieAddForm">
 
-    <!-- first row -->
     <div class="row-multiple-items">
+
         <mat-form-field appearance="outline" class="item">
           <mat-label>movie id</mat-label>
-          <input type="number" matInput formControlName="movieId" [(ngModel)]="newMovie.id" required>
+          <input type="number" matInput formControlName="movieId" [(ngModel)]="newMovie.id" required autocomplete="off">
           <mat-error *ngIf="checkError('movieId', 'required')">movie id is required</mat-error>
           <mat-error *ngIf="checkError('movieId', 'pattern')">movie id has to be a number</mat-error>
           <mat-error *ngIf="checkError('movieId', 'idExists')">movie id exists already</mat-error>
+          <mat-hint style="color: #37CC50;" class="mat-error" *ngIf="movieAddForm.controls['movieId'].valid">valid</mat-hint>
         </mat-form-field>
+
         <mat-form-field appearance="outline" class="item">
           <mat-label>movie title</mat-label>
-          <input matInput formControlName="movieTitle" [(ngModel)]="newMovie.title" required>
+          <input matInput formControlName="movieTitle" [(ngModel)]="newMovie.title" required autocomplete="off">
           <mat-error *ngIf="checkError('movieTitle', 'required')">movie title is required</mat-error>
           <div style="display: inline; position: absolute; top: -3px; right: -40px; color: gray;">
             <button type="button" mat-icon-button class="icon-button-hover" (click)="copyTitle()">
@@ -27,25 +29,27 @@
 
         <mat-form-field appearance="outline" class="item">
           <mat-label>movie orignal title</mat-label>
-          <input matInput formControlName="movieOriginalTitle" [(ngModel)]="newMovie.originalTitle" required>
+          <input matInput formControlName="movieOriginalTitle" [(ngModel)]="newMovie.originalTitle" required autocomplete="off">
           <mat-error *ngIf="checkError('movieOriginalTitle', 'required')">movie original title is required</mat-error>
         </mat-form-field>
+
     </div>
 
-    <!-- row -->
     <div class="row-single-item">
+
       <mat-form-field appearance="outline">
         <mat-label>description</mat-label>
-        <input matInput formControlName="movieDescription" [(ngModel)]="newMovie.description" required>
+        <input matInput formControlName="movieDescription" [(ngModel)]="newMovie.description" required autocomplete="off">
         <mat-error *ngIf="checkError('movieDescription', 'required')">movie description is required</mat-error>
       </mat-form-field>
+
     </div>
 
-    <!-- row -->
     <div class="row-single-item">
+
       <mat-form-field appearance="outline">
         <mat-label>actors</mat-label>
-        <mat-chip-list #chipList aria-label="actor" formControlName="movieActors" required>
+        <mat-chip-list #chipList aria-label="actor" formControlName="movieActors" required autocomplete="off">
           <mat-chip *ngFor="let actor of actors" [selectable]="true"
                   [removable]="true" (removed)="remove(actor)">
             {{actor}}
@@ -59,19 +63,21 @@
         </mat-chip-list>
         <mat-error *ngIf="checkError('movieActors', 'required')">movie actors are required</mat-error>
       </mat-form-field>
+
     </div>
 
-     <!-- row -->
-     <div class="row-single-item">
+    <div class="row-single-item">
+
       <mat-form-field appearance="outline">
         <mat-label>trailer (optional)</mat-label>
-        <input matInput formControlName="movieTrailer" [(ngModel)]="newMovie.trailerUrl">
+        <input matInput formControlName="movieTrailer" [(ngModel)]="newMovie.trailerUrl" autocomplete="off">
         <mat-error *ngIf="checkError('movieTrailer', 'pattern')">has to be a valid url</mat-error>
       </mat-form-field>
+
     </div>
 
-    <!-- row -->
     <div class="row-multiple-items">
+
       <mat-form-field appearance="outline" class="two-item-row ">
         <mat-select placeholder="genre" [(ngModel)]="newMovie.genreId" formControlName="movieGenre" required>
             <mat-option *ngFor="let option of allGenre" [value]="option.id" required>
@@ -80,22 +86,35 @@
         </mat-select>
         <mat-error *ngIf="checkError('movieActors', 'required')">movie genre are required</mat-error>
       </mat-form-field>
+
       <mat-form-field appearance="outline" class="two-item-row ">
         <mat-label>length (min)</mat-label>
-        <input matInput [(ngModel)]="newMovie.length" formControlName="movieLength" type="number" required>
+        <input matInput [(ngModel)]="newMovie.length" formControlName="movieLength" type="number" required autocomplete="off">
         <mat-error *ngIf="checkError('movieLength', 'required')">movie length are required</mat-error>
         <mat-error *ngIf="checkError('movieLength', 'pattern')">movie length in minutes</mat-error>
       </mat-form-field>
+
     </div>
 
-    <!-- row -->
     <div class="row-multiple-items">
+
       <mat-form-field appearance="outline" class="file-upload">
         <ngx-mat-file-input placeholder="cover image (optional)" formControlName="movieCover" [multiple]="false"></ngx-mat-file-input>
       </mat-form-field>
+
       <mat-form-field appearance="outline" class="file-upload">
         <ngx-mat-file-input placeholder="cover image hd (optional)" formControlName="movieCoverHd" [multiple]="false"></ngx-mat-file-input>
       </mat-form-field>
+
+      <!-- images -->
+      <div class="image-wrapper">
+        <mat-card *ngIf="this.newMovie.coverImage">
+          <img width="100" alt="cover image" src="{{ this.newMovie.coverImage | imageBase64 }}" />
+        </mat-card>
+        <mat-card *ngIf="this.newMovie.coverImageHd">
+          <img width="100" alt="cover image hd" src="{{ this.newMovie.coverImageHd | imageBase64 }}" />
+        </mat-card>
+      </div>
     </div>
 
   </form>

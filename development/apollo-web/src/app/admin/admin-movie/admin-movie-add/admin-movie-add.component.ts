@@ -17,14 +17,40 @@ import { splitAtColon } from '@angular/compiler/src/util';
 })
 export class AdminMovieAddComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<AdminMovieAddComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private genreService: GenreService, private movieService: MovieService) {}
+  constructor(
+    public dialogRef: MatDialogRef<AdminMovieAddComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private genreService: GenreService,
+    private movieService: MovieService)
+  {}
 
+  // data
   newMovie: MovieDetail = new MovieDetail();
   allGenre: Genre[];
   selectedGenre: Genre;
+  movieAddForm: FormGroup;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  actors: string[] = [];
 
-  // form
-  public movieAddForm: FormGroup;
+  ngOnInit(): void {
+    this.genreService.getAll().subscribe(result => this.allGenre = result);
+
+    this.movieAddForm = new FormGroup({
+      movieId : new FormControl('', [Validators.required, Validators.pattern(/[0-9]+/)], IdExistsValidator.createValidator(this.movieService)),
+      movieTitle: new FormControl('', [Validators.required]),
+      movieOriginalTitle: new FormControl('', [Validators.required]),
+      movieDescription: new FormControl('', [Validators.required]),
+      movieTrailer: new FormControl('', [Validators.pattern(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/)]),
+      movieActors: new FormControl('', [this.actorValidator()]),
+      movieLength: new FormControl('', [Validators.required, Validators.pattern(/[0-9]+/)]),
+      movieGenre: new FormControl('', [Validators.required]),
+      movieCover: new FormControl(''),
+      movieCoverHd: new FormControl('')
+    });
+
+    this.movieAddForm.controls['movieCover'].valueChanges.subscribe( value => this.handleCoverImage(value));
+    this.movieAddForm.controls['movieCoverHd'].valueChanges.subscribe( value => this.handleCoverImageHd(value));
+  }
 
   onCloseClick(): void {
     this.dialogRef.close( { save: false, data: { } } );
@@ -32,15 +58,7 @@ export class AdminMovieAddComponent implements OnInit {
 
   onSaveClick() : void {
     this.newMovie.actors = this.actors.join(', ');
-    this.uploadFiles();
     this.dialogRef.close( { save: true, data: this.newMovie });
-  }
-
-  uploadFiles() {
-    let coverFilename = this.movieAddForm.controls['movieCover'].value;
-    let coverHdFilename = this.movieAddForm.controls['movieCoverHd'].value;
-    if(coverFilename != '') this.handleCoverImage(coverFilename);
-    if(coverHdFilename != '') this.handleCoverImageHd(coverHdFilename);
   }
 
   handleCoverImage(filename: any) {
@@ -59,53 +77,21 @@ export class AdminMovieAddComponent implements OnInit {
     fileReaderHd.readAsDataURL(filename);
   }
 
-  ngOnInit(): void {
-    this.genreService.getAll().subscribe(result => this.allGenre = result);
-
-    this.movieAddForm = new FormGroup({
-      movieId : new FormControl('', [Validators.required, Validators.pattern(/[0-9]+/)], IdExistsValidator.createValidator(this.movieService)),
-      movieTitle: new FormControl('', [Validators.required]),
-      movieOriginalTitle: new FormControl('', [Validators.required]),
-      movieDescription: new FormControl('', [Validators.required]),
-      movieTrailer: new FormControl('', [Validators.pattern(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/)]),
-      movieActors: new FormControl('', [this.actorValidator()]),
-      movieLength: new FormControl('', [Validators.required, Validators.pattern(/[0-9]+/)]),
-      movieGenre: new FormControl('', [Validators.required]),
-      movieCover: new FormControl(''),
-      movieCoverHd: new FormControl('')
-    });
-  }
-
-  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  actors: string[] = [];
-
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
-
-    // Add actor
-    if ((value || '').trim()) {
-      this.actors.push(value.trim());
-    }
-
-    // Reset the input value
-    if (input) {
-      input.value = '';
-    }
-
+    if ((value || '').trim()) { this.actors.push(value.trim()); }
+    if (input) { input.value = ''; }
     this.movieAddForm.controls['movieActors'].setValue(this.actors);
   }
 
   remove(actor: string): void {
     const index = this.actors.indexOf(actor);
-
-    if (index >= 0) {
-      this.actors.splice(index, 1);
-    }
+    if (index >= 0) { this.actors.splice(index, 1); }
     this.movieAddForm.controls['movieActors'].setValue(this.actors);
   }
 
-  public checkError = (controlName: string, errorName: string) => {
+  checkError = (controlName: string, errorName: string) => {
     return this.movieAddForm.controls[controlName].hasError(errorName);
   }
 

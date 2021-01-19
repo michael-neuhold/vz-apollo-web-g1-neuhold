@@ -1,18 +1,20 @@
 <mat-card class="page-wrapper">
   <mat-card-content class="content-wrapper">
     <div class="flex-container">
+
       <mat-card class="cat-card mat-elevation-z5" *ngFor="let genre of allGenre" >
-          <mat-card-title>{{genre.name}}</mat-card-title>
+          <mat-card-title>{{ genre.name }}</mat-card-title>
           <mat-card-content style="color: white;">
             <div class="card-information-small">
               <h3 class="card-information-header">Id</h3>
-              <p>{{genre.id}}</p>
+              <p>{{ genre.id }}</p>
             </div>
           </mat-card-content>
           <mat-card-actions>
             <button mat-icon-button (click)="openEditDialog(genre)">Edit</button>
           </mat-card-actions>
       </mat-card>
+
     </div>
   </mat-card-content>
 </mat-card>

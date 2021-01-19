@@ -6,20 +6,22 @@
 </mat-toolbar>
 
 <mat-drawer-container class="example-container" fullscreen>
+
   <mat-drawer class="example-sidenav" [mode]="mode" [opened]=open>
     <mat-selection-list [multiple]="false">
-      <mat-list-option routerLink="./statistic" [routerLinkActive]="['is-active']" value="test">Statistic</mat-list-option>
-      <mat-list-option routerLink="./cinemahall" [routerLinkActive]="['is-active']" value="test">Cinemahall</mat-list-option>
-      <mat-list-option routerLink="./reservation" [routerLinkActive]="['is-active']" value="test">Reservation</mat-list-option>
-      <mat-list-option routerLink="./genre" [routerLinkActive]="['is-active']" value="test">Genre</mat-list-option>
-      <mat-list-option routerLink="./movie" [routerLinkActive]="['is-active']" value="test">Movie</mat-list-option>
-      <mat-list-option routerLink="./schedule" [routerLinkActive]="['is-active']" value="test">Schedule</mat-list-option>
-      <mat-list-option routerLink="./category" [routerLinkActive]="['is-active']" value="test">Category</mat-list-option>
+      <mat-list-option
+        *ngFor="let navigationItem of navigationLinks"
+        [routerLink]="navigationItem.link"
+        [routerLinkActive]="['is-active']">
+        {{ navigationItem.name }}
+      </mat-list-option>
     </mat-selection-list>
   </mat-drawer>
+
   <mat-drawer-content class="example-sidenav-content">
     <router-outlet></router-outlet>
   </mat-drawer-content>
+
 </mat-drawer-container>
 
 

@@ -10,7 +10,10 @@ import { Category } from 'src/app/domains/category';
 })
 export class AdminCategoryEditComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<AdminCategoryEditComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(
+    public dialogRef: MatDialogRef<AdminCategoryEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any)
+  {}
 
   // data
   editCategory: Category;
@@ -31,6 +34,7 @@ export class AdminCategoryEditComponent implements OnInit {
   }
 
   onSaveClick() : void {
+    this.editCategory.description = this.editCategory.description.trim();
     this.dialogRef.close( { save: true, data: this.editCategory} );
   }
 

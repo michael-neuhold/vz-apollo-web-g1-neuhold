@@ -1,5 +1,5 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Genre } from 'src/app/domains/genre';
 
@@ -10,15 +10,22 @@ import { Genre } from 'src/app/domains/genre';
 })
 export class AdminGenreEditComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<AdminGenreEditComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(
+    public dialogRef: MatDialogRef<AdminGenreEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any)
+  {}
 
   // data
   genre: Genre;
+  genreEditForm: FormGroup;
 
-  // form
-  public genreEditForm: FormGroup;
+  ngOnInit(): void {
+    this.genre = Object.assign({}, this.data);
+    this.genreEditForm = new FormGroup({
+      genreName: new FormControl('', [Validators.required]),
+    });
+  }
 
-  // event handler
   onCloseClick(): void {
     this.dialogRef.close( { save: false, data: {} } );
   }
@@ -27,15 +34,7 @@ export class AdminGenreEditComponent implements OnInit {
     this.dialogRef.close( { save: true, data: this.genre } );
   }
 
-  // init
-  ngOnInit(): void {
-    this.genre = Object.assign({}, this.data);
-    this.genreEditForm = new FormGroup({
-      genreName: new FormControl('', [Validators.required]),
-    });
-  }
-
-  public checkError = (controlName: string, errorName: string) => {
+  checkError = (controlName: string, errorName: string) => {
     return this.genreEditForm.controls[controlName].hasError(errorName);
   }
 

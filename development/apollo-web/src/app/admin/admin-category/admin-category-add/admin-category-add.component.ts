@@ -14,7 +14,11 @@ import { IdExistsValidator } from 'src/app/validation/validators/IdValidator';
 })
 export class AdminCategoryAddComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<AdminCategoryAddComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private categoryService: CategoryService) {}
+  constructor(
+    public dialogRef: MatDialogRef<AdminCategoryAddComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private categoryService: CategoryService)
+  {}
 
   // data
   newCategory: Category = new Category();
@@ -35,6 +39,8 @@ export class AdminCategoryAddComponent implements OnInit {
   }
 
   onSaveClick() : void {
+    this.newCategory.id = this.newCategory.id.trim();
+    this.newCategory.description = this.newCategory.description.trim();
     this.dialogRef.close({ save: true, data: this.newCategory });
   }
 

@@ -1,0 +1,38 @@
+mat-card {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 0px;
+  border-radius: 6px;
+  transition: transform .3s ease;
+}
+
+mat-card img {
+  padding: 0px;
+  border-radius: 6px;
+}
+
+.overlay {
+  font-weight: bold;
+  backdrop-filter: blur(2px) brightness(50%);
+  color: white;
+  font-size: 16px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  border-radius: 0px 0px 6px 6px;
+  height: 50px;
+  text-align: center;
+}
+
+.overlay .content {
+  padding: 5px;
+}
+
+mat-card:hover {
+  transform: scale(1.1, 1.1);
+}

@@ -8,6 +8,7 @@
         <input autocomplete="off" formControlName="cinemaHallName" matInput [(ngModel)]="newCinemaHall.id">
         <mat-error *ngIf="checkError('cinemaHallName', 'required')">cinemahall name is required</mat-error>
         <mat-error *ngIf="checkError('cinemaHallName', 'idExists')">cinemahall name already exists</mat-error>
+        <mat-hint style="color: #37CC50;" class="mat-error" *ngIf="cinemaHallAddForm.controls['cinemaHallName'].valid">valid</mat-hint>
       </mat-form-field>
 
       <mat-form-field appearance="outline">

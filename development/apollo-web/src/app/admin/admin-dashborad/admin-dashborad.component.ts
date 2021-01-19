@@ -9,15 +9,24 @@ import { sanitizeIdentifier, templateSourceUrl } from '@angular/compiler';
   styleUrls: ['./admin-dashborad.component.css']
 })
 
-
-
 export class AdminDashboradComponent implements OnInit {
 
-  /** Based on the screen size, switch from standard to one column per row */
-  
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  // data
   open = true;
   mode = 'side';
+
+  navigationLinks = [
+    { link: "./statistic" , name: "Statistic" },
+    { link: "./cinemahall" , name: "Cinemahall" },
+    { link: "./reservation", name: "Reservation" },
+    { link: "./genre", name: "Genre" },
+    { link: "./movie", name: "Movie" },
+    { link: "./schedule", name: "Schedule" },
+    { link: "./category", name: "Category" }
+  ]
+
   ngOnInit(): void {
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -29,19 +38,19 @@ export class AdminDashboradComponent implements OnInit {
       if (state.breakpoints[Breakpoints.XSmall]) {
         this.open = false;
         this.mode = 'over';
-      } else 
+      } else
       if (state.breakpoints[Breakpoints.Small]) {
         this.open = true;
         this.mode = 'side';
-      } else 
+      } else
       if (state.breakpoints[Breakpoints.Medium]) {
         this.open = true;
         this.mode = 'side';
-      } else 
+      } else
       if (state.breakpoints[Breakpoints.Large]) {
         this.open = true;
         this.mode = 'side';
-      } else 
+      } else
       if (state.breakpoints[Breakpoints.XLarge]) {
         this.open = true;
         this.mode = 'side';

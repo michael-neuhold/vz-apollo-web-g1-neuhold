@@ -12,11 +12,9 @@ export class AdminCinemaHallEditComponent implements OnInit {
 
   constructor(private cinemahallService: CinemahallService) {}
 
-  // select cinemahall
+  // data
   cinemaHalls: CinemaHall[];
   selectedCinemaHallId: string;
-
-  // data for detailed cinemahall view
   cinemaHallDetailed: CinemaHallDetailed;
   seats: Seat[];
 
@@ -54,7 +52,6 @@ export class AdminCinemaHallEditComponent implements OnInit {
   }
 
   onSave(seats: Seat[]) {
-    console.log('in admin-cinema-hall-edit: ', seats);
     this.cinemaHallDetailed.seats = seats;
     this.cinemahallService.update(this.cinemaHallDetailed).subscribe(() => this.updateView());
   }

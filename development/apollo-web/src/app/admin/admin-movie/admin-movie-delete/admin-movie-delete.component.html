@@ -1,8 +1,16 @@
-<h2 mat-dialog-title>Delete movie "{{movie.title}}"?</h2>
+<h2 mat-dialog-title>Delete movie "{{ movie.title }}"?</h2>
 
-<mat-divider></mat-divider>
+<mat-divider style="margin-bottom: 20px;"></mat-divider>
+<div style="margin-left: 13px">
+  <mat-card class="mat-elevation-z5" aTilt data-tilt-perspective="1000" data-tilt-scale="1.05" data-tilt-glare="true" data-tilt-max-glare="0.4">
+    <img width="200" src="{{ movie.coverImageLink | imageEndpoint }}">
+    <div class="overlay">
+      <div class="content">{{ movie.title }}</div>
+    </div>
+  </mat-card>
+</div>
 
 <mat-dialog-actions align="end">
   <button mat-button (click)="onCloseClick()">Cancel</button>
-  <button mat-button (click)="onSaveClick()">Ok</button>
+  <button mat-raised-button color="primary" (click)="onSaveClick()">Ok</button>
 </mat-dialog-actions>

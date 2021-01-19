@@ -9,6 +9,7 @@
       <input matInput [(ngModel)]="newCategory.id" formControlName="categoryName" autocomplete="off" required>
       <mat-error *ngIf="checkError('categoryName', 'required')">category id is required</mat-error>
       <mat-error *ngIf="checkError('categoryName', 'idExists')">category id already exists</mat-error>
+      <mat-hint style="color: #37CC50;" class="mat-error" *ngIf="categoryAddForm.controls['categoryName'].valid">valid</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="outline">

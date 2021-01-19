@@ -9,8 +9,12 @@ import { MovieDetail } from 'src/app/domains/movie';
 })
 export class AdminMovieDeleteComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<AdminMovieDeleteComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(
+    public dialogRef: MatDialogRef<AdminMovieDeleteComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any)
+  {}
 
+  // data
   movie: MovieDetail;
 
   ngOnInit(): void {

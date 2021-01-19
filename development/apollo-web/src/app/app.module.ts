@@ -79,6 +79,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AngularTiltModule } from 'angular-tilt';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { AdminMovieDeleteComponent } from './admin/admin-movie/admin-movie-delete/admin-movie-delete.component';
+import { ImageBase64Pipe } from './pipes/image-base-64.pipe';
 
 @NgModule({
   declarations: [
@@ -124,7 +125,8 @@ import { AdminMovieDeleteComponent } from './admin/admin-movie/admin-movie-delet
     NoContentComponent,
     CinemahallEditComponent,
     CoronaSettingsComponent,
-    AdminMovieDeleteComponent
+    AdminMovieDeleteComponent,
+    ImageBase64Pipe
   ],
   imports: [
     AngularTiltModule,
