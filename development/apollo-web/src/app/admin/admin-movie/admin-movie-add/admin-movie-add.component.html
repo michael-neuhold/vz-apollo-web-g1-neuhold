@@ -9,7 +9,7 @@
     <div class="row-multiple-items">
         <mat-form-field appearance="outline" class="item">
           <mat-label>movie id</mat-label>
-          <input matInput formControlName="movieId" [(ngModel)]="newMovie.id" required>
+          <input type="number" matInput formControlName="movieId" [(ngModel)]="newMovie.id" required>
           <mat-error *ngIf="checkError('movieId', 'required')">movie id is required</mat-error>
           <mat-error *ngIf="checkError('movieId', 'pattern')">movie id has to be a number</mat-error>
           <mat-error *ngIf="checkError('movieId', 'idExists')">movie id exists already</mat-error>
@@ -82,7 +82,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline" class="two-item-row ">
         <mat-label>length (min)</mat-label>
-        <input matInput [(ngModel)]="newMovie.length" formControlName="movieLength" required>
+        <input matInput [(ngModel)]="newMovie.length" formControlName="movieLength" type="number" required>
         <mat-error *ngIf="checkError('movieLength', 'required')">movie length are required</mat-error>
         <mat-error *ngIf="checkError('movieLength', 'pattern')">movie length in minutes</mat-error>
       </mat-form-field>

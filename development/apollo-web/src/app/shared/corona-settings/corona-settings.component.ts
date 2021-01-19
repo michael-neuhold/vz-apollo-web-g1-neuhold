@@ -26,6 +26,7 @@ export class CoronaSettingsComponent implements OnInit {
   }
 
   applyChessboard(): Seat[] {
+    this.applyNoRestrictions();
     this.data.forEach(seat => {
       if(seat.seatInformationId != 3 && seat.seatInformationId != 4) {
         if(seat.coordinate.x % 2 == 0) {
@@ -41,6 +42,7 @@ export class CoronaSettingsComponent implements OnInit {
   }
 
   applyAlternately(): Seat[] {
+    this.applyNoRestrictions();
     this.data.forEach(seat => {
       if(seat.seatInformationId != 3 && seat.seatInformationId != 4) {
         if(seat.coordinate.x % 2 == 0) {

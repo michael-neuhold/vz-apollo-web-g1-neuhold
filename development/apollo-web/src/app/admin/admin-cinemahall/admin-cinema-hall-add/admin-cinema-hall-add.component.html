@@ -5,19 +5,19 @@
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
         <input autocomplete="off" formControlName="cinemaHallName" matInput [(ngModel)]="newCinemaHall.id">
-        <mat-error *ngIf="checkError('cinemaHallName', 'required')">Shop Name is required</mat-error>
+        <mat-error *ngIf="checkError('cinemaHallName', 'required')">cinemahall name is required</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Rows</mat-label>
-        <input autocomplete="off" formControlName="sizeRows" matInput [(ngModel)]="newCinemaHall.size.x" >
+        <input type="number" autocomplete="off" formControlName="sizeRows" matInput [(ngModel)]="newCinemaHall.size.x" >
         <mat-error *ngIf="checkError('sizeRows', 'required')">row number is required</mat-error>
         <mat-error *ngIf="checkError('sizeRows', 'pattern')">only numbers allowed</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Seats</mat-label>
-        <input autocomplete="off" formControlName="sizeSeats" matInput [(ngModel)]="newCinemaHall.size.y">
+        <input type="number" autocomplete="off" formControlName="sizeSeats" matInput [(ngModel)]="newCinemaHall.size.y">
         <mat-error *ngIf="checkError('sizeSeats', 'required')">seats number is required</mat-error>
         <mat-error *ngIf="checkError('sizeSeats', 'pattern')">only numbers allowed</mat-error>
       </mat-form-field>
