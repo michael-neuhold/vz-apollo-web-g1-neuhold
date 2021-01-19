@@ -3,64 +3,105 @@
 <mat-divider></mat-divider>
 
 <mat-dialog-content style="margin-top: 30px;">
+  <form [formGroup]="movieAddForm">
 
-  <div class="row-multiple-items">
+    <!-- first row -->
+    <div class="row-multiple-items">
+        <mat-form-field appearance="outline" class="item">
+          <mat-label>movie id</mat-label>
+          <input matInput formControlName="movieId" [(ngModel)]="newMovie.id" required>
+          <mat-error *ngIf="checkError('movieId', 'required')">movie id is required</mat-error>
+          <mat-error *ngIf="checkError('movieId', 'pattern')">movie id has to be a number</mat-error>
+          <mat-error *ngIf="checkError('movieId', 'idExists')">movie id exists already</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="item">
+          <mat-label>movie title</mat-label>
+          <input matInput formControlName="movieTitle" [(ngModel)]="newMovie.title" required>
+          <mat-error *ngIf="checkError('movieTitle', 'required')">movie title is required</mat-error>
+          <div style="display: inline; position: absolute; top: -3px; right: -40px; color: gray;">
+            <button type="button" mat-icon-button class="icon-button-hover" (click)="copyTitle()">
+              <mat-icon class="icons">arrow_right</mat-icon>
+            </button>
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="item">
+          <mat-label>movie orignal title</mat-label>
+          <input matInput formControlName="movieOriginalTitle" [(ngModel)]="newMovie.originalTitle" required>
+          <mat-error *ngIf="checkError('movieOriginalTitle', 'required')">movie original title is required</mat-error>
+        </mat-form-field>
+    </div>
+
+    <!-- row -->
+    <div class="row-single-item">
       <mat-form-field appearance="outline">
-        <mat-label>id</mat-label>
-        <input matInput [(ngModel)]="newMovie.id">
+        <mat-label>description</mat-label>
+        <input matInput formControlName="movieDescription" [(ngModel)]="newMovie.description" required>
+        <mat-error *ngIf="checkError('movieDescription', 'required')">movie description is required</mat-error>
       </mat-form-field>
+    </div>
+
+    <!-- row -->
+    <div class="row-single-item">
       <mat-form-field appearance="outline">
-        <mat-label>title</mat-label>
-        <input matInput [(ngModel)]="newMovie.title">
+        <mat-label>actors</mat-label>
+        <mat-chip-list #chipList aria-label="actor" formControlName="movieActors" required>
+          <mat-chip *ngFor="let actor of actors" [selectable]="true"
+                  [removable]="true" (removed)="remove(actor)">
+            {{actor}}
+            <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="enter new actor..."
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="true"
+                (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+        <mat-error *ngIf="checkError('movieActors', 'required')">movie actors are required</mat-error>
       </mat-form-field>
+    </div>
+
+     <!-- row -->
+     <div class="row-single-item">
       <mat-form-field appearance="outline">
-        <mat-label>orignal title</mat-label>
-        <input matInput [(ngModel)]="newMovie.originalTitle">
+        <mat-label>trailer (optional)</mat-label>
+        <input matInput formControlName="movieTrailer" [(ngModel)]="newMovie.trailerUrl">
+        <mat-error *ngIf="checkError('movieTrailer', 'pattern')">has to be a valid url</mat-error>
       </mat-form-field>
-  </div>
+    </div>
 
-  <div class="row-single-item">
-    <mat-form-field appearance="outline">
-      <mat-label>description</mat-label>
-      <input matInput [(ngModel)]="newMovie.description">
-    </mat-form-field>
-  </div>
+    <!-- row -->
+    <div class="row-multiple-items">
+      <mat-form-field appearance="outline" class="two-item-row ">
+        <mat-select placeholder="genre" [(ngModel)]="newMovie.genreId" formControlName="movieGenre" required>
+            <mat-option *ngFor="let option of allGenre" [value]="option.id" required>
+              {{option.name}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="checkError('movieActors', 'required')">movie genre are required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="two-item-row ">
+        <mat-label>length (min)</mat-label>
+        <input matInput [(ngModel)]="newMovie.length" formControlName="movieLength" required>
+        <mat-error *ngIf="checkError('movieLength', 'required')">movie length are required</mat-error>
+        <mat-error *ngIf="checkError('movieLength', 'pattern')">movie length in minutes</mat-error>
+      </mat-form-field>
+    </div>
 
-  <div class="row-single-item">
-    <mat-form-field appearance="outline">
-      <mat-label>actors</mat-label>
-      <mat-chip-list #chipList aria-label="actor">
-        <mat-chip *ngFor="let actor of actors" [selectable]="selectable"
-                [removable]="removable" (removed)="remove(actor)">
-          {{actor}}
-          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-        </mat-chip>
-        <input placeholder="enter new actor..."
-              [matChipInputFor]="chipList"
-              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              [matChipInputAddOnBlur]="addOnBlur"
-              (matChipInputTokenEnd)="add($event)">
-      </mat-chip-list>
-    </mat-form-field>
-  </div>
+    <!-- row -->
+    <div class="row-multiple-items">
+      <mat-form-field appearance="outline" class="file-upload">
+        <ngx-mat-file-input placeholder="cover image (optional)" formControlName="movieCover" [multiple]="false"></ngx-mat-file-input>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="file-upload">
+        <ngx-mat-file-input placeholder="cover image hd (optional)" formControlName="movieCoverHd" [multiple]="false"></ngx-mat-file-input>
+      </mat-form-field>
+    </div>
 
-  <div class="row-multiple-items">
-    <mat-form-field appearance="outline">
-      <mat-select placeholder="genre" [(ngModel)]="newMovie.genreId">
-          <mat-option *ngFor="let option of allGenre" [value]="option.id">
-            {{option.name}}
-          </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>length</mat-label>
-      <input matInput [(ngModel)]="newMovie.length">
-    </mat-form-field>
-  </div>
-
+  </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-button (click)="onCloseClick()">Cancel</button>
-  <button color="primary" mat-raised-button (click)="onSaveClick()">Add</button>
+  <button color="primary" mat-raised-button (click)="onSaveClick()" [disabled]="!movieAddForm.valid">Add</button>
 </mat-dialog-actions>

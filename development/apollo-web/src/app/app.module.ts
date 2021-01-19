@@ -77,6 +77,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatTimepickerModule } from 'mat-timepicker';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AngularTiltModule } from 'angular-tilt';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 @NgModule({
   declarations: [
@@ -153,7 +154,8 @@ import { AngularTiltModule } from 'angular-tilt';
     HttpClientModule,
     MatSliderModule,
     ChartsModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot(),
+    NgxMatFileInputModule
   ],
   entryComponents: [
     // category

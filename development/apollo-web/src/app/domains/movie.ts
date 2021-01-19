@@ -9,6 +9,7 @@ export class MovieDetail{
     public length? : number,
     public coverImageLink? : string,
     public coverImage? : string,
+    public coverImageHd? : string,
     public trailerUrl? : string,
     public actors?: string,
   ) {}

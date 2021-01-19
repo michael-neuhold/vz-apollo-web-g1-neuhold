@@ -40,8 +40,6 @@ export class AdminCategoryAddComponent implements OnInit {
   }
 
   public checkError = (controlName: string, errorName: string) => {
-    //console.log(this.categoryAddForm.controls);
-    //console.log(controlName, this.categoryAddForm.controls[controlName].hasError(errorName));
     return this.categoryAddForm.controls[controlName].hasError(errorName);
   }
 

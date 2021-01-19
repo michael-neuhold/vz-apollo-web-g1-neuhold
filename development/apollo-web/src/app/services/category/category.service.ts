@@ -17,7 +17,7 @@ export class CategoryService implements BasisService {
 
   constructor(private http: HttpClient, private snackbarMessage: SnackbarMessageService) { }
 
-  getById(categoryId: string): Observable<Category> {
+  getById_(categoryId: string): Observable<Category> {
     return this.http.get<Category>(`${environment.server}/category/${categoryId}`);
   }
 

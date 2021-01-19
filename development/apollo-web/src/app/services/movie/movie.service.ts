@@ -22,6 +22,10 @@ export class MovieService {
     .pipe(catchError((err => errorHandler(err, "movies", this.snackbarMessage))));
   }
 
+  getById_(id: number) : Observable<MovieDetail>  {
+    return this.http.get<MovieDetail>(`${environment.server}/movie/${id}`);
+  }
+
   getById(id: number) : Observable<MovieDetail>  {
     return this.http.get<MovieDetail>(`${environment.server}/movie/${id}`)
     .pipe(catchError((err => errorHandler(err, "movie", this.snackbarMessage))));
@@ -30,7 +34,7 @@ export class MovieService {
   delete(id: number): Observable<any> {
     return this.http.delete<any>(`${environment.server}/movie/${id}`)
     .pipe(
-      tap(() => successHandler("movie updated", this.snackbarMessage)),
+      tap(() => successHandler("movie delete", this.snackbarMessage)),
       catchError((err => errorHandler(err, "movie", this.snackbarMessage))
     ));
   }
@@ -38,7 +42,7 @@ export class MovieService {
   create(movie: MovieDetail): Observable<any> {
     return this.http.post<MovieDetail>(`${environment.server}/movie`, movie)
     .pipe(
-      tap(() => successHandler("movie updated", this.snackbarMessage)),
+      tap(() => successHandler("movie create", this.snackbarMessage)),
       catchError((err => errorHandler(err, "movie", this.snackbarMessage))
     ));
   }

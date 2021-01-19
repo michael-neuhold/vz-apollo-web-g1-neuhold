@@ -21,7 +21,7 @@ export class GenreService implements BasisService {
     .pipe(catchError((err => errorHandler(err, "genre", this.snackbarMessage))));
   }
 
-  getById(genreId: number): Observable<Genre> {
+  getById_(genreId: number): Observable<Genre> {
     return this.http.get<Genre>(`${environment.server}/genre/${genreId}`);
   }
 
