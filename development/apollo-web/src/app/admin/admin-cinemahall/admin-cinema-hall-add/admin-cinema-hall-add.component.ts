@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CinemaHall, Size } from 'src/app/domains/cinemahall';
 import { CinemahallService } from 'src/app/services/cinemahall/cinemahall.service';
+import { IdExistsValidator } from 'src/app/validation/validators/IdValidator';
 
 @Component({
   selector: 'app-admin-cinema-hall-add',
@@ -23,7 +24,7 @@ export class AdminCinemaHallAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.cinemaHallAddForm = new FormGroup({
-      cinemaHallName : new FormControl('', [Validators.required]),
+      cinemaHallName : new FormControl('', [Validators.required], IdExistsValidator.createValidator(this.cinemaHallService)),
       sizeRows: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]),
       sizeSeats: new FormControl('', [Validators.required,  Validators.pattern('^[0-9]*$')])
     });
@@ -42,7 +43,11 @@ export class AdminCinemaHallAddComponent implements OnInit {
   }
 
   onSave() {
-    this.cinemaHallService.create(this.newCinemaHall).subscribe(result => console.log(result));
+    this.newCinemaHall.id = this.newCinemaHall.id.trim();
+    this.cinemaHallService.create(this.newCinemaHall).subscribe(() => {
+      this.cinemaHallAddForm.reset();
+      this.useDefaultSize = false;
+    });
   }
 
 }

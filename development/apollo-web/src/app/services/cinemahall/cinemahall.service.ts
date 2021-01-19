@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { CinemaHall, CinemaHallDetailed } from 'src/app/domains/cinemahall';
 import { Seat } from 'src/app/domains/seat';
 import { environment } from 'src/environments/environment';
+import { BasisService } from '../basis/basis-service';
 import { errorHandler } from '../handler/error';
 import { successHandler } from '../handler/success';
 import { SnackbarMessageService } from '../snackbar-message/snackbar-message.service';
@@ -12,9 +13,13 @@ import { SnackbarMessageService } from '../snackbar-message/snackbar-message.ser
 @Injectable({
   providedIn: 'root'
 })
-export class CinemahallService {
+export class CinemahallService implements BasisService {
 
   constructor(private http: HttpClient, private snackbarMessage: SnackbarMessageService) { }
+
+  getById_(id: any): Observable<any> {
+    return this.http.get<CinemaHallDetailed>(`${environment.server}/cinemahall/${id}`)
+  }
 
   getAll() : Observable<Array<CinemaHall>>  {
     return this.http.get<CinemaHall>(`${environment.server}/cinemahall`)

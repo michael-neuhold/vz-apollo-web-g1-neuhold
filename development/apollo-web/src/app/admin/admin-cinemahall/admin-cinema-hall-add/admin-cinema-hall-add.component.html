@@ -2,10 +2,12 @@
 
   <div class="input-wrapper">
     <form [formGroup]="cinemaHallAddForm">
+
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
         <input autocomplete="off" formControlName="cinemaHallName" matInput [(ngModel)]="newCinemaHall.id">
         <mat-error *ngIf="checkError('cinemaHallName', 'required')">cinemahall name is required</mat-error>
+        <mat-error *ngIf="checkError('cinemaHallName', 'idExists')">cinemahall name already exists</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -31,9 +33,12 @@
             use default size
         </mat-slide-toggle>
       </div>
+
     </form>
+
     <div class="control save-button">
       <button color="primary" mat-raised-button (click)="onSave()" [disabled]="!cinemaHallAddForm.valid">Save</button>
     </div>
+
   </div>
 </div>

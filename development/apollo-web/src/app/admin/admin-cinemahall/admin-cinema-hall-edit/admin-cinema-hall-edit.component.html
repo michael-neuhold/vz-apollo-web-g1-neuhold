@@ -7,6 +7,9 @@
         </mat-option>
     </mat-select>
   </mat-form-field>
+  <button style="position: relative; top: 8px; left: 20px; color: gray;" mat-icon-button class="icon-button-hover">
+    <mat-icon class="icons" (click)="updateView()">update</mat-icon>
+  </button>
 </div>
 
 <div *ngIf="cinemaHallDetailed && seats">

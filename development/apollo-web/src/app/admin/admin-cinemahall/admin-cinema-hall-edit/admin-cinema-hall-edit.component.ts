@@ -21,6 +21,10 @@ export class AdminCinemaHallEditComponent implements OnInit {
   seats: Seat[];
 
   ngOnInit(): void {
+    this.updateView();
+  }
+
+  updateView() {
     this.cinemahallService.getAll().subscribe(
       result => {
         this.cinemaHalls = result;
@@ -42,7 +46,6 @@ export class AdminCinemaHallEditComponent implements OnInit {
     this.cinemahallService.getSeats(versionId).subscribe(
       result => {
         this.seats = result;
-        console.log('seats:', this.seats)
     });
   }
 
