@@ -14,13 +14,11 @@ export class AdminCinemaHallAddComponent implements OnInit {
 
   constructor(private cinemaHallService: CinemahallService) {}
 
+  // data
   newCinemaHall: CinemaHall = new CinemaHall('', new Size());
-
   defaultSize: Size = new Size(15,20);
   useDefaultSize: boolean = false;
-
-  // form
-  public cinemaHallAddForm: FormGroup;
+  cinemaHallAddForm: FormGroup;
 
   ngOnInit(): void {
     this.cinemaHallAddForm = new FormGroup({
@@ -30,7 +28,7 @@ export class AdminCinemaHallAddComponent implements OnInit {
     });
   }
 
-  public checkError = (controlName: string, errorName: string) => {
+  checkError = (controlName: string, errorName: string) => {
     return this.cinemaHallAddForm.controls[controlName].hasError(errorName);
   }
 
