@@ -14,27 +14,32 @@
 
          <ng-container matColumnDef="movieId">
            <th mat-header-cell *matHeaderCellDef> movie id </th>
-           <td mat-cell *matCellDef="let element"> {{element.movieId}} </td>
+           <td mat-cell *matCellDef="let element"> {{ element.movieId }} </td>
          </ng-container>
 
          <ng-container matColumnDef="movieTitle">
            <th mat-header-cell *matHeaderCellDef> movie title </th>
-           <td mat-cell *matCellDef="let element"> {{element.movieTitle}} </td>
+           <td mat-cell *matCellDef="let element"> {{ element.movieTitle }} </td>
          </ng-container>
+
+         <ng-container matColumnDef="movieOriginalTitle">
+          <th mat-header-cell *matHeaderCellDef> movie original title </th>
+          <td mat-cell *matCellDef="let element"> {{ element.movieTitle != element.movieOriginalTitle ? element.movieOriginalTitle : '' }} </td>
+        </ng-container>
 
           <ng-container matColumnDef="movieLength">
            <th mat-header-cell *matHeaderCellDef> movie length </th>
-           <td mat-cell *matCellDef="let element"> {{element.movieLength}} </td>
+           <td mat-cell *matCellDef="let element"> {{ element.movieLength }} </td>
          </ng-container>
 
          <ng-container matColumnDef="cinemaHallId">
           <th mat-header-cell *matHeaderCellDef> cinemahall </th>
-          <td mat-cell *matCellDef="let element"> {{element.cinemaHallId}} </td>
+          <td mat-cell *matCellDef="let element"> {{ element.cinemaHallId }} </td>
          </ng-container>
 
          <ng-container matColumnDef="startTime">
           <th mat-header-cell *matHeaderCellDef> startTime </th>
-          <td mat-cell *matCellDef="let element"> {{element.startTime | date: 'dd.MM.yyyy HH:mm'}} </td>
+          <td mat-cell *matCellDef="let element"> {{ element.startTime | date: 'dd.MM.yyyy HH:mm' }} </td>
          </ng-container>
 
           <!-- edit Column -->
