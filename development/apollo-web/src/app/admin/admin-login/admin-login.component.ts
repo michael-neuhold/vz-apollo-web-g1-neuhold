@@ -9,20 +9,13 @@ import { AuthenticationService } from '../../authentication.service';
 })
 export class AdminLoginComponent implements OnInit {
 
-  private returnString: string = '';
-
-  constructor(private auth: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.returnString = params['returnUrl'];
-      console.log(params);
-    })
   }
 
   login() {
-    if(!this.auth.isLoggedIn)
-      this.auth.login();
+    this.auth.login();
   }
 
 }

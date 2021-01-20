@@ -3,17 +3,17 @@
             <span>Apollo</span>
             <button routerLink="/overview" class="overview-button" mat-button>Overview</button>
             <span class="spacer"></span>
-            <div *ngIf="name != null">
+            <div *ngIf="username != null">
                   <button mat-button [matMenuTriggerFor]="menu" >
                         <mat-icon aria-hidden="false" style="margin-right: 10px;">person</mat-icon>
-                        {{name}}
+                        {{ username }}
                   </button>
                   <mat-menu #menu="matMenu" xPosition="after">
                         <button mat-menu-item routerLink='/admin'>Dashboard</button>
                         <button mat-menu-item (click)="logout()">Logout</button>
                   </mat-menu>
             </div>
-            <div *ngIf="name == null">
+            <div *ngIf="username == null">
                   <button (click)="login()" mat-button >Login</button>
             </div>
       </mat-toolbar-row>

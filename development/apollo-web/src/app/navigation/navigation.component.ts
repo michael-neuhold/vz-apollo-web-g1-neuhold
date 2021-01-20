@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -14,23 +14,12 @@ import { OAuthService } from 'angular-oauth2-oidc';
 })
 export class NavigationComponent {
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  constructor(private auth: AuthenticationService) { }
 
-  constructor(private breakpointObserver: BreakpointObserver, private auth: AuthenticationService, private authentication: OAuthService,private router: Router) {
-    authentication.events.subscribe((event) => {
-      console.log(this.name = this.auth.givenName());
-    })
-  }
-
-  name: string;
+  @Input() username: string;
 
   login() {
     this.auth.login();
-    this.name = this.auth.givenName();
   }
 
   logout() {
