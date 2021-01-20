@@ -11,7 +11,6 @@ import { ScheduleService } from './services/schedule/schedule.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'apollo-web';
 
   constructor(private oauthService: OAuthService, private scheduleService: ScheduleService, private router: Router) {
     this.configureWithNewConfigApi();
@@ -21,6 +20,7 @@ export class AppComponent {
     this.oauthService.configure(authConfig);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    this.oauthService.setupAutomaticSilentRefresh();
   }
 
 }

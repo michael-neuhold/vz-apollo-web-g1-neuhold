@@ -9,9 +9,8 @@ export class AuthenticationService {
 
     constructor(private oauthService: OAuthService) { }
 
-    login(): boolean {
+    login() {
       this.oauthService.initImplicitFlow();
-      return true;
     }
 
     logout() {

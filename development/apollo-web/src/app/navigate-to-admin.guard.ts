@@ -15,12 +15,11 @@ export class NavigateToAdminGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if (!this.auth.isLoggedIn()) {
-        this.router.navigate(['/login'], 
-          { queryParams: { returnUrl: state.url } });
+        this.router.navigate(['/login']);
         return false;
       } else {
         return true;
       }
   }
-  
+
 }

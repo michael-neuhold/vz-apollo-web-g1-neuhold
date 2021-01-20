@@ -10,7 +10,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: 18px;
 }
 
-
 .snackbar-message-error {
   background-color:#F1C6C6;
   color:#CD3838;

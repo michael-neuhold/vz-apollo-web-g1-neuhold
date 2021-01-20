@@ -21,11 +21,8 @@ export class AdminLoginComponent implements OnInit {
   }
 
   login() {
-    if (this.auth.login()) {
-      this.router.navigateByUrl(this.returnString);
-    }
+    if(!this.auth.isLoggedIn)
+      this.auth.login();
   }
-
-
 
 }

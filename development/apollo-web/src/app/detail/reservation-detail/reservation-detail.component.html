@@ -4,20 +4,23 @@
 <div class="details-wrapper">
   <mat-card class="mat-elevation-z5">
   <div *ngIf="reservation">
-    <div class="is-paid paid mat-elevation-z2" *ngIf="isPaid">bezahlt</div>
-    <div class="is-paid not-paid mat-elevation-z2" *ngIf="!isPaid">nicht bezhalt</div>
-    <h1>#{{reservation.id}}</h1>
-    <h2 style="margin: 0px;">{{reservation.movieTitle}} </h2>
-    <p style="color: gray;">{{reservation.reservationDate | date: 'dd.MM.yyyy HH:mm'}}</p>
+    <div class="is-paid paid mat-elevation-z2" *ngIf="isPaid">paid</div>
+    <div class="is-paid not-paid mat-elevation-z2" *ngIf="!isPaid">not paid</div>
+    <h1>#{{ reservation.id }}</h1>
+    <h2 style="margin: 0px; display: inline;">{{ reservation.movieTitle }}</h2>
+    <button mat-icon-button style="position: relative; top: -3px;" [routerLink]="['/movies', reservation.movieId]">
+      <mat-icon style="font-size: 16px; color: gray;">open_in_new</mat-icon>
+    </button>
+    <p style="color: gray;">{{ reservation.reservationDate | date: 'dd.MM.yyyy HH:mm' }}</p>
 
     <h1>Seats</h1>
     <div class="flex-container">
       <mat-card class="cat-card mat-elevation-z5" *ngFor="let seat of reservation.seats" >
-          <mat-card-title>Row {{seat.label.row}}, Seat {{seat.label.number}}</mat-card-title>
+          <mat-card-title>Row {{ seat.label.row }}, Seat {{ seat.label.number }}</mat-card-title>
           <mat-card-content style="color: white;">
             <div class="card-information-small">
               <h3 class="card-information-header">Category</h3>
-              <p>{{seat.categoryId}}</p>
+              <p>{{ seat.categoryId }}</p>
             </div>
           </mat-card-content>
       </mat-card>

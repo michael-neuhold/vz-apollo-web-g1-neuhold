@@ -5,6 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { AuthenticationService } from '../authentication.service';
 import { authConfig } from '../auth.config';
 import { Router } from '@angular/router';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'app-navigation',
@@ -19,16 +20,17 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private auth: AuthenticationService,private router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, private auth: AuthenticationService, private authentication: OAuthService,private router: Router) {
+    authentication.events.subscribe((event) => {
+      console.log(this.name = this.auth.givenName());
+    })
+  }
 
-  public name = this.auth.givenName()
-
-  returnString = '';
+  name: string;
 
   login() {
-    if (this.auth.login()) {
-      this.router.navigateByUrl(this.returnString);
-    }
+    this.auth.login();
+    this.name = this.auth.givenName();
   }
 
   logout() {

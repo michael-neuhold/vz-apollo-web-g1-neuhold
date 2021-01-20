@@ -52,8 +52,6 @@ import { AdminScheduleEditComponent } from './admin/admin-schedule/admin-schedul
 import { ScheduleService } from './services/schedule/schedule.service';
 import {MatChipsModule} from '@angular/material/chips';
 import { TransformUrlPipe } from './pipes/transform-url.pipe';
-import { GetStatisticValuesPipe } from './pipes/get-statistic-values.pipe';
-import { GetStatisticNamesPipe } from './pipes/get-statistic-names.pipe';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ImageEndpointPipe } from './pipes/image-endpoint.pipe';
@@ -113,8 +111,6 @@ import { ImageBase64Pipe } from './pipes/image-base-64.pipe';
     AdminScheduleAddComponent,
     AdminScheduleEditComponent,
     TransformUrlPipe,
-    GetStatisticValuesPipe,
-    GetStatisticNamesPipe,
     ImageEndpointPipe,
     PricePipe,
     InputErrorMessageComponent,

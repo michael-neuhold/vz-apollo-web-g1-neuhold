@@ -60,11 +60,11 @@ mat-card-actions {
 }
 
 .paid {
-  background-color: green;
-  color: white;
+  background-color:#D4F4DA;
+  color:#37CC50;
 }
 
 .not-paid {
-  background-color: red;
-  color: white;
+  background-color:#F1C6C6;
+  color:#CD3838;
 }
