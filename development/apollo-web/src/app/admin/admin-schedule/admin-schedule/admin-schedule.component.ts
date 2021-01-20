@@ -14,13 +14,16 @@ export class AdminScheduleComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private scheduleService: ScheduleService) {}
 
+  // data
   allSchedules: Schedule[];
-
   displayedColumns: string[] = ['id', 'movieId', 'movieTitle', 'movieOriginalTitle', 'movieLength', 'cinemaHallId', 'startTime', 'edit'];
+
+  ngOnInit(): void {
+    this.loadTable();
+  }
 
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AdminScheduleAddComponent, {});
-
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save == true ) {
         this.saveNewSchedules(result.data.schedules);
@@ -30,16 +33,11 @@ export class AdminScheduleComponent implements OnInit {
 
   openEditDialog(selectedSchedule: Schedule): void {
     const dialogRef = this.dialog.open(AdminScheduleEditComponent, { data: selectedSchedule });
-
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
         this.scheduleService.update(result.data).subscribe(() => this.loadTable());
       }
     });
-  }
-
-  ngOnInit(): void {
-    this.loadTable();
   }
 
   saveNewSchedules(schedules: Schedule[]) {

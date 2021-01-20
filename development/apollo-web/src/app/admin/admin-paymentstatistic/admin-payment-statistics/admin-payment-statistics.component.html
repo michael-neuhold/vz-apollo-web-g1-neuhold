@@ -1,7 +1,8 @@
-<mat-grid-list cols="{{cards.columns}}" rowHeight="440px">
+<mat-grid-list cols="{{ cards.columns }}" rowHeight="440px">
 
-  <mat-grid-tile colspan="{{cards.item1}}" rowspan="1">
-    <mat-card class="card1">
+  <mat-grid-tile colspan="{{ cards.chart1 }}" rowspan="1">
+    <mat-card>
+      <div class="euro">{{ '' | price }}</div>
       <mat-card-header class="dashboard-card-header">
         <mat-card-title class="dashboard-card-header">Weekday</mat-card-title>
       </mat-card-header>
@@ -11,8 +12,9 @@
     </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="{{cards.item2}}" rowspan="1">
-    <mat-card class="card1">
+  <mat-grid-tile colspan="{{ cards.chart2 }}" rowspan="1">
+    <mat-card>
+      <div class="euro">{{ '' | price }}</div>
       <mat-card-header class="dashboard-card-header">
         <mat-card-title class="dashboard-card-header">Genre</mat-card-title>
       </mat-card-header>
@@ -22,8 +24,9 @@
     </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="{{cards.item3}}" rowspan="1">
-    <mat-card class="card1">
+  <mat-grid-tile colspan="{{ cards.chart3 }}" rowspan="1">
+    <mat-card>
+      <div class="euro">{{ '' | price }}</div>
       <mat-card-header class="dashboard-card-header">
         <mat-card-title class="dashboard-card-header">Month</mat-card-title>
       </mat-card-header>
@@ -33,8 +36,9 @@
     </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="{{cards.item4}}" rowspan="1">
-    <mat-card class="card1">
+  <mat-grid-tile colspan="{{ cards.chart4 }}" rowspan="1">
+    <mat-card>
+      <div class="euro">{{ '' | price }}</div>
       <mat-card-header class="dashboard-card-header">
         <mat-card-title class="dashboard-card-header">Year</mat-card-title>
       </mat-card-header>

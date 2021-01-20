@@ -14,8 +14,13 @@ export class AdminMovieComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private movieService: MovieService) {}
 
+  // data
   allMovies: MovieDetail[];
   displayedColumns: string[] = ['id', 'title', 'originalTitle', 'genre', 'length', 'delete', 'details'];
+
+  ngOnInit(): void {
+    this.loadTable();
+  }
 
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AdminMovieAddComponent, {});
@@ -35,10 +40,6 @@ export class AdminMovieComponent implements OnInit {
         this.movieService.delete(movie.id).subscribe(res =>  this.loadTable());
       }
     });
-  }
-
-  ngOnInit(): void {
-    this.loadTable();
   }
 
   loadTable() {

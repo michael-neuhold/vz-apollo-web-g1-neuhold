@@ -22,7 +22,7 @@ export class AdminPaymentStatisticsComponent implements OnInit {
 
   constructor(private breakpointObserver: BreakpointObserver, private paymentstatistic: PaymentstatisticService) {}
 
-  cards = { columns: 2, item1: 1, item2: 1, item3: 1, item4: 1 }
+  cards = { columns: 2, chart1: 1, chart2: 1, chart3: 1, chart4: 1 }
 
   genre_values = [];
   genre_labels = [];
@@ -55,6 +55,7 @@ export class AdminPaymentStatisticsComponent implements OnInit {
       this.weekday_labels = res.map(item => item.name);
     });
 
+    // responsive:
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
       Breakpoints.Small,
@@ -63,34 +64,21 @@ export class AdminPaymentStatisticsComponent implements OnInit {
       Breakpoints.XLarge
     ]).subscribe( (state: BreakpointState) => {
       if (state.breakpoints[Breakpoints.XSmall]) {
-        this.cards =  { columns: 2, item1: 2, item2: 2, item3: 2, item4: 2 }
+        this.cards =  { columns: 2, chart1: 2, chart2: 2, chart3: 2, chart4: 2 }
       } else
       if (state.breakpoints[Breakpoints.Small]) {
-        this.cards =  { columns: 2, item1: 2, item2: 2, item3: 2, item4: 2 }
+        this.cards =  { columns: 2, chart1: 2, chart2: 2, chart3: 2, chart4: 2 }
       } else
       if (state.breakpoints[Breakpoints.Medium]) {
-        this.cards =  { columns: 2, item1: 2, item2: 2, item3: 2, item4: 2 }
+        this.cards =  { columns: 2, chart1: 2, chart2: 2, chart3: 2, chart4: 2 }
       } else
       if (state.breakpoints[Breakpoints.Large]) {
-        this.cards = { columns: 2, item1: 1, item2: 1, item3: 1, item4: 1 }
+        this.cards = { columns: 2, chart1: 1, chart2: 1, chart3: 1, chart4: 1 }
       } else
       if (state.breakpoints[Breakpoints.XLarge]) {
-        this.cards =  { columns: 2, item1: 1, item2: 1, item3: 1, item4: 1 }
+        this.cards =  { columns: 2, chart1: 1, chart2: 1, chart3: 1, chart4: 1 }
       }
     });
 
   }
-
-  public barChartOptions: ChartOptions = {
-    responsive: true,
-    maintainAspectRatio: false
-  };
-  public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
-
-  public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
-  ];
 }

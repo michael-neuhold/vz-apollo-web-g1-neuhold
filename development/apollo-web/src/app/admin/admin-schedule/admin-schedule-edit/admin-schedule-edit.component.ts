@@ -24,18 +24,34 @@ export class AdminScheduleEditComponent implements OnInit {
   myControl = new FormControl();
   options: MovieDetail[] = [];
   filteredOptions: Observable<MovieDetail[]>;
-
-  // autocomplete and cinemahall data
   cinemaHalls: CinemaHall[];
   movies: MovieDetail[];
-
-  // schedule
+  movieTitle: string;
   editSchedule: Schedule;
-
   selectedTime: Date;
+  scheduleAddForm: FormGroup;
 
-  // form
-  public scheduleAddForm: FormGroup;
+  ngOnInit(): void {
+    console.log(this.data);
+    this.editSchedule = this.data;
+    this.cinemahallService.getAll().subscribe(result => this.cinemaHalls = result);
+
+    this.scheduleAddForm = new FormGroup({
+      date : new FormControl(this.editSchedule.startTime, [Validators.required]),
+      time : new FormControl('', [Validators.required]),
+      movie: new FormControl(this.editSchedule.movieTitle, [Validators.required]),
+      cinemahall: new FormControl(this.editSchedule.cinemaHallId, [Validators.required])
+    });
+
+    this.movieService.getAll().subscribe(result => {
+      this.movies = result
+      this.options = result;
+      this.filteredOptions = this.scheduleAddForm.controls['movie'].valueChanges.pipe(
+        startWith(''), map(value => this._filter(value))
+      );
+      this.scheduleAddForm.controls['movie'].setValue(this.data.movieTitle);
+    });
+  }
 
   onCloseClick(): void {
     this.dialogRef.close( { save: false, data: {} } );
@@ -45,33 +61,13 @@ export class AdminScheduleEditComponent implements OnInit {
     this.dialogRef.close( { save: true, data: this.generateSchedule() } );
   }
 
-  ngOnInit(): void {
-    console.log(this.data);
-    this.editSchedule = this.data;
-    this.cinemahallService.getAll().subscribe(result => this.cinemaHalls = result);
-    this.movieService.getAll().subscribe(result => {
-      this.movies = result
-      this.options = result;
-      this.filteredOptions = this.myControl.valueChanges.pipe(
-        startWith(''), map(value => this._filter(value))
-      );
-    });
-
-    this.scheduleAddForm = new FormGroup({
-      date : new FormControl(this.editSchedule.startTime, [Validators.required]),
-      time : new FormControl('', [Validators.required]),
-      movie: new FormControl(this.editSchedule.movieTitle, [Validators.required]),
-      cinemahall: new FormControl(this.editSchedule.cinemaHallId, [Validators.required])
-    });
-  }
-
-  public checkError = (controlName: string, errorName: string) => {
+  checkError = (controlName: string, errorName: string) => {
     return this.scheduleAddForm.controls[controlName].hasError(errorName);
   }
 
-  private _filter(value: string): MovieDetail[] {
+  _filter(value: string): MovieDetail[] {
     const filterValue = value.toLowerCase();
-    console.log(this.options);
+    console.log(value);
     return this.options.filter(option => option.title.toLowerCase().indexOf(filterValue) === 0);
   }
 
@@ -95,4 +91,5 @@ export class AdminScheduleEditComponent implements OnInit {
     editedSchedule.id = this.data.id;
     return editedSchedule;
   }
+
 }

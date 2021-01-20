@@ -17,36 +17,27 @@ import { MovieService } from 'src/app/services/movie/movie.service';
 })
 export class AdminScheduleAddComponent implements OnInit {
 
-  constructor(public datepipe: DatePipe, public dialogRef: MatDialogRef<AdminScheduleAddComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private cinemahallService: CinemahallService, private movieService: MovieService) {}
+  constructor(
+    public datepipe: DatePipe,
+    public dialogRef: MatDialogRef<AdminScheduleAddComponent>,@Inject(MAT_DIALOG_DATA) public data: any,
+    private cinemahallService: CinemahallService,
+    private movieService: MovieService)
+  {}
 
-  // form data
+  // data
   myControl = new FormControl();
   options: MovieDetail[] = [];
   filteredOptions: Observable<MovieDetail[]>;
-
-  // autocomplete and cinemahall data
   cinemaHalls: CinemaHall[];
   movies: MovieDetail[];
-
-  // schedule
   newSchedule: Schedule = new Schedule();
-
-  // form
-  public scheduleAddForm: FormGroup;
+  scheduleAddForm: FormGroup;
 
   cinemaHallId: string;
   movieTitle: string;
   selectedTime: Date;
   selectedEndDate: Date;
   selectedStartDate: Date;
-
-  onCloseClick(): void {
-    this.dialogRef.close( { save: false, data: {} } );
-  }
-
-  onSaveClick() : void {
-    this.dialogRef.close( { save: true, data: { schedules: this.generateSchedules() } } );
-  }
 
   ngOnInit(): void {
     this.cinemahallService.getAll().subscribe(result => this.cinemaHalls = result);
@@ -67,13 +58,21 @@ export class AdminScheduleAddComponent implements OnInit {
     });
   }
 
-  public checkError = (controlName: string, errorName: string) => {
+  onCloseClick(): void {
+    this.dialogRef.close( { save: false, data: {} } );
+  }
+
+  onSaveClick() : void {
+    this.dialogRef.close( { save: true, data: { schedules: this.generateSchedules() } } );
+  }
+
+  checkError = (controlName: string, errorName: string) => {
     return this.scheduleAddForm.controls[controlName].hasError(errorName);
   }
 
-  private _filter(value: string): MovieDetail[] {
+  _filter(value: string): MovieDetail[] {
     const filterValue = value.toLowerCase();
-    console.log(this.options);
+    console.log(value);
     return this.options.filter(option => option.title.toLowerCase().indexOf(filterValue) === 0);
   }
 

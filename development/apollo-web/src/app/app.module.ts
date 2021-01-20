@@ -56,7 +56,6 @@ import { GetStatisticValuesPipe } from './pipes/get-statistic-values.pipe';
 import { GetStatisticNamesPipe } from './pipes/get-statistic-names.pipe';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { AdminReservationDetailsComponent } from './admin/admin-reservation/admin-reservation-details/admin-reservation-details.component';
 import { ImageEndpointPipe } from './pipes/image-endpoint.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
@@ -116,7 +115,6 @@ import { ImageBase64Pipe } from './pipes/image-base-64.pipe';
     TransformUrlPipe,
     GetStatisticValuesPipe,
     GetStatisticNamesPipe,
-    AdminReservationDetailsComponent,
     ImageEndpointPipe,
     PricePipe,
     InputErrorMessageComponent,

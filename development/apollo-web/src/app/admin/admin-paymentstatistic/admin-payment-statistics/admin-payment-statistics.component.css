@@ -9,3 +9,10 @@ mat-card {
 .dashboard-card-content {
   text-align: center;
 }
+
+.euro {
+  position: absolute;
+  top: 44px;
+  left: 4px;
+  color: gray;
+}

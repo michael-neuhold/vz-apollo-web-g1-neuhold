@@ -26,3 +26,9 @@ table {
   background-color: rgb(240,240,240);
 }
 
+.seat-icon {
+  font-size: 16px;
+  padding: 0px;
+  position: relative;
+  top: 6px;
+}
