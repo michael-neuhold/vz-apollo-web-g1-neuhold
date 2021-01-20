@@ -18,7 +18,13 @@ import { AdminScheduleAddComponent } from '../admin-schedule-add/admin-schedule-
 })
 export class AdminScheduleEditComponent implements OnInit {
 
-  constructor(public datepipe: DatePipe, public dialogRef: MatDialogRef<AdminScheduleAddComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private cinemahallService: CinemahallService, private movieService: MovieService) {}
+  constructor(
+    public datepipe: DatePipe,
+    public dialogRef: MatDialogRef<AdminScheduleAddComponent>,@Inject(MAT_DIALOG_DATA)
+    public data: any,
+    private cinemahallService: CinemahallService,
+    private movieService: MovieService)
+  {}
 
   // form data
   myControl = new FormControl();
@@ -28,7 +34,7 @@ export class AdminScheduleEditComponent implements OnInit {
   movies: MovieDetail[];
   movieTitle: string;
   editSchedule: Schedule;
-  selectedTime: Date;
+  selectedTime: string;
   scheduleAddForm: FormGroup;
 
   ngOnInit(): void {
