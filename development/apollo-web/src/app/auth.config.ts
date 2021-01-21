@@ -2,7 +2,7 @@ import { AuthConfig } from 'angular-oauth2-oidc';
 // INTROSPECTION
 // with Keycloak 11.0.2
 // siehe https://www.keycloak.org/docs/latest/securing_apps/index.html#endpoints-2
-/*
+
 export const authConfig: AuthConfig = {
  issuer: 'http://localhost:8080/auth/realms/apollo',
  loginUrl: 'http://localhost:8080/auth/realms/apollo/protocol/openid-connect/auth',
@@ -21,9 +21,9 @@ export const authConfig: AuthConfig = {
  //showDebugInformation: true, // Also requires enabling "Verbose" level in devtools
  clearHashAfterLogin: false, // https://github.com/manfredsteyer/angular-oauth2-oidc/issues/457#issuecomment-431807040
 };
-*/
 
 
+/*
 export const authConfig: AuthConfig = {
   // Url of the Identity Provider
   issuer: 'https://idsvr4.azurewebsites.net',
@@ -51,4 +51,4 @@ export const authConfig: AuthConfig = {
 
   showDebugInformation: true,
 };
-
+*/

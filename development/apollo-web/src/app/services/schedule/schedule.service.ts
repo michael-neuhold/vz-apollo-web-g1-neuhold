@@ -28,10 +28,13 @@ export class ScheduleService {
   }
 
   getFiltered(filter: FilterAttributes) : Observable<Array<MovieSchedule>> {
+
+
+
     return this.http.get(`${environment.server}/schedule/filtered`+
       `?movie=${filter.movieTitle ? filter.movieTitle : '' }`+
-      `&startDate=${filter.startDate ? this.datepipe.transform(filter.startDate, "yyyy/MM/dd") : '1/13/2021'}`+
-      `&endDate=${filter.endDate ? this.datepipe.transform(filter.endDate, "yyyy/MM/dd") : '1/20/2021'}`+
+      `&startDate=${filter.startDate ? this.datepipe.transform(filter.startDate, "MM/dd/yyyy") :  this.datepipe.transform(Date.now(), "MM/dd/yyyy")}`+
+      `&endDate=${filter.endDate ? this.datepipe.transform(filter.endDate, "MM/dd/yyyy") : this.datepipe.transform(this.getWeekEndDate(), "MM/dd/yyyy")}`+
       `&cinemaHall=${filter.cinemaHall ? filter.cinemaHall : ''}`)
       .pipe(catchError((err => errorHandler(err, "filtered schedules", this.snackbarMessage))));
   }
@@ -50,6 +53,11 @@ export class ScheduleService {
       tap(() => successHandler("schedule updated", this.snackbarMessage)),
       catchError((err => errorHandler(err, "schedule", this.snackbarMessage))
     ));
+  }
+
+  getWeekEndDate() : any {
+    var d = new Date();
+    return d.setDate(d.getDate()+5);
   }
 
 }

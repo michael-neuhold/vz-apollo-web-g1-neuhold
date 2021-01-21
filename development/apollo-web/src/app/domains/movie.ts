@@ -8,6 +8,7 @@ export class MovieDetail{
     public genreId? : number,
     public length? : number,
     public coverImageLink? : string,
+    public coverHdImageLink? : string,
     public coverImage? : string,
     public coverImageHd? : string,
     public trailerUrl? : string,
