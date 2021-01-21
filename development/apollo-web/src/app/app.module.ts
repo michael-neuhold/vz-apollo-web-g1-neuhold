@@ -58,7 +58,6 @@ import { ImageEndpointPipe } from './pipes/image-endpoint.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PricePipe } from './pipes/price.pipe';
-import { InputErrorMessageComponent } from './shared/input-error-message/input-error-message.component';
 import { ReservationDetailComponent } from './detail/reservation-detail/reservation-detail.component';
 import {MatSliderModule} from '@angular/material/slider';
 import { AdminCinemaHallAddComponent } from './admin/admin-cinemahall/admin-cinema-hall-add/admin-cinema-hall-add.component';
@@ -113,7 +112,6 @@ import { ImageBase64Pipe } from './pipes/image-base-64.pipe';
     TransformUrlPipe,
     ImageEndpointPipe,
     PricePipe,
-    InputErrorMessageComponent,
     ReservationDetailComponent,
     CinemahallComponent,
     NoContentComponent,

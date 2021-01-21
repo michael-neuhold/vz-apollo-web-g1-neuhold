@@ -101,3 +101,14 @@ mat-card:hover {
   padding: 4px;
   backdrop-filter: blur(2px) brightness(50%);
 }
+
+.time {
+  z-index: 100;
+  color: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 6px;
+  padding: 4px;
+  backdrop-filter: blur(2px) brightness(50%);
+}
