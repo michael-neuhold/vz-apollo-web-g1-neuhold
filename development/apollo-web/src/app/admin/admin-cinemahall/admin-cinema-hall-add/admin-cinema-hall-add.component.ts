@@ -28,11 +28,11 @@ export class AdminCinemaHallAddComponent implements OnInit {
     });
   }
 
-  checkError = (controlName: string, errorName: string) => {
+  public checkError = (controlName: string, errorName: string) => {
     return this.cinemaHallAddForm.controls[controlName].hasError(errorName);
   }
 
-  onUseDefaultSizeChange() {
+  public onUseDefaultSizeChange() {
     this.useDefaultSize = !this.useDefaultSize;
     if(this.useDefaultSize)
       this.newCinemaHall.size = this.defaultSize;
@@ -40,7 +40,7 @@ export class AdminCinemaHallAddComponent implements OnInit {
       this.newCinemaHall.size = new Size();
   }
 
-  onSave() {
+  public onSave() {
     this.newCinemaHall.id = this.newCinemaHall.id.trim();
     this.cinemaHallService.create(this.newCinemaHall).subscribe(() => {
       this.cinemaHallAddForm.reset();

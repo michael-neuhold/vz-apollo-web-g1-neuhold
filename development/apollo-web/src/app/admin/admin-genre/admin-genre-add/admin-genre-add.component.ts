@@ -13,7 +13,7 @@ import { IdExistsValidator } from 'src/app/validation/validators/IdValidator';
 export class AdminGenreAddComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<AdminGenreAddComponent>,
+    private dialogRef: MatDialogRef<AdminGenreAddComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private genreService: GenreService)
   {}
@@ -32,16 +32,16 @@ export class AdminGenreAddComponent implements OnInit {
     });
   }
 
-  onCloseClick(): void {
+  public onCloseClick(): void {
     this.dialogRef.close( { save: false, data: {} } );
   }
 
-  onSaveClick() : void {
+  public onSaveClick() : void {
     this.newGenre.name = this.newGenre.name.trim();
     this.dialogRef.close( { save: true, data: this.newGenre } );
   }
 
-  checkError = (controlName: string, errorName: string) => {
+  public checkError = (controlName: string, errorName: string) => {
     return this.genreAddForm.controls[controlName].hasError(errorName);
   }
 

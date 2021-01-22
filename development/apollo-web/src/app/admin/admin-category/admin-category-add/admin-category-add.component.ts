@@ -15,7 +15,7 @@ import { IdExistsValidator } from 'src/app/validation/validators/IdValidator';
 export class AdminCategoryAddComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<AdminCategoryAddComponent>,
+    private dialogRef: MatDialogRef<AdminCategoryAddComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private categoryService: CategoryService)
   {}
@@ -34,17 +34,17 @@ export class AdminCategoryAddComponent implements OnInit {
     });
   }
 
-  onCloseClick(): void {
+  public onCloseClick(): void {
     this.dialogRef.close({ save: false, data: {}});
   }
 
-  onSaveClick() : void {
+  public onSaveClick() : void {
     this.newCategory.id = this.newCategory.id.trim();
     this.newCategory.description = this.newCategory.description.trim();
     this.dialogRef.close({ save: true, data: this.newCategory });
   }
 
-  checkError = (controlName: string, errorName: string) => {
+  public checkError = (controlName: string, errorName: string) => {
     return this.categoryAddForm.controls[controlName].hasError(errorName);
   }
 

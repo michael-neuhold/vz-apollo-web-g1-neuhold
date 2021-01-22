@@ -13,7 +13,7 @@ import { AdminCategoryEditComponent } from '../admin-category-edit/admin-categor
 })
 export class AdminCategoryComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private categoryService: CategoryService) {}
+  constructor(private dialog: MatDialog, private categoryService: CategoryService) {}
 
   // data
   allCategories: Category[];
@@ -23,7 +23,7 @@ export class AdminCategoryComponent implements OnInit {
     this.loadTable();
   }
 
-  openAddDialog(): void {
+  public openAddDialog(): void {
     const dialogRef = this.dialog.open(AdminCategoryAddComponent, {});
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
@@ -32,7 +32,7 @@ export class AdminCategoryComponent implements OnInit {
     });
   }
 
-  openEditDialog(category: Category): void {
+  public openEditDialog(category: Category): void {
     const dialogRef = this.dialog.open(AdminCategoryEditComponent, { data: category });
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
@@ -41,7 +41,7 @@ export class AdminCategoryComponent implements OnInit {
     });
   }
 
-  loadTable(): void {
+  private loadTable(): void {
     this.categoryService.getAll().subscribe(res => this.allCategories = res);
   }
 

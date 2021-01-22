@@ -22,7 +22,7 @@ export class AdminScheduleComponent implements OnInit {
     this.loadTable();
   }
 
-  openAddDialog(): void {
+  public openAddDialog(): void {
     const dialogRef = this.dialog.open(AdminScheduleAddComponent, {});
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save == true ) {
@@ -31,7 +31,7 @@ export class AdminScheduleComponent implements OnInit {
     });
   }
 
-  openEditDialog(selectedSchedule: Schedule): void {
+  public openEditDialog(selectedSchedule: Schedule): void {
     const dialogRef = this.dialog.open(AdminScheduleEditComponent, { data: selectedSchedule });
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
@@ -40,13 +40,13 @@ export class AdminScheduleComponent implements OnInit {
     });
   }
 
-  saveNewSchedules(schedules: Schedule[]) {
+  private saveNewSchedules(schedules: Schedule[]) {
     schedules.forEach( schedule => {
       this.scheduleService.create(schedule).subscribe( () =>  this.loadTable());
     });
   }
 
-  loadTable() {
+  private loadTable() {
     this.scheduleService.getAll().subscribe(result => this.allSchedules = result);
   }
 

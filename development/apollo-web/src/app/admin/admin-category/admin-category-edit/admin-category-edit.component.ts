@@ -11,7 +11,7 @@ import { Category } from 'src/app/domains/category';
 export class AdminCategoryEditComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<AdminCategoryEditComponent>,
+    private dialogRef: MatDialogRef<AdminCategoryEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any)
   {}
 
@@ -29,16 +29,16 @@ export class AdminCategoryEditComponent implements OnInit {
     });
   }
 
-  onCloseClick(): void {
+  public onCloseClick(): void {
     this.dialogRef.close( { save: false, data: {} } );
   }
 
-  onSaveClick() : void {
+  public onSaveClick() : void {
     this.editCategory.description = this.editCategory.description.trim();
     this.dialogRef.close( { save: true, data: this.editCategory} );
   }
 
-  checkError = (controlName: string, errorName: string) => {
+  public checkError = (controlName: string, errorName: string) => {
     return this.categoryEditForm.controls[controlName].hasError(errorName);
   }
 

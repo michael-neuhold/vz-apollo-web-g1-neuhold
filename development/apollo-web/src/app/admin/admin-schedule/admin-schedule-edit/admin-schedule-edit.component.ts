@@ -19,15 +19,14 @@ import { AdminScheduleAddComponent } from '../admin-schedule-add/admin-schedule-
 export class AdminScheduleEditComponent implements OnInit {
 
   constructor(
-    public datepipe: DatePipe,
-    public dialogRef: MatDialogRef<AdminScheduleAddComponent>,@Inject(MAT_DIALOG_DATA)
-    public data: any,
+    private datepipe: DatePipe,
+    private dialogRef: MatDialogRef<AdminScheduleAddComponent>,@Inject(MAT_DIALOG_DATA)
+    private data: any,
     private cinemahallService: CinemahallService,
     private movieService: MovieService)
   {}
 
   // form data
-  myControl = new FormControl();
   options: MovieDetail[] = [];
   filteredOptions: Observable<MovieDetail[]>;
   cinemaHalls: CinemaHall[];
@@ -59,28 +58,28 @@ export class AdminScheduleEditComponent implements OnInit {
     });
   }
 
-  onCloseClick(): void {
+  public onCloseClick(): void {
     this.dialogRef.close( { save: false, data: {} } );
   }
 
-  onSaveClick() : void {
+  public onSaveClick() : void {
     this.dialogRef.close( { save: true, data: this.generateSchedule() } );
   }
 
-  checkError = (controlName: string, errorName: string) => {
+  public checkError = (controlName: string, errorName: string) => {
     return this.scheduleAddForm.controls[controlName].hasError(errorName);
   }
 
-  _filter(value: string): MovieDetail[] {
+  private _filter(value: string): MovieDetail[] {
     const filterValue = value.toLowerCase();
     console.log(value);
     return this.options.filter(option => option.title.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  generateSchedule() : Schedule {
+  private generateSchedule() : Schedule {
     let currentDate: Date = new Date(this.scheduleAddForm.get('date').value);
     let selectedTime: Date = new Date(this.scheduleAddForm.get('time').value);
-    let selectedHour: number = selectedTime.getHours();
+    let selectedHour: number = selectedTime.getHours() + 1;
     let selectedMinute: number = selectedTime.getMinutes();
     currentDate.setHours(selectedHour);
     currentDate.setMinutes(selectedMinute);
@@ -95,6 +94,7 @@ export class AdminScheduleEditComponent implements OnInit {
     );
     editedSchedule.startTime = currentDate;
     editedSchedule.id = this.data.id;
+    console.log('Schedule: ',editedSchedule);
     return editedSchedule;
   }
 

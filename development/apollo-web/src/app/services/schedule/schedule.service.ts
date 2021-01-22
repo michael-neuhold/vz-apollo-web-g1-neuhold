@@ -45,6 +45,7 @@ export class ScheduleService {
   }
 
   update(schedule: Schedule) : Observable<any> {
+    console.log('in service:', schedule);
     return this.http.put<any>(`${environment.server}/schedule`, schedule)
     .pipe(
       tap(() => successHandler("schedule updated", this.snackbarMessage)),

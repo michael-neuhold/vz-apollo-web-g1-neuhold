@@ -12,7 +12,7 @@ import { Genre } from 'src/app/domains/genre';
 })
 export class AdminGenreComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private genreService: GenreService) {}
+  constructor(private dialog: MatDialog, private genreService: GenreService) {}
 
   // data
   allGenre = [];
@@ -22,7 +22,7 @@ export class AdminGenreComponent implements OnInit {
     this.loadTable();
   }
 
-  openAddDialog(): void {
+  public openAddDialog(): void {
     const dialogRef = this.dialog.open(AdminGenreAddComponent, {});
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
@@ -31,7 +31,7 @@ export class AdminGenreComponent implements OnInit {
     });
   }
 
-  openEditDialog(genre: Genre): void {
+  public openEditDialog(genre: Genre): void {
     const dialogRef = this.dialog.open(AdminGenreEditComponent, { data: genre });
     dialogRef.afterClosed().subscribe(result => {
       if(result != undefined && result.save) {
@@ -40,7 +40,7 @@ export class AdminGenreComponent implements OnInit {
     });
   }
 
-  loadTable(): void {
+  private loadTable(): void {
     this.genreService.getAll().subscribe(res => this.allGenre = res)
   }
 

@@ -12,7 +12,7 @@ import { AdminMovieDeleteComponent } from '../admin-movie-delete/admin-movie-del
 })
 export class AdminMovieComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private movieService: MovieService) {}
+  constructor(private dialog: MatDialog, private movieService: MovieService) {}
 
   // data
   allMovies: MovieDetail[];
@@ -22,7 +22,7 @@ export class AdminMovieComponent implements OnInit {
     this.loadTable();
   }
 
-  openAddDialog(): void {
+  public openAddDialog(): void {
     const dialogRef = this.dialog.open(AdminMovieAddComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
@@ -32,7 +32,7 @@ export class AdminMovieComponent implements OnInit {
     });
   }
 
-  onDeleteMovie(movie: MovieDetail): void {
+  public onDeleteMovie(movie: MovieDetail): void {
     const dialogRef = this.dialog.open(AdminMovieDeleteComponent, { data: movie });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -42,7 +42,7 @@ export class AdminMovieComponent implements OnInit {
     });
   }
 
-  loadTable() {
+  private loadTable() {
     this.movieService.getAll().subscribe(res => this.allMovies = res);
   }
 

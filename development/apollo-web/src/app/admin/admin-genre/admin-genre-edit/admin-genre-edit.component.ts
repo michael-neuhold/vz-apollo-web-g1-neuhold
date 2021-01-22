@@ -11,7 +11,7 @@ import { Genre } from 'src/app/domains/genre';
 export class AdminGenreEditComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<AdminGenreEditComponent>,
+    private dialogRef: MatDialogRef<AdminGenreEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any)
   {}
 
@@ -26,16 +26,16 @@ export class AdminGenreEditComponent implements OnInit {
     });
   }
 
-  onCloseClick(): void {
+  public onCloseClick(): void {
     this.dialogRef.close( { save: false, data: {} } );
   }
 
-  onSaveClick() : void {
+  public onSaveClick() : void {
     this.genre.name = this.genre.name.trim();
     this.dialogRef.close( { save: true, data: this.genre } );
   }
 
-  checkError = (controlName: string, errorName: string) => {
+  public checkError = (controlName: string, errorName: string) => {
     return this.genreEditForm.controls[controlName].hasError(errorName);
   }
 

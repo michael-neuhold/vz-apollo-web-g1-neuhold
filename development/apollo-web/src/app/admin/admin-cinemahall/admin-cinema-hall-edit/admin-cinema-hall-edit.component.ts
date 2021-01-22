@@ -22,7 +22,7 @@ export class AdminCinemaHallEditComponent implements OnInit {
     this.updateView();
   }
 
-  updateView() {
+  public updateView() {
     this.cinemahallService.getAll().subscribe(
       result => {
         this.cinemaHalls = result;
@@ -31,7 +31,7 @@ export class AdminCinemaHallEditComponent implements OnInit {
       });
   }
 
-  getCinemaHallDetailed(id: string) {
+  public getCinemaHallDetailed(id: string) {
     this.cinemahallService.getById(id).subscribe(
       result => {
         this.cinemaHallDetailed = result;
@@ -40,18 +40,18 @@ export class AdminCinemaHallEditComponent implements OnInit {
     });
   }
 
-  getSeats(versionId: number) {
+  private getSeats(versionId: number) {
     this.cinemahallService.getSeats(versionId).subscribe(
       result => {
         this.seats = result;
     });
   }
 
-  onCinemaHallChange() {
+  public onCinemaHallChange() {
     this.getCinemaHallDetailed(this.selectedCinemaHallId)
   }
 
-  onSave(seats: Seat[]) {
+  public onSave(seats: Seat[]) {
     this.cinemaHallDetailed.seats = seats;
     this.cinemahallService.update(this.cinemaHallDetailed).subscribe(() => this.updateView());
   }
