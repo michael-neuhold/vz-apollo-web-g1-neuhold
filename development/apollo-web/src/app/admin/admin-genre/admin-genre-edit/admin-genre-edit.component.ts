@@ -31,6 +31,7 @@ export class AdminGenreEditComponent implements OnInit {
   }
 
   onSaveClick() : void {
+    this.genre.name = this.genre.name.trim();
     this.dialogRef.close( { save: true, data: this.genre } );
   }
 

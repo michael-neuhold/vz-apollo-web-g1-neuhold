@@ -37,6 +37,7 @@ export class AdminGenreAddComponent implements OnInit {
   }
 
   onSaveClick() : void {
+    this.newGenre.name = this.newGenre.name.trim();
     this.dialogRef.close( { save: true, data: this.newGenre } );
   }
 
