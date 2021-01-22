@@ -21,7 +21,7 @@ export class CinemahallService implements BasisService {
     return this.http.get<CinemaHallDetailed>(`${environment.server}/cinemahall/${id}`)
   }
 
-  getAll() : Observable<Array<CinemaHall>>  {
+  getAll() : Observable<CinemaHall[]>  {
     return this.http.get<CinemaHall>(`${environment.server}/cinemahall`)
     .pipe(catchError((err => errorHandler(err, "cinemahalls", this.snackbarMessage))));
   }
@@ -32,7 +32,7 @@ export class CinemahallService implements BasisService {
   }
 
   getSeats(versionId: number) : Observable<Seat[]> {
-    return this.http.get<CinemaHallDetailed>(`${environment.server}/cinemahall/version/${versionId}/seats`)
+    return this.http.get<any>(`${environment.server}/cinemahall/version/${versionId}/seats`)
     .pipe(catchError((err => errorHandler(err, "cinemahall", this.snackbarMessage))));
   }
 

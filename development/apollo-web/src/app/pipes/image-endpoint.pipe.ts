@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { BASE, PORT } from 'src/environments/environment';
 
 @Pipe({
   name: 'imageEndpoint'
@@ -6,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ImageEndpointPipe implements PipeTransform {
 
   transform(endpoint: string): string {
-    return `http://localhost:5000/${endpoint}`;
+    return `${BASE}:${PORT}/${endpoint}`;
   }
 
 }

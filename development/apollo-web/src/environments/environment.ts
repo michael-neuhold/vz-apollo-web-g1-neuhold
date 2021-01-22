@@ -2,9 +2,13 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+export const PORT = 5000;
+export const BASE = "http://localhost";
+export const API = "/apollo/api";
+
 export const environment = {
   production: false,
-  server: 'http://localhost:5000/apollo/api'
+  server: `${BASE}:${PORT}${API}`
 };
 
 /*

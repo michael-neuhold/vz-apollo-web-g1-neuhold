@@ -13,7 +13,6 @@ export class MovieOverviewSmallCardSliderComponent implements OnInit {
   @Input() movies;
 
   ngOnInit(): void {
-    console.log(this.movies);
   }
 
 }

@@ -22,15 +22,12 @@ export class ScheduleService {
     .pipe(catchError((err => errorHandler(err, "schedules", this.snackbarMessage))));
   }
 
-  getCurrent() : Observable<Array<MovieSchedule>>  {
+  getCurrent() : Observable<MovieSchedule[]>  {
     return this.http.get(`${environment.server}/schedule/current`)
     .pipe(catchError((err => errorHandler(err, "current schedules", this.snackbarMessage))));
   }
 
   getFiltered(filter: FilterAttributes) : Observable<Array<MovieSchedule>> {
-
-
-
     return this.http.get(`${environment.server}/schedule/filtered`+
       `?movie=${filter.movieTitle ? filter.movieTitle : '' }`+
       `&startDate=${filter.startDate ? this.datepipe.transform(filter.startDate, "MM/dd/yyyy") :  this.datepipe.transform(Date.now(), "MM/dd/yyyy")}`+

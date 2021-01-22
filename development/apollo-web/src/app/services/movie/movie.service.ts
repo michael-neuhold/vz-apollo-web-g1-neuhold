@@ -6,6 +6,7 @@ import { map } from 'rxjs/internal/operators/map';
 import { catchError, tap } from 'rxjs/operators';
 import { MovieDetail } from 'src/app/domains/movie';
 import { environment } from 'src/environments/environment';
+import { BasisService } from '../basis/basis-service';
 import { errorHandler } from '../handler/error';
 import { successHandler } from '../handler/success';
 import { SnackbarMessageService } from '../snackbar-message/snackbar-message.service';
@@ -13,7 +14,7 @@ import { SnackbarMessageService } from '../snackbar-message/snackbar-message.ser
 @Injectable({
   providedIn: 'root'
 })
-export class MovieService {
+export class MovieService implements BasisService {
 
   constructor(private http: HttpClient, private snackbarMessage: SnackbarMessageService) { }
 

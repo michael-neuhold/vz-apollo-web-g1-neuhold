@@ -21,7 +21,7 @@ export class CategoryService implements BasisService {
     return this.http.get<Category>(`${environment.server}/category/${categoryId}`);
   }
 
-  getAll() : Observable<Array<Category>> {
+  getAll() : Observable<Category[]> {
     return this.http.get<Category[]>(`${environment.server}/category`)
     .pipe(
       catchError((err => errorHandler(err, "category", this.snackbarMessage)))
@@ -36,8 +36,8 @@ export class CategoryService implements BasisService {
     ));
   }
 
-  update(category: Category) {
-    return this.http.put<Category>(`${environment.server}/category`, category)
+  update(category: Category) : Observable<any> {
+    return this.http.put<any>(`${environment.server}/category`, category)
     .pipe(
       tap(() => successHandler("category updated", this.snackbarMessage)),
       catchError((err => errorHandler(err, "category", this.snackbarMessage)))

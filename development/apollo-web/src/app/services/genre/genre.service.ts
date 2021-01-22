@@ -16,7 +16,7 @@ export class GenreService implements BasisService {
 
   constructor(private http: HttpClient, private snackbarMessage: SnackbarMessageService) { }
 
-  getAll(): Observable<Array<Genre>>  {
+  getAll(): Observable<Genre[]>  {
     return this.http.get<Genre>(`${environment.server}/genre`)
     .pipe(catchError((err => errorHandler(err, "genre", this.snackbarMessage))));
   }

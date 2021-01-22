@@ -14,8 +14,8 @@ export class ReservationService {
 
   constructor(private http: HttpClient, private snackbarMessage: SnackbarMessageService) { }
 
-  getAll() : Observable<Array<Reservation>>  {
-    return this.http.get<Reservation>(`${environment.server}/reservation`)
+  getAll() : Observable<Reservation[]>  {
+    return this.http.get<Reservation[]>(`${environment.server}/reservation`)
     .pipe(catchError((err => errorHandler(err, "reservations", this.snackbarMessage))));
   }
 

@@ -1,8 +1,7 @@
 import { AuthConfig } from 'angular-oauth2-oidc';
-// INTROSPECTION
-// with Keycloak 11.0.2
-// siehe https://www.keycloak.org/docs/latest/securing_apps/index.html#endpoints-2
 
+
+// KEYCLOAK
 export const authConfig: AuthConfig = {
  issuer: 'http://localhost:8080/auth/realms/apollo',
  loginUrl: 'http://localhost:8080/auth/realms/apollo/protocol/openid-connect/auth',
@@ -23,6 +22,8 @@ export const authConfig: AuthConfig = {
 };
 
 
+
+// IDENTITY SERVER
 /*
 export const authConfig: AuthConfig = {
   // Url of the Identity Provider
@@ -51,4 +52,5 @@ export const authConfig: AuthConfig = {
 
   showDebugInformation: true,
 };
+
 */
