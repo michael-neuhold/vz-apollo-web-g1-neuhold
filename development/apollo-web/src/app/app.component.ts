@@ -29,11 +29,13 @@ export class AppComponent {
     this.oauthService.setupAutomaticSilentRefresh();
     this.oauthService.events.subscribe((event) => {
       this.username = this.auth.givenName();
-    })
+    });
+    /*
     this.oauthService.events.pipe(filter(e => e.type === 'session_terminated')).subscribe(e => {
       console.debug('session terminated!');
       this.auth.logout();
-    })
+    });
+    */
   }
 
 }
