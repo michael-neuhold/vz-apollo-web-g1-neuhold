@@ -18,7 +18,7 @@ export class AuthenticationService {
     }
 
     isLoggedIn() {
-      return this.oauthService.hasValidAccessToken() && this.oauthService.hasValidIdToken();
+      return this.oauthService.hasValidAccessToken() &&  this.oauthService.hasValidIdToken();
     }
 
     givenName() {

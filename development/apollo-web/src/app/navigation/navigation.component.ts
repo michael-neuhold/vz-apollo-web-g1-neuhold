@@ -23,9 +23,7 @@ export class NavigationComponent {
   }
 
   logout() {
-    if(this.auth.isLoggedIn()) {
-      this.auth.logout();
-    }
+    this.auth.logout();
   }
 
 }
