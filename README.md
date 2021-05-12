@@ -4,6 +4,8 @@
 - TS
 - Angular
 - Angular Material UI
+- OpenID Connect (Keycloak)
+- using Rest Api (C# Backend)
 ## Dev
 - Michael Neuhold (S1810307094@students.fh-hagenberg.at)
 
